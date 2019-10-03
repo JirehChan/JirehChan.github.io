@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Data总序篇：介绍与目录</title>
+      <link href="/data-preface/"/>
+      <url>/data-preface/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Data总序篇：介绍与目录"><a href="#Data总序篇：介绍与目录" class="headerlink" title="Data总序篇：介绍与目录"></a>Data总序篇：介绍与目录</h1><h2 id="系列介绍"><a href="#系列介绍" class="headerlink" title="系列介绍"></a>系列介绍</h2><h3 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h3><ul><li>由于近期计划阅读、学习几本经典书籍，分别与数据挖掘、统计学方法与机器学习相关，所以计划编写一个系列的笔记。</li><li>由于这些内容存在着极多交叉相通的部分，所以希望能将其整合在一个系列之中，避免重复造轮子。</li><li>但另一方面，由于这些内容属于不同的主题，所以架构、展开方式存在着很大的差异，所以此系列的编排也存在着很大的挑战，希望能做好。最终取名为Data，是由于这些内容都与数据相关，所以就简单粗暴地命名了。</li></ul><h3 id="主要书目"><a href="#主要书目" class="headerlink" title="主要书目"></a>主要书目</h3><ul><li>整个系列的笔记，主要对应以下四本书：</li></ul><ol><li>《<a href="https://book.douban.com/subject/5377669/" target="_blank" rel="noopener">数据挖掘导论</a>》</li><li>《<a href="https://book.douban.com/subject/33437381/" target="_blank" rel="noopener">统计学习方法（第2版）</a>》</li><li>《<a href="https://book.douban.com/subject/26708119/" target="_blank" rel="noopener">机器学习</a>》</li><li>《<a href="https://book.douban.com/subject/10750155/" target="_blank" rel="noopener">数学之美</a>》</li></ol><ul><li>这几本书在豆瓣上的评分都在8分以上，而且都作为领域中的经典书籍，希望能尽早啃完了（不知道能多久了，希望不会断片了…）</li></ul><h3 id="编排思路"><a href="#编排思路" class="headerlink" title="编排思路"></a>编排思路</h3><ul><li>本系列计划分为<strong>总序篇</strong>、<strong>概念篇</strong>、<strong>方法篇</strong>和<strong>补充篇</strong>四个不同篇章主题。</li><li><strong>总序篇</strong>：此文，包含系列的介绍和全部目录。</li><li><strong>概念篇</strong>：包含一些概念的内容，如数据挖掘、机器学习、数据等基本概念的介绍，也包含如分类问题、聚类问题、监督学习、强化学习等概念的介绍。</li><li><strong>方法篇</strong>：介绍具体的模型和算法，如kNN模型、决策树模型、神经网络模型等内容。</li><li><strong>补充篇</strong>：一些补充内容，如历史、发展、数学基础等内容。</li></ul><h2 id="系列目录"><a href="#系列目录" class="headerlink" title="系列目录"></a>系列目录</h2><ul><li>持续更新，当前很贫穷。</li></ul><h3 id="总序篇"><a href="#总序篇" class="headerlink" title="总序篇"></a>总序篇</h3><table><thead><tr><th>题目</th><th>简介</th></tr></thead><tbody><tr><td><a href>Data总序篇：介绍与目录</a></td><td>关于整个Data系列的介绍以及目录信息</td></tr></tbody></table><h3 id="概念篇"><a href="#概念篇" class="headerlink" title="概念篇"></a>概念篇</h3><table><thead><tr><th>题目</th><th>简介</th></tr></thead><tbody><tr><td>暂无</td><td>暂无</td></tr></tbody></table><h3 id="方法篇"><a href="#方法篇" class="headerlink" title="方法篇"></a>方法篇</h3><table><thead><tr><th>题目</th><th>简介</th></tr></thead><tbody><tr><td>暂无</td><td>暂无</td></tr></tbody></table><h3 id="补充篇"><a href="#补充篇" class="headerlink" title="补充篇"></a>补充篇</h3><table><thead><tr><th>题目</th><th>简介</th></tr></thead><tbody><tr><td>暂无</td><td>暂无</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> Data </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Data </tag>
+            
+            <tag> Preface </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>OpenGL学习笔记（二）渲染管线、FreeGLUT&amp;GLEW、简单示例</title>
       <link href="/opengl-02/"/>
       <url>/opengl-02/</url>
@@ -13,7 +40,7 @@
       
       <categories>
           
-          <category> Study </category>
+          <category> OpenGL </category>
           
       </categories>
       
@@ -63,7 +90,7 @@
       
       <categories>
           
-          <category> Study </category>
+          <category> OpenGL </category>
           
       </categories>
       
