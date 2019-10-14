@@ -4,13 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Data概念篇DM（一）数据挖掘基础概念, Yi勒">
-    <meta name="description" content="Data概念篇DM（一）数据挖掘基础概念
-参《数据挖掘导论（完整版）》第一章
-
-什么是数据挖掘？定义
-数据挖掘是一种技术，将传统的数据分析方法与处理大量数据的复杂算法相结合。
-数据挖掘是在大型数据存储库中，自动地发现有用信息的过程。数据挖掘">
+    <meta name="keywords" content="OpenGL学习笔记（三）第一个渲染程序, Yi勒">
+    <meta name="description" content="OpenGL学习笔记（三）第一个渲染程序​    上一篇中简单介绍了渲染管线和FLEW、FreeGLUT库的安装，但示例程序仍是使用已经废止的glBegin和glEnd来实现的，这次将进行第一个真正的渲染程序的编写（毕竟将对管线的认知转到实">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Data概念篇DM（一）数据挖掘基础概念 | Yi勒</title>
+    <title>OpenGL学习笔记（三）第一个渲染程序 | Yi勒</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -293,13 +288,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Data概念篇DM（一）数据挖掘基础概念
+                        OpenGL学习笔记（三）第一个渲染程序
                     </div>
                 </div>
             </div>
@@ -391,12 +386,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Data-Mining/" target="_blank">
-                                <span class="chip bg-color">Data Mining</span>
-                            </a>
-                        
-                            <a href="/tags/Data/" target="_blank">
-                                <span class="chip bg-color">Data</span>
+                            <a href="/tags/OpenGL/" target="_blank">
+                                <span class="chip bg-color">OpenGL</span>
                             </a>
                         
                     </div>
@@ -407,8 +398,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Data/" class="post-category" target="_blank">
-                                Data
+                            <a href="/categories/OpenGL/" class="post-category" target="_blank">
+                                OpenGL
                             </a>
                         
                     </div>
@@ -419,21 +410,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-10-04
+                    2019-10-14
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        858
+                        2.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        2 Min
+                        8 Min
                     </div>
                     
                 
@@ -449,77 +440,371 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Data概念篇DM（一）数据挖掘基础概念"><a href="#Data概念篇DM（一）数据挖掘基础概念" class="headerlink" title="Data概念篇DM（一）数据挖掘基础概念"></a>Data概念篇DM（一）数据挖掘基础概念</h1><ul>
-<li>参《数据挖掘导论（完整版）》第一章</li>
+                <h1 id="OpenGL学习笔记（三）第一个渲染程序"><a href="#OpenGL学习笔记（三）第一个渲染程序" class="headerlink" title="OpenGL学习笔记（三）第一个渲染程序"></a>OpenGL学习笔记（三）第一个渲染程序</h1><p>​    上一篇中简单介绍了渲染管线和FLEW、FreeGLUT库的安装，但示例程序仍是使用已经废止的glBegin和glEnd来实现的，这次将进行第一个真正的渲染程序的编写（毕竟将对管线的认知转到实际的代码中的体现，仍是需要示例来帮助的）。第一次计算机图形学课的实验，由于没弄清楚要求，以为侧重三D建模和图形旋转就参考了一个复杂的示例，结果就被检查的师兄提问到“失去理想”了（问各种参数和流程交互，嘤嘤嘤），此文也是为了弥补缺憾。</p>
+<p>​    此文的代码来自传说中的红宝书<a href="https://github.com/openglredbook" title="openGL RedBook Github" target="_blank" rel="noopener">[1]</a>并参考老师课件，感谢<a href="https://www.cnblogs.com/caster99/p/4752354.html" title="OpenGL红宝书：第一个渲染程序Triangles常见问题归总 - caster99" target="_blank" rel="noopener">[2]</a><a href="http://www.360doc.com/content/14/1028/10/19175681_420522404.shtml" title="OpenGL学习脚印：基本图形绘制方式比较（glBegin, glCallList, glVertexPointer, VBO）- 方海龙的书馆" target="_blank" rel="noopener">[3]</a><a href="https://blog.csdn.net/chunyexiyu/article/details/89224004" title="Mac上构建OpenGL红宝书上的triangles程序-春夜喜雨" target="_blank" rel="noopener">[4]</a>，帮助我解决了很多的碰到的问题。</p>
+<h2 id="OpenGL传统与现代的绘制方式"><a href="#OpenGL传统与现代的绘制方式" class="headerlink" title="OpenGL传统与现代的绘制方式"></a>OpenGL传统与现代的绘制方式</h2><p>​    在<a href>OpenGL学习笔记（一）</a>中，曾简单提到了<strong>核心模式</strong>（Core-Profile）与<strong>立即渲染模式</strong>（Immediate mode）这两个词，在开始编写渲染程序之前，有必要再次提到这两个词，并说明介绍一下OpenGL传统与现代的绘制方式，来帮助大家更清楚地了解使用渲染管线编程（自己在图形学课的第一次实验前，在两种方式上吃了很大的亏，弄了好多使用glBegin和glEnd的示例来看，结果发现不符合要求，蓝瘦）。</p>
+<h3 id="传统方式绘制"><a href="#传统方式绘制" class="headerlink" title="传统方式绘制"></a>传统方式绘制</h3><h4 id="1-立即渲染模式（Immediate-Mode）"><a href="#1-立即渲染模式（Immediate-Mode）" class="headerlink" title="1. 立即渲染模式（Immediate Mode）"></a>1. 立即渲染模式（Immediate Mode）</h4><p>​    使用glBegin…glEnd的方式制定绘制方式，<a href>学习笔记（二）</a>最后的示例就是通过这种方式绘制的，在OpenGL新版本中已被废弃。简单示例如下：</p>
+<pre class=" language-c++"><code class="language-c++">glBegin(GL_LINE_LOOP);//将以下点逐一连线
+    glVertex3d(a.x,a.y,a.z);
+    glVertex3d(b.x,b.y,b.z);
+    glVertex3d(c.x,c.y,c.z);
+    glVertex3d(d.x,d.y,d.z);
+glEnd();</code></pre>
+<h4 id="2-显示列表（Display-List）"><a href="#2-显示列表（Display-List）" class="headerlink" title="2. 显示列表（Display List）"></a>2. 显示列表（Display List）</h4><p>​    将一组OpenGL函数存储在一起，在以后执行，调用时，存储的函数会按顺序执行。示例如下：</p>
+<pre class=" language-c++"><code class="language-c++"> //创建显示列表
+ displayListId = glGenLists(1);
+ glNewList(displayListId, GL_COMPILE);
+     glBegin(GL_TRIANGLES);
+         glVertex3f(-0.5, -0.5, 0.0);
+         glVertex3f(0.5, 0.0, 0.0);
+         glVertex3f(0.0, 0.5, 0.0);
+     glEnd();
+ glEndLIst();</code></pre>
+<h3 id="现代方式绘制"><a href="#现代方式绘制" class="headerlink" title="现代方式绘制"></a>现代方式绘制</h3><h4 id="1-顶点数组绘图"><a href="#1-顶点数组绘图" class="headerlink" title="1. 顶点数组绘图"></a>1. 顶点数组绘图</h4><blockquote>
+<p>​    使用顶点数组方式，需要利用glEnableClientState开启一些特性。</p>
+<p>​    使用顶点数组时，用户定义好存储顶点的数据，在调用glDrawArrays、glDrawElements之类的函数时，用过glVertexPointer设定的指针，传送数据到GPU。当调用完glDrawArrays后，GPU中已经有了绘图所需数据，用户可以释放数据空间。<a href="https://www.cnblogs.com/caster99/p/4752354.html" title="OpenGL红宝书：第一个渲染程序Triangles常见问题归总 - caster99" target="_blank" rel="noopener"><a href="https://www.cnblogs.com/caster99/p/4752354.html" title="OpenGL红宝书：第一个渲染程序Triangles常见问题归总 - caster99" target="_blank" rel="noopener">2</a></a></p>
+</blockquote>
+<p>​    示例：</p>
+<pre class=" language-c++"><code class="language-c++">    //利用顶点数组，绘制三角形  
+    const int num_indices = 3;
+    //创建保存顶点的结构体数组
+    vec3f *vertices = new vec3f[num_indices];
+    // 顶点1 
+    vertices[0].x = -0.5f; 
+    vertices[0].y = -0.5f; 
+    vertices[0].z = 0.0f;
+    // 顶点2 
+    vertices[1].x = 0.5f;  
+    vertices[1].y = 0.0f;   
+    vertices[1].z = 0.0f; 
+    //顶点3  
+    vertices[2].x = 0.0f;
+    vertices[2].y = 0.5f; 
+    vertices[2].z = 0.0f;
+    // 启用vertex arrays 
+    glEnableClientState(GL_VERTEX_ARRAY);  
+    //定义顶点数组 
+    glVertexPointer(  
+        3,         // 每个顶点的维度 
+        GL_FLOAT,  // 顶点数据类型 
+      0,         // 连续顶点之间的间隙，这里为0  
+      vertices   //指向第一个顶点的第一个坐标的指针
+    );  
+    glDrawArrays(GL_TRIANGLES, 0, num_indices); 
+    glDisableClientState(GL_VERTEX_ARRAY);
+    //释放内存空间
+    delete[] vertices; </code></pre>
+<h4 id="2-现代VBO-VAO绘图"><a href="#2-现代VBO-VAO绘图" class="headerlink" title="2. 现代VBO VAO绘图"></a>2. 现代VBO VAO绘图</h4><p>​    VAO（Vertex Array Object），包含一个或多个VBO对象，被设计来存储一个完整被渲染对象所需的信息；VBO（Vertex Buffer Object），在高速视频卡中的内存缓冲，保存顶点数据以及归一化向量、纹理和索引等数据。</p>
+<h4 id="3-结合Shader绘图"><a href="#3-结合Shader绘图" class="headerlink" title="3. 结合Shader绘图"></a>3. 结合Shader绘图</h4><p>​    参考<a href>学习笔记（一）</a>不做详细解释。</p>
+<h2 id="第一个渲染程序"><a href="#第一个渲染程序" class="headerlink" title="第一个渲染程序"></a>第一个渲染程序</h2><p>​    仍是一个绘制三角形的程序吼。</p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><ul>
+<li>使用GLFW和FreeGLUT库<strong>（还是不行的，由于FreeGLUT在MAC上无法编译着色器代码，所以在此仍然使用Xcode自带的OpenGL.framework和GLUT.framework）</strong>，创建项目和配置库不再做解释，有需要请参考前两篇学习笔记。</li>
 </ul>
-<h2 id="什么是数据挖掘？"><a href="#什么是数据挖掘？" class="headerlink" title="什么是数据挖掘？"></a>什么是数据挖掘？</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
-<li>数据挖掘是一种<strong>技术</strong>，将<strong>传统的数据分析方法</strong>与<strong>处理大量数据的复杂算法</strong>相结合。</li>
-<li>数据挖掘是在大型数据存储库中，自动地发现有用信息的过程。数据挖掘技术用来探查大型数据库，发现先前未知的有用模式，还可以预测未来观测结果。</li>
+<h3 id="1-LoadShaders"><a href="#1-LoadShaders" class="headerlink" title="1. LoadShaders"></a>1. LoadShaders</h3><p>​    包含一些宏定义，主要用于debug处理，红宝书提供的。</p>
+<h4 id="LoadShaders-hpp"><a href="#LoadShaders-hpp" class="headerlink" title="LoadShaders.hpp"></a>LoadShaders.hpp</h4><pre class=" language-c++"><code class="language-c++">#ifndef __LOAD_SHADERS_H__
+#define __LOAD_SHADERS_H__
+
+//#include <GL/gl.h>
+#include <OpenGL/gl.h>
+#include <OpenGL/gl3.h>
+#include <GLUT/glut.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif  // __cplusplus
+
+ typedef struct {
+    GLenum       type;
+    const char*  filename;
+    GLuint       shader;
+} ShaderInfo;
+
+GLuint LoadShaders(ShaderInfo*);
+
+//----------------------------------------------------------------------------
+
+#ifdef __cplusplus
+};
+#endif // __cplusplus
+
+#endif // __LOAD_SHADERS_H__</code></pre>
+<h4 id="LoadShaers-cpp"><a href="#LoadShaers-cpp" class="headerlink" title="LoadShaers.cpp"></a>LoadShaers.cpp</h4><p>​    代码过长，又不打算加以解释，所以放置在最后的代码附录中。</p>
+<h3 id="2-着色器定义"><a href="#2-着色器定义" class="headerlink" title="2. 着色器定义"></a>2. 着色器定义</h3><h4 id="triangle-vert-顶点着色器"><a href="#triangle-vert-顶点着色器" class="headerlink" title="triangle.vert 顶点着色器"></a>triangle.vert 顶点着色器</h4><ul>
+<li>代码</li>
 </ul>
-<h3 id="数据挖掘与知识发现"><a href="#数据挖掘与知识发现" class="headerlink" title="数据挖掘与知识发现"></a>数据挖掘与知识发现</h3><ul>
-<li><p>数据挖掘是<strong>数据库中知识发现</strong>（knowledge discovery in database, KDD）不可缺少的一部分，KDD是将未加工的数据转换为有用信息的整个过程，如下图所示，</p>
-<p><img src="./01-01.png" alt="01-01 KDD"></p>
-</li>
-<li><p>各个步骤：</p>
+<pre class=" language-c++"><code class="language-c++">#version 400 core //版本号不能高于410，修改为400即可
+
+layout( location = 0 ) in vec4 vPosition; //从main程序中输入，必须与应用中的变量关联
+
+void
+main()
+{
+    gl_Position = vPosition;
+}</code></pre>
 <ul>
-<li><strong>输入数据：</strong>可以以各种形式存储，可以驻留在集中的数据存储库或分布在多个站点上。</li>
-<li><strong>数据预处理</strong>（preprocessing）：将未加工的输入数据转换成适合分析的形式。<ul>
-<li>包含<strong>融合</strong>来自多个数据源的数据、<strong>清洗</strong>数据以消除<strong>噪声</strong>和<strong>重复</strong>的观测值、<strong>选择</strong>与当前数据挖掘任务相关的记录和特征。</li>
-<li>特征选择、维规约、规范化、选择数据子集</li>
+<li>执行流程示意图</li>
 </ul>
-</li>
-<li><strong>后处理：</strong>将有效的和有用的结果集成到决策支持系统中。<ul>
-<li>可视化；使用统计度量或假设检验，删除虚假的数据挖掘结果。</li>
+<p><img src="./02-01.png" alt="02-01 顶点着色器渲染流程"></p>
+<h4 id="triangle-frag-片段着色器"><a href="#triangle-frag-片段着色器" class="headerlink" title="triangle.frag 片段着色器"></a>triangle.frag 片段着色器</h4><ul>
+<li>代码</li>
 </ul>
-</li>
+<pre class=" language-c++"><code class="language-c++">#version 400 core
+
+out vec4 fColor; //输出颜色信息
+
+void main()
+{
+    fColor = vec4(0.5, 0.4, 0.8, 1.0); //设置vPosition位置的颜色
+}
+</code></pre>
+<ul>
+<li>执行流程示意图</li>
 </ul>
-</li>
+<p><img src="./02-02.png" alt="02-02 片段着色器渲染流程"></p>
+<h3 id="3-主程序，main-cpp"><a href="#3-主程序，main-cpp" class="headerlink" title="3. 主程序，main.cpp"></a>3. 主程序，main.cpp</h3><h4 id="头部"><a href="#头部" class="headerlink" title="头部"></a>头部</h4><pre class=" language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+
+#include "LoadShaders.hpp" //其它的库头文件包含在“LoadShaders.hpp"中了
+#pragma comment (lib, "glew32.lib")//存在无法解析外部符号d时的处理
+
+enum VAO_IDs { Triangles, NumVAOs }; //VAO, Vertex Array Object
+enum Buffer_IDs { ArrayBuffer, NumBuffers }; //着色器shader中的缓存
+enum Attrib_IDs { vPosition = 0 }; //指定shader中的属性变量位置
+
+GLuint  VAOs[NumVAOs];
+GLuint  Buffers[NumBuffers];
+
+const GLuint  NumVertices = 6;</code></pre>
+<h4 id="init-初始"><a href="#init-初始" class="headerlink" title="init 初始"></a>init 初始</h4><pre class=" language-c++"><code class="language-c++">void init( void )
+{
+    glGenVertexArrays( NumVAOs, VAOs ); //创建VAO
+    glBindVertexArray( VAOs[Triangles] ); //绑定所需的VAO
+
+    GLfloat  vertices[NumVertices][2] = {
+        { -0.90f, -0.90f }, {  0.85f, -0.90f }, { -0.90f,  0.85f },  // Triangle 1
+        {  0.90f, -0.85f }, {  0.90f,  0.90f }, { -0.85f,  0.90f }   // Triangle 2
+    };
+
+    //生成缓冲（对象数量，存储缓冲的数组），并在Buffers数组中返回n个缓冲对象的名称
+    glGenBuffers( NumBuffers, Buffers );
+    //指定当前活动缓冲区的对象（Glenum target, Gluint buffer）
+    glBindBuffer( GL_ARRAY_BUFFER, Buffers[ArrayBuffer] );
+    /*用数据分配和初始化缓冲区对象
+    target: GL_ARRAY_BUFFER（顶点数据），GL_ELEMENT_ARRAY_BUFFER（索引数据）
+    size: 存储相关数据所需的内存量
+    daata: 用于初始化的缓冲区对象，可以是指针，也可以是NULL
+    usage：数据在分配后如何进行读写，
+       GL_STATIC_DRAW，数据只指定1次，但可以多次作为绘图和图像指定h函数的源数据*/
+    glBufferData( GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    ShaderInfo  shaders[] =
+    {
+        { GL_VERTEX_SHADER, "/Volumes/TOSHIBAEXT 1/CODE/Study/OpenGL/03/studyOpenGL0309/studyOpenGL0309/triangle.vert" },
+        { GL_FRAGMENT_SHADER, "/Volumes/TOSHIBAEXT 1/CODE/Study/OpenGL/03/studyOpenGL0309/studyOpenGL0309/triangle.frag" },
+        { GL_NONE, NULL }
+    };
+
+    //通过LoadShaders写好的内容，进行shader创建
+    GLuint program = LoadShaders( shaders );
+    //使用程序对象作为当前渲染的一部分
+    glUseProgram( program );
+
+#define  BUFFER_OFFSET(offset) ((void *)(offset))
+
+    /*指定渲染时索引值为index的顶点属性数组的数据格式和位置
+    Gluint index: 指定要修改的顶点属性的索引值
+    Glint size: 指定每个顶点属性的组建数量，必须为1、2、3或4，初始值为4
+    GLenum type: 指定数组中每个组件的数据类型
+    GLboolean normalized: 指定被访问时，固定点数据值被归一化（GL_TRUE),直接转换为固定值（GL_FALSE）
+    GLsizei stride: 指定连续顶点之间的偏移量。若为0，则是紧密排列在一起的，初始值为0
+    const GLvoid* pointer: 指定第一个组件在数组的第一个顶点属性中的偏移量，初始值为0*/
+    glVertexAttribPointer( vPosition, 2, GL_FLOAT,
+                           GL_FALSE, 0, BUFFER_OFFSET(0) );
+
+    //默认情况下，出于性能考虑，所有顶点着色器的属性（Attribute）变量都是关闭的，意味着数据在着色器端是不可见的，哪怕数据已经上传到GPU，由glEnableVertexAttribArray启用指定属性，才可在顶点着色器中访问逐顶点的属性数据。glVertexAttribPointer或VBO只是建立CPU和GPU之间的逻辑连接，从而实现了CPU数据上传至GPU。但是，数据在GPU端是否可见，即，着色器能否读取到数据，由是否启用了对应的属性决定，这就是glEnableVertexAttribArray的功能，允许顶点着色器读取GPU（服务器端）数据。只要在绘图调用前调用即可
+    glEnableVertexAttribArray( vPosition );
+}
+</code></pre>
+<h4 id="display"><a href="#display" class="headerlink" title="display"></a>display</h4><pre class=" language-c++"><code class="language-c++">void display(void)
+{
+    // set the color when clear screen
+    glClearColor (0.2f, 0.2f, 0.4f, 1.0f);
+    /*清除指定的缓冲区
+    GL_COLOR_BUFFER_BIT: 当前可写的颜色缓冲
+    GL_DEPTH_BUFFER_BIT: 深度缓冲
+    GL_ACCUM_BUFFER_BIT: 累计缓冲
+    GL_STENCIL_BUFFER_BIT: 模版缓冲*/
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glBindVertexArray(VAOs[Triangles]);
+    /*绘制图形
+    GLenum mode: 绘制方式
+    GLint first: 从数组缓存中的哪一位开始绘制，一般为0
+    GLsizei count: 数组中顶点的数量*/
+    glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+
+    //清空缓冲区，将指令送往缓硬件立即执行，但是它是将命令传送完毕之后立即返回，不会等待指令执行完毕。这些指令会在有限时间内执行完毕。使用glFlush的目的是确保在调用之后，CPU没有OpenGL相关的事情需要做-命令会送到硬件执行。调用glFinish的目的是确保当返回之后，没有相关工作留下需要继续做。
+    //glFlush();
+    //双缓存开启下使用glutSwapBuffers
+    glutSwapBuffers();
+}</code></pre>
+<h4 id="main函数"><a href="#main函数" class="headerlink" title="main函数"></a>main函数</h4><pre class=" language-c++"><code class="language-c++">int main(int argc, char** argv)
+{
+    cout << "start init windows" << endl;
+    glutInit(&argc, argv); //初始化GLUT库，完成必须的初始化和开启事件处理循环
+    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA|GLUT_3_2_CORE_PROFILE); //设置初始显示模式
+    /* GLUT_3_2_CORE_PROFILE代替以下在FreeGLUT中的命令
+    glutInitContextVersion(4,3);//指定OpenGL版本
+    glutInitContextProfile(GLUT_CORE_PROFILE);//设置所需的OpenGL环境的类型*/
+    glutInitWindowPosition(300, 50);//初始窗口位置
+    glutInitWindowSize(512, 512); //设置窗口位置
+    glutCreateWindow("第一个渲染程序"); //创建一个顶级窗口，“第一个渲染程序"窗口名
+
+    cout << "init vertices" << endl;
+    init();
+
+    cout << "start display" << endl;
+
+    /*当窗口内容绘制、窗口大小改变、窗口重绘时调用mydisplay函数重绘
+    一般与glutReshapeFunc(&reshape), glutIdelFunc(&IdleFunc)同时出现*/
+    glutDisplayFunc(display);
+    glutMainLoop();
+}
+</code></pre>
+<h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><ul>
+<li>嘤嘤嘤，终于成功了，感谢网上的大佬们的博客。</li>
 </ul>
-<h2 id="数据问题需要的问题"><a href="#数据问题需要的问题" class="headerlink" title="数据问题需要的问题"></a>数据问题需要的问题</h2><ul>
-<li><strong>可伸缩</strong>（scalable）<ul>
-<li>使用特殊的搜索策略处理指数级搜索问题、实现新的数据结构、非内存算法、使用抽样技术或开发并行和分布算法</li>
+<img src="./03-01.png" alt="03-01 最终效果" style="zoom:50%;">
+
+<ul>
+<li>终于步入正轨了，在无法在Mac上进行编译的FreeGlut、误入传统绘图方法和各种错误上耗费了许多时间，总算成功了，哭。</li>
 </ul>
-</li>
-<li><strong>高维度</strong></li>
-<li><strong>异种数据和复杂数据</strong></li>
-<li><strong>数据的所有权与分布</strong></li>
-<li><strong>非传统的分析</strong><ul>
-<li>传统的统计方法基于<strong>假设-验证模式</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="数据挖掘的起源"><a href="#数据挖掘的起源" class="headerlink" title="数据挖掘的起源"></a>数据挖掘的起源</h2><ul>
-<li><strong>统计学</strong>的抽样、估计和假设检验</li>
-<li><strong>人工智能</strong>、<strong>模式识别</strong>和<strong>机器学习</strong>的搜索算法、建模技术和学习理论</li>
-<li>其它领域，包括最优化、进化计算、信息论、信号处理、可视化和信息检索</li>
-<li>其它方面，数据库系统、高性能（并行）计算、分布式技术</li>
-</ul>
-<h2 id="数据挖掘任务"><a href="#数据挖掘任务" class="headerlink" title="数据挖掘任务"></a>数据挖掘任务</h2><ul>
-<li>两大类：<ul>
-<li><strong>预测任务</strong>：根据其它属性的值（<strong>说明变量</strong>或<strong>自变量</strong>），预测特定属性的值（<strong>目标变量</strong>或<strong>因变量</strong>）</li>
-<li><strong>描述任务</strong>：导出概括数据中潜在练习的模式（相关、趋势、聚类、轨迹和异常）</li>
-</ul>
-</li>
-<li><strong>预测建模</strong>（predictive modeling）：以说明变量函数的方式为目标变量建立模型<ul>
-<li><strong>分类</strong>（classification）：预测离散的目标变量</li>
-<li><strong>回归</strong>（regression）：预测连续的目标变量</li>
-</ul>
-</li>
-<li><strong>关联分析</strong>（association analysis）：发现描述数据中强关联特征的模式<ul>
-<li>应用：找出具有相关功能的基因组、识别用户、理解元素之间的联系</li>
-</ul>
-</li>
-<li><strong>聚类分析</strong>（cluster analysis）：发现紧密相关的预测值组群<ul>
-<li>应用：对相关的顾客分组、找出显著影响地球气候的海洋区域、压缩数据</li>
-</ul>
-</li>
-<li><strong>异常检测</strong>（anomaly detection）：识别特征显著不同于其他数据的观测值<ul>
-<li><strong>异常点</strong>（anomaly）或<strong>离群点</strong>（outlier）</li>
-<li>好的异常检测器：高检测率、低误报率</li>
-<li>应用：检测欺诈、网络攻击、疾病的不寻常模式、生物系统扰乱等</li>
-</ul>
-</li>
-</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1]: <a href="https://github.com/openglredbook" target="_blank" rel="noopener">https://github.com/openglredbook</a>    “openGL RedBook Github”<br><a href="https://www.cnblogs.com/caster99/p/4752354.html" title="OpenGL红宝书：第一个渲染程序Triangles常见问题归总 - caster99" target="_blank" rel="noopener">2</a>: <a href="https://www.cnblogs.com/caster99/p/4752354.html" target="_blank" rel="noopener">https://www.cnblogs.com/caster99/p/4752354.html</a>    “OpenGL红宝书：第一个渲染程序Triangles常见问题归总 - caster99”<br><a href="http://www.360doc.com/content/14/1028/10/19175681_420522404.shtml" title="OpenGL学习脚印：基本图形绘制方式比较（glBegin, glCallList, glVertexPointer, VBO）- 方海龙的书馆" target="_blank" rel="noopener">3</a>: <a href="http://www.360doc.com/content/14/1028/10/19175681_420522404.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/14/1028/10/19175681_420522404.shtml</a>    “OpenGL学习脚印：基本图形绘制方式比较（glBegin, glCallList, glVertexPointer, VBO）- 方海龙的书馆”<br><a href="https://blog.csdn.net/chunyexiyu/article/details/89224004" title="Mac上构建OpenGL红宝书上的triangles程序-春夜喜雨" target="_blank" rel="noopener">4</a>: <a href="https://blog.csdn.net/chunyexiyu/article/details/89224004" target="_blank" rel="noopener">https://blog.csdn.net/chunyexiyu/article/details/89224004</a>    “Mac上构建OpenGL红宝书上的triangles程序-春夜喜雨”</p>
+<h2 id="最后的LoadShaders-cpp"><a href="#最后的LoadShaders-cpp" class="headerlink" title="最后的LoadShaders.cpp"></a>最后的LoadShaders.cpp</h2><pre class=" language-c++"><code class="language-c++">#include <cstdlib>
+#include <iostream>
+
+//#include <GL3/gl3w.h>
+#include "LoadShaders.hpp"
+
+#ifdef __cplusplus
+extern "C" {
+#endif // __cplusplus
+
+//----------------------------------------------------------------------------
+
+static const GLchar*
+ReadShader( const char* filename )
+{
+#ifdef WIN32
+    FILE* infile;
+    fopen_s( &infile, filename, "rb" );
+#else
+    FILE* infile = fopen( filename, "rb" );
+#endif // WIN32
+
+    if ( !infile ) {
+#ifdef _DEBUG
+        std::cerr << "Unable to open file '" << filename << "'" << std::endl;
+#endif /* DEBUG */
+        return NULL;
+    }
+
+    fseek( infile, 0, SEEK_END );
+    int len = ftell( infile );
+    fseek( infile, 0, SEEK_SET );
+
+    GLchar* source = new GLchar[len+1];
+
+    fread( source, 1, len, infile );
+    fclose( infile );
+
+    source[len] = 0;
+
+    return const_cast<const GLchar*>(source);
+}
+
+//----------------------------------------------------------------------------
+
+GLuint
+LoadShaders(ShaderInfo* shaders)
+{
+    if ( shaders == NULL ) { return 0; }
+
+    GLuint program = glCreateProgram();
+
+    ShaderInfo* entry = shaders;
+    while ( entry->type != GL_NONE ) {
+        GLuint shader = glCreateShader( entry->type );
+
+        entry->shader = shader;
+
+        const GLchar* source = ReadShader( entry->filename );
+        if ( source == NULL ) {
+            for ( entry = shaders; entry->type != GL_NONE; ++entry ) {
+                glDeleteShader( entry->shader );
+                entry->shader = 0;
+            }
+
+            return 0;
+        }
+
+        glShaderSource( shader, 1, &source, NULL );
+        delete [] source;
+
+        glCompileShader( shader );
+
+        GLint compiled;
+        glGetShaderiv( shader, GL_COMPILE_STATUS, &compiled );
+        if ( !compiled ) {
+#ifdef _DEBUG
+            GLsizei len;
+            glGetShaderiv( shader, GL_INFO_LOG_LENGTH, &len );
+
+            GLchar* log = new GLchar[len+1];
+            glGetShaderInfoLog( shader, len, &len, log );
+            std::cerr << "Shader compilation failed: " << log << std::endl;
+            delete [] log;
+#endif /* DEBUG */
+
+            return 0;
+        }
+
+        glAttachShader( program, shader );
+
+        ++entry;
+    }
+
+    glLinkProgram( program );
+
+    GLint linked;
+    glGetProgramiv( program, GL_LINK_STATUS, &linked );
+    if ( !linked ) {
+#ifdef _DEBUG
+        GLsizei len;
+        glGetProgramiv( program, GL_INFO_LOG_LENGTH, &len );
+
+        GLchar* log = new GLchar[len+1];
+        glGetProgramInfoLog( program, len, &len, log );
+        std::cerr << "Shader linking failed: " << log << std::endl;
+        delete [] log;
+#endif /* DEBUG */
+
+        for ( entry = shaders; entry->type != GL_NONE; ++entry ) {
+            glDeleteShader( entry->shader );
+            entry->shader = 0;
+        }
+
+        return 0;
+    }
+
+    return program;
+}
+
+//----------------------------------------------------------------------------
+#ifdef __cplusplus
+}
+#endif // __cplusplus
+</code></pre>
 
             </div>
             <hr/>
@@ -660,7 +945,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">Yi勒</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/data-concept-dm-01/" class="b-link-green">Data概念篇DM（一）数据挖掘基础概念</a>
+                    <a href="/opengl-03/" class="b-link-green">OpenGL学习笔记（三）第一个渲染程序</a>
                 </p>
             </div>
         </div>
@@ -682,7 +967,7 @@
         repo: 'jirehchan.github.io',
         owner: 'JirehChan',
         admin: ["JirehChan"],
-        id: '2019-10-04T23-48-00',
+        id: '2019-10-14T20-09-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -703,9 +988,56 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/opengl-03/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="OpenGL学习笔记（三）第一个渲染程序">
+                        
+                        <span class="card-title">OpenGL学习笔记（三）第一个渲染程序</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">OpenGL学习笔记（三）第一个渲染程序​    上一篇中简单介绍了渲染管线和FLEW、FreeGLUT库的安装，但示例程序仍是使用已经废止的glBegin和glEnd来实现的，这次将进行第一个真正的渲染程序的编写（毕竟将对管线的认知转到实</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/OpenGL/" class="post-category" target="_blank">
+                                    OpenGL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/OpenGL/" target="_blank">
+                        <span class="chip bg-color">OpenGL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/data-concept-dm-02/">
                     <div class="card-image">
@@ -729,9 +1061,9 @@
 属性（attribute）是对象的性质或特性，因对象而变，随时间而变。
 测量标度（measurement </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -753,58 +1085,6 @@
                     
                     <a href="/tags/Data/" target="_blank">
                         <span class="chip bg-color">Data</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/data-preface/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Data总序篇：介绍与目录">
-                        
-                        <span class="card-title">Data总序篇：介绍与目录</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">Data总序篇：介绍与目录系列介绍缘由
-由于近期计划阅读、学习几本经典书籍，分别与数据挖掘、统计学方法与机器学习相关，所以计划编写一个系列的笔记。
-由于这些内容存在着极多交叉相通的部分，所以希望能将其整合在一个系列之中，避免重复造轮子。
-但</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-03
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Data/" class="post-category" target="_blank">
-                                    Data
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Data/" target="_blank">
-                        <span class="chip bg-color">Data</span>
-                    </a>
-                    
-                    <a href="/tags/Preface/" target="_blank">
-                        <span class="chip bg-color">Preface</span>
                     </a>
                     
                 </div>

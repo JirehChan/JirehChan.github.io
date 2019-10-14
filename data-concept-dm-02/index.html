@@ -4,13 +4,18 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Data概念篇DM（一）数据挖掘基础概念, Yi勒">
-    <meta name="description" content="Data概念篇DM（一）数据挖掘基础概念
-参《数据挖掘导论（完整版）》第一章
+    <meta name="keywords" content="Data概念篇DM（二）数据, Yi勒">
+    <meta name="description" content="Data概念篇DM（二）数据
+参《数据挖掘导论（完整版）》第二章
 
-什么是数据挖掘？定义
-数据挖掘是一种技术，将传统的数据分析方法与处理大量数据的复杂算法相结合。
-数据挖掘是在大型数据存储库中，自动地发现有用信息的过程。数据挖掘">
+数据类型
+数据集可以看作数据对象的集合。
+
+属性
+什么是属性？
+
+属性（attribute）是对象的性质或特性，因对象而变，随时间而变。
+测量标度（measurement ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Data概念篇DM（一）数据挖掘基础概念 | Yi勒</title>
+    <title>Data概念篇DM（二）数据 | Yi勒</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -293,13 +298,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Data概念篇DM（一）数据挖掘基础概念
+                        Data概念篇DM（二）数据
                     </div>
                 </div>
             </div>
@@ -419,21 +424,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-10-04
+                    2019-10-05
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        858
+                        1.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        2 Min
+                        6 Min
                     </div>
                     
                 
@@ -449,78 +454,256 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Data概念篇DM（一）数据挖掘基础概念"><a href="#Data概念篇DM（一）数据挖掘基础概念" class="headerlink" title="Data概念篇DM（一）数据挖掘基础概念"></a>Data概念篇DM（一）数据挖掘基础概念</h1><ul>
-<li>参《数据挖掘导论（完整版）》第一章</li>
+                <h1 id="Data概念篇DM（二）数据"><a href="#Data概念篇DM（二）数据" class="headerlink" title="Data概念篇DM（二）数据"></a>Data概念篇DM（二）数据</h1><ul>
+<li>参《数据挖掘导论（完整版）》第二章</li>
 </ul>
-<h2 id="什么是数据挖掘？"><a href="#什么是数据挖掘？" class="headerlink" title="什么是数据挖掘？"></a>什么是数据挖掘？</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
-<li>数据挖掘是一种<strong>技术</strong>，将<strong>传统的数据分析方法</strong>与<strong>处理大量数据的复杂算法</strong>相结合。</li>
-<li>数据挖掘是在大型数据存储库中，自动地发现有用信息的过程。数据挖掘技术用来探查大型数据库，发现先前未知的有用模式，还可以预测未来观测结果。</li>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
+<li><strong>数据集</strong>可以看作<strong>数据对象</strong>的集合。</li>
 </ul>
-<h3 id="数据挖掘与知识发现"><a href="#数据挖掘与知识发现" class="headerlink" title="数据挖掘与知识发现"></a>数据挖掘与知识发现</h3><ul>
-<li><p>数据挖掘是<strong>数据库中知识发现</strong>（knowledge discovery in database, KDD）不可缺少的一部分，KDD是将未加工的数据转换为有用信息的整个过程，如下图所示，</p>
-<p><img src="./01-01.png" alt="01-01 KDD"></p>
-</li>
-<li><p>各个步骤：</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><ul>
+<li><p><strong>什么是属性？</strong></p>
 <ul>
-<li><strong>输入数据：</strong>可以以各种形式存储，可以驻留在集中的数据存储库或分布在多个站点上。</li>
-<li><strong>数据预处理</strong>（preprocessing）：将未加工的输入数据转换成适合分析的形式。<ul>
-<li>包含<strong>融合</strong>来自多个数据源的数据、<strong>清洗</strong>数据以消除<strong>噪声</strong>和<strong>重复</strong>的观测值、<strong>选择</strong>与当前数据挖掘任务相关的记录和特征。</li>
-<li>特征选择、维规约、规范化、选择数据子集</li>
+<li><strong>属性</strong>（attribute）是对象的性质或特性，因对象而变，随时间而变。</li>
+<li><strong>测量标度</strong>（measurement scale）是将数值或符号值与对象的属性相关联的规则（函数）。</li>
 </ul>
 </li>
-<li><strong>后处理：</strong>将有效的和有用的结果集成到决策支持系统中。<ul>
-<li>可视化；使用统计度量或假设检验，删除虚假的数据挖掘结果。</li>
+<li><p><strong>属性类型</strong></p>
+<ul>
+<li>通常将属性的类型称为<strong>测量标度的类型</strong>。</li>
 </ul>
 </li>
+<li><p><strong>属性的不同类型</strong></p>
+<p><img src="./03-01.png" alt="03-01 属性的不同类型"></p>
+</li>
+<li><p><strong>用值的个数描述属性</strong></p>
+<ul>
+<li><strong>离散的</strong>（discrete），二元属性（Binary attribute）</li>
+<li><strong>连续的</strong>（continuous）</li>
 </ul>
 </li>
-</ul>
-<h2 id="数据问题需要的问题"><a href="#数据问题需要的问题" class="headerlink" title="数据问题需要的问题"></a>数据问题需要的问题</h2><ul>
-<li><strong>可伸缩</strong>（scalable）<ul>
-<li>使用特殊的搜索策略处理指数级搜索问题、实现新的数据结构、非内存算法、使用抽样技术或开发并行和分布算法</li>
-</ul>
-</li>
-<li><strong>高维度</strong></li>
-<li><strong>异种数据和复杂数据</strong></li>
-<li><strong>数据的所有权与分布</strong></li>
-<li><strong>非传统的分析</strong><ul>
-<li>传统的统计方法基于<strong>假设-验证模式</strong></li>
+<li><p><strong>非对称的属性</strong></p>
+<ul>
+<li>非对称的属性（asymmetric attribute）</li>
 </ul>
 </li>
 </ul>
-<h2 id="数据挖掘的起源"><a href="#数据挖掘的起源" class="headerlink" title="数据挖掘的起源"></a>数据挖掘的起源</h2><ul>
-<li><strong>统计学</strong>的抽样、估计和假设检验</li>
-<li><strong>人工智能</strong>、<strong>模式识别</strong>和<strong>机器学习</strong>的搜索算法、建模技术和学习理论</li>
-<li>其它领域，包括最优化、进化计算、信息论、信号处理、可视化和信息检索</li>
-<li>其它方面，数据库系统、高性能（并行）计算、分布式技术</li>
-</ul>
-<h2 id="数据挖掘任务"><a href="#数据挖掘任务" class="headerlink" title="数据挖掘任务"></a>数据挖掘任务</h2><ul>
-<li>两大类：<ul>
-<li><strong>预测任务</strong>：根据其它属性的值（<strong>说明变量</strong>或<strong>自变量</strong>），预测特定属性的值（<strong>目标变量</strong>或<strong>因变量</strong>）</li>
-<li><strong>描述任务</strong>：导出概括数据中潜在练习的模式（相关、趋势、聚类、轨迹和异常）</li>
+<h3 id="数据集的类型"><a href="#数据集的类型" class="headerlink" title="数据集的类型"></a>数据集的类型</h3><ul>
+<li><strong>数据集的一般特性</strong><ul>
+<li>维度（dimensionality）</li>
+<li>稀疏性（sparsity）</li>
+<li>分辨率（resolution）</li>
 </ul>
 </li>
-<li><strong>预测建模</strong>（predictive modeling）：以说明变量函数的方式为目标变量建立模型<ul>
-<li><strong>分类</strong>（classification）：预测离散的目标变量</li>
-<li><strong>回归</strong>（regression）：预测连续的目标变量</li>
+<li><strong>记录数据</strong><ul>
+<li>事务数据（transaction data）、购物车数据（market basket data）</li>
+<li>数据矩阵</li>
+<li>稀疏数据矩阵：文档-词矩阵（document-term matrix）</li>
 </ul>
 </li>
-<li><strong>关联分析</strong>（association analysis）：发现描述数据中强关联特征的模式<ul>
-<li>应用：找出具有相关功能的基因组、识别用户、理解元素之间的联系</li>
+<li><strong>基于图形的数据</strong><ul>
+<li>带有对象之间联系的数据：如链接的网页</li>
+<li>具有图形对象的数据</li>
 </ul>
 </li>
-<li><strong>聚类分析</strong>（cluster analysis）：发现紧密相关的预测值组群<ul>
-<li>应用：对相关的顾客分组、找出显著影响地球气候的海洋区域、压缩数据</li>
-</ul>
-</li>
-<li><strong>异常检测</strong>（anomaly detection）：识别特征显著不同于其他数据的观测值<ul>
-<li><strong>异常点</strong>（anomaly）或<strong>离群点</strong>（outlier）</li>
-<li>好的异常检测器：高检测率、低误报率</li>
-<li>应用：检测欺诈、网络攻击、疾病的不寻常模式、生物系统扰乱等</li>
+<li><strong>有序的数据</strong><ul>
+<li><strong>时序数据</strong>（sequential）/ <strong>时间数据</strong>（temporal data）</li>
+<li><strong>序列数据</strong>（sequence data）</li>
+<li><strong>时间序列数据</strong>（time series data）</li>
+<li><strong>空间数据</strong></li>
 </ul>
 </li>
 </ul>
-
+<h2 id="数据质量"><a href="#数据质量" class="headerlink" title="数据质量"></a>数据质量</h2><ul>
+<li>两个问题：<ul>
+<li>数据质量问题的检测和纠正（<strong>数据清理</strong> data cleaning）；</li>
+<li>使用可以容忍低质量数据的算法。</li>
+</ul>
+</li>
+</ul>
+<h3 id="测量和数据收集问题"><a href="#测量和数据收集问题" class="headerlink" title="测量和数据收集问题"></a>测量和数据收集问题</h3><ul>
+<li><strong>测量误差</strong>（measurement error）和<strong>数据收集错误</strong>（data collection error）</li>
+<li><strong>噪声</strong>（测量误差的随机部分）和<strong>伪像</strong>（artifact，更确定性现象结果的数据错误）</li>
+<li><strong>精度</strong>（precision）、<strong>偏倚</strong>（bias）、<strong>准确率</strong>（accuracy）</li>
+<li><strong>离群点</strong>（outlier）、<strong>异常</strong>（anomalous）</li>
+<li><strong>遗漏值</strong><ul>
+<li>处理方法：删除数据对象或属性；估计遗漏值；在分析时忽略遗漏值</li>
+</ul>
+</li>
+<li><strong>不一致的值</strong></li>
+<li><strong>重复</strong>：去重复（deduplication）</li>
+</ul>
+<h3 id="关于应用的问题"><a href="#关于应用的问题" class="headerlink" title="关于应用的问题"></a>关于应用的问题</h3><ul>
+<li><strong>时效性</strong>和<strong>相关性</strong></li>
+<li><strong>抽样偏倚</strong>（sampling bias）</li>
+</ul>
+<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><ul>
+<li>属性（attribute）：特征（feature）、变量（variable）</li>
+</ul>
+<h3 id="聚集"><a href="#聚集" class="headerlink" title="聚集"></a>聚集</h3><ul>
+<li><strong>聚集</strong>（aggregation）：将两个或多个对象合并成单个对象。<ul>
+<li>可以看作是删除属性或压缩特定属性不同值个数的过程</li>
+</ul>
+</li>
+<li>动机：<ul>
+<li>数据规约减小数据，减小内存需求和处理时间</li>
+<li>通过高层视图，起到了规范或标度转换的作用</li>
+<li>聚集后行为更加稳定</li>
+</ul>
+</li>
+</ul>
+<h3 id="抽样"><a href="#抽样" class="headerlink" title="抽样"></a>抽样</h3><ul>
+<li><strong>抽样</strong>是一种选择数据对象子集进行分析的常用方法，抽样具有代表性。</li>
+<li><strong>抽样方法：</strong><ul>
+<li><strong>简单随机抽样</strong>（sample random sampling）：无放回/有放回</li>
+<li><strong>分层抽样</strong>（stratified sampling）</li>
+</ul>
+</li>
+<li><strong>渐进抽样</strong>（progressive sampling）、<strong>自适应</strong>（adaptive）</li>
+</ul>
+<h3 id="维规约"><a href="#维规约" class="headerlink" title="维规约"></a>维规约</h3><ul>
+<li><strong>维规约</strong>：通过创建新属性，将一些旧属性合并在一起来降低数据集的维度（特征子集选择或特征选择）</li>
+<li><strong>好处</strong><ul>
+<li>使模型更容易理解；</li>
+<li>更容易让数据可视化；</li>
+<li>降低了数据挖掘算法的时间和内存需求。</li>
+</ul>
+</li>
+<li><strong>维灾难</strong>：高维数据，分类准确率降低，聚类质量下降</li>
+<li><strong>维规约的线性代数技术</strong>：主成分分析（Principal Components Analysis, PCA）、奇异值分解（Singular Value Decomposition, SVD）</li>
+</ul>
+<h3 id="特征子集选择"><a href="#特征子集选择" class="headerlink" title="特征子集选择"></a>特征子集选择</h3><ul>
+<li>存在，<strong>冗余特征</strong>、<strong>不相关特征</strong></li>
+<li><strong>理想方法</strong>：将所有可能的特征子集作为感兴趣的数据挖掘算法的输入，然后选取产生最好结果的子集。</li>
+<li><strong>嵌入方法</strong>（embedded approach）：算法本身决定使用哪些属性和忽略哪些属性</li>
+<li><strong>过滤方法</strong>（filter approach）</li>
+<li><strong>包装方法</strong>（wrapper approach）</li>
+</ul>
+<h3 id="特征创建"><a href="#特征创建" class="headerlink" title="特征创建"></a>特征创建</h3><ul>
+<li><strong>特征提取</strong>（feature extraction）：由原始数据创建新的特征集</li>
+<li><strong>映射数据到新的空间</strong><ul>
+<li>傅立叶变换（Fourier transform）、小波变换（wavelet transform）</li>
+</ul>
+</li>
+<li><strong>特征构造</strong></li>
+</ul>
+<h3 id="离散化和二元化"><a href="#离散化和二元化" class="headerlink" title="离散化和二元化"></a>离散化和二元化</h3><ul>
+<li><p><strong>离散化</strong>（discretization）、<strong>二元化</strong>（binarization）</p>
+</li>
+<li><p>连续属性离散化</p>
+<ul>
+<li><strong>非监督离散化</strong><ul>
+<li>等宽（equal width）、等频率（equal frequency）、等深（equal depth）、K均值、目测监测数据</li>
+</ul>
+</li>
+<li><strong>监督离散化</strong><ul>
+<li><strong>熵</strong>（entropy）<ul>
+<li>$e_i=-\sum^k_{j=1}P_{ij}\log_2P_{ij}$</li>
+<li>$e=\sum^n_{i=1}w_ie_i$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="变量转换"><a href="#变量转换" class="headerlink" title="变量转换"></a>变量转换</h3><ul>
+<li><strong>变量转换</strong>（variable transformation）</li>
+<li><strong>简单函数</strong></li>
+<li><strong>规范化</strong>（standardization）或<strong>标准化</strong>（normalization）</li>
+</ul>
+<h2 id="相似性和相异性的度量"><a href="#相似性和相异性的度量" class="headerlink" title="相似性和相异性的度量"></a>相似性和相异性的度量</h2><ul>
+<li>常用<strong>邻近度</strong>（proximity）表示相似性或相异性。</li>
+</ul>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
+<li><strong>定义</strong><ul>
+<li><strong>相似度</strong>（similarity）、<strong>相异度</strong>（dissimilarity）</li>
+</ul>
+</li>
+<li><strong>距离</strong></li>
+</ul>
+<h3 id="简单属性之间的相似度和相异度"><a href="#简单属性之间的相似度和相异度" class="headerlink" title="简单属性之间的相似度和相异度"></a>简单属性之间的相似度和相异度</h3><p><img src="./04-01.png" alt="04-01 简单属性之间的相似度和相异度"></p>
+<h3 id="数据对象之间的相异度"><a href="#数据对象之间的相异度" class="headerlink" title="数据对象之间的相异度"></a>数据对象之间的相异度</h3><ul>
+<li><strong>距离</strong><ul>
+<li><strong>欧几里得距离</strong>（Euclidean distance）：$d(x,y)=\sqrt{\sum^n_{k=1}(x_k-y_k)^2}$</li>
+<li><strong>距离矩阵</strong>（distance matrix）</li>
+<li><strong>闵可夫斯基距离</strong>（Minkowski distance）：$d(x,y)=(\sum^n_{k=1}|x_k-y_k|^r)^{1/r}$<ul>
+<li>$r=1$，汉明距离（Hamming distance）</li>
+<li>$r=2$，欧几里得距离（$L_2$范数）</li>
+<li>$r=\infty$，上确界（$L_{max}$或$L_{\infty}$范数）距离</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>度量</strong>（metric）性质<ul>
+<li>非负性</li>
+<li>对称性</li>
+<li>三角不等式</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据对象之间的相似度"><a href="#数据对象之间的相似度" class="headerlink" title="数据对象之间的相似度"></a>数据对象之间的相似度</h3><ul>
+<li>相似度性质<ul>
+<li>仅当$x=y$时，$s(x,y)=1$。（$0\le s\le1$）</li>
+<li>对于所有x和y，$s(x,y)=s(y,x)$。（对称性）</li>
+</ul>
+</li>
+<li>非对称相似性度量<ul>
+<li>混淆矩阵（confusion matrix）：记录每个字符被分类为自己的次数和被分类为另一个字符的次数</li>
+</ul>
+</li>
+</ul>
+<h3 id="邻近性度量的例子"><a href="#邻近性度量的例子" class="headerlink" title="邻近性度量的例子"></a>邻近性度量的例子</h3><ul>
+<li><strong>二元数据的相似性度量</strong><ul>
+<li><strong>相似系数</strong>（similarity coefficient）</li>
+<li><strong>简单匹配系数</strong>（Simple Matching Coefficient, SMC）<ul>
+<li>$SMC=\frac{值匹配的属性个数}{属性个数}=\frac{f_{11}+f_{00}}{f_{01}+f_{10}+f_{11}+f_{00}}$</li>
+</ul>
+</li>
+<li><strong>Jaccard系数</strong>（Jaccard Cofficient）<ul>
+<li>$J=\frac{匹配的个数}{不涉及0-0匹配的属性个数}=\frac{f_{11}}{f_{01}+f_{10}+f_{11}}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>余弦相似度</strong><ul>
+<li><strong>余弦相似度</strong>（cosine similarity）<ul>
+<li>$\cos(x,y)=\frac{x\cdot y}{||x||||y||}$</li>
+<li>$x\cdot y=\sum^n_{k=1}x_ky_k$</li>
+<li>$||x||=\sqrt{\sum^n_{k=1}x^2_k}=\sqrt{x\cdot x}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>广义Jaccard系数</strong><ul>
+<li><strong>广义Jaccard系数</strong>又称<strong>Tanimoto系数</strong></li>
+<li>$EJ(x,y)=\frac{x\cdot y}{||x||^2+||y||^2-x\cdot y}$</li>
+</ul>
+</li>
+<li><strong>相关性</strong><ul>
+<li><strong>皮尔森相关</strong>（Pearson’s correlation）系数<ul>
+<li>$corr(x,y)=\frac{covariance(x,y)}{standard_deviation(x)\times standard_deviation(y)}=\frac{s_{xy}}{s_xs_y}$</li>
+<li>$covariance(x,y)=s_{xy}=\frac{1}{n-1}\sum^n_{k-1}(x_k-\overline x)(y_k-\overline y)$</li>
+<li>$standard_deviation(x)=s_x=\sqrt{\frac{1}{n-1}\sum^n_{k=1}(x_k-\overline x)^2}$</li>
+<li>$standard_deviation(y)=s_x=\sqrt{\frac{1}{n-1}\sum^n_{k=1}(y_k-\overline y)^2}$</li>
+</ul>
+</li>
+<li><strong>非线性相关</strong>：如果相关度为0，则两个数据对象的属性之间不存在线性关系，然而，仍然可能存在非线性关系。</li>
+<li><strong>Bregman散度</strong>：损失或失真函数<ul>
+<li>$D(x,y)=\phi(x)-\phi(y)-&lt;\nabla(y),(x-y)&gt;$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="邻近度计算问题"><a href="#邻近度计算问题" class="headerlink" title="邻近度计算问题"></a>邻近度计算问题</h3><ul>
+<li><strong>距离度量的标准化和相关性</strong><ul>
+<li><strong>Mahalanobid距离：</strong>$mahalanobis(x,y)=(x-y)\sum^{-1}(x-y)^T$</li>
+</ul>
+</li>
+<li><strong>组合异种属性的相似度</strong></li>
+<li><strong>使用权值</strong></li>
+</ul>
+<h3 id="选取正确的邻近性度量"><a href="#选取正确的邻近性度量" class="headerlink" title="选取正确的邻近性度量"></a>选取正确的邻近性度量</h3>
             </div>
             <hr/>
 
@@ -660,7 +843,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">Yi勒</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/data-concept-dm-01/" class="b-link-green">Data概念篇DM（一）数据挖掘基础概念</a>
+                    <a href="/data-concept-dm-02/" class="b-link-green">Data概念篇DM（二）数据</a>
                 </p>
             </div>
         </div>
@@ -682,7 +865,7 @@
         repo: 'jirehchan.github.io',
         owner: 'JirehChan',
         admin: ["JirehChan"],
-        id: '2019-10-04T23-48-00',
+        id: '2019-10-05T23-01-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -707,31 +890,71 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/data-concept-dm-02/">
+                <a href="/opengl-03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Data概念篇DM（二）数据">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="OpenGL学习笔记（三）第一个渲染程序">
                         
-                        <span class="card-title">Data概念篇DM（二）数据</span>
+                        <span class="card-title">OpenGL学习笔记（三）第一个渲染程序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Data概念篇DM（二）数据
-参《数据挖掘导论（完整版）》第二章
-
-数据类型
-数据集可以看作数据对象的集合。
-
-属性
-什么是属性？
-
-属性（attribute）是对象的性质或特性，因对象而变，随时间而变。
-测量标度（measurement </div>
+                    <div class="summary">OpenGL学习笔记（三）第一个渲染程序​    上一篇中简单介绍了渲染管线和FLEW、FreeGLUT库的安装，但示例程序仍是使用已经废止的glBegin和glEnd来实现的，这次将进行第一个真正的渲染程序的编写（毕竟将对管线的认知转到实</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-05
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-14
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/OpenGL/" class="post-category" target="_blank">
+                                    OpenGL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/OpenGL/" target="_blank">
+                        <span class="chip bg-color">OpenGL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/data-concept-dm-01/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Data概念篇DM（一）数据挖掘基础概念">
+                        
+                        <span class="card-title">Data概念篇DM（一）数据挖掘基础概念</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Data概念篇DM（一）数据挖掘基础概念
+参《数据挖掘导论（完整版）》第一章
+
+什么是数据挖掘？定义
+数据挖掘是一种技术，将传统的数据分析方法与处理大量数据的复杂算法相结合。
+数据挖掘是在大型数据存储库中，自动地发现有用信息的过程。数据挖掘</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -753,58 +976,6 @@
                     
                     <a href="/tags/Data/" target="_blank">
                         <span class="chip bg-color">Data</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/data-preface/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Data总序篇：介绍与目录">
-                        
-                        <span class="card-title">Data总序篇：介绍与目录</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">Data总序篇：介绍与目录系列介绍缘由
-由于近期计划阅读、学习几本经典书籍，分别与数据挖掘、统计学方法与机器学习相关，所以计划编写一个系列的笔记。
-由于这些内容存在着极多交叉相通的部分，所以希望能将其整合在一个系列之中，避免重复造轮子。
-但</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-03
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Data/" class="post-category" target="_blank">
-                                    Data
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Data/" target="_blank">
-                        <span class="chip bg-color">Data</span>
-                    </a>
-                    
-                    <a href="/tags/Preface/" target="_blank">
-                        <span class="chip bg-color">Preface</span>
                     </a>
                     
                 </div>
@@ -905,6 +1076,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
