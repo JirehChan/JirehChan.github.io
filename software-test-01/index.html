@@ -4,12 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="OpenGL学习笔记（二）渲染管线、FreeGLUT&amp;GLEW、简单示例, Yi勒">
-    <meta name="description" content="OpenGL学习笔记（二）渲染管线、FreeGLUT&amp;amp;GLEW、简单示例1. 渲染管线
-主要整理自[1]
-
-图形渲染管线（Graphics Pipeline）
-OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，而屏幕">
+    <meta name="keywords" content="软件测试（一）黑盒测试, Yi勒">
+    <meta name="description" content="软件测试（一）黑盒测试动态黑盒测试（Black-Box Test）概念
+不深入代码细节测试软件的方法称为动态黑盒测试。
+动态（dynamic）：程序在运行；黑盒（black-box）：不知道如何运行。
+动态黑盒测试常被称为行为测试，因为测试">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +16,7 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>OpenGL学习笔记（二）渲染管线、FreeGLUT&amp;GLEW、简单示例 | Yi勒</title>
+    <title>软件测试（一）黑盒测试 | Yi勒</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -292,13 +291,13 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        OpenGL学习笔记（二）渲染管线、FreeGLUT&amp;GLEW、简单示例
+                        软件测试（一）黑盒测试
                     </div>
                 </div>
             </div>
@@ -390,8 +389,8 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/OpenGL/" target="_blank">
-                                <span class="chip bg-color">OpenGL</span>
+                            <a href="/tags/Software-Test/" target="_blank">
+                                <span class="chip bg-color">Software Test</span>
                             </a>
                         
                     </div>
@@ -402,8 +401,8 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/OpenGL/" class="post-category" target="_blank">
-                                OpenGL
+                            <a href="/categories/Software-Engineering/" class="post-category" target="_blank">
+                                Software Engineering
                             </a>
                         
                     </div>
@@ -414,21 +413,21 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-10-02
+                    2019-10-14
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        1.6k
+                        1.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        6 Min
+                        5 Min
                     </div>
                     
                 
@@ -444,165 +443,302 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="OpenGL学习笔记（二）渲染管线、FreeGLUT-amp-GLEW、简单示例"><a href="#OpenGL学习笔记（二）渲染管线、FreeGLUT-amp-GLEW、简单示例" class="headerlink" title="OpenGL学习笔记（二）渲染管线、FreeGLUT&amp;GLEW、简单示例"></a>OpenGL学习笔记（二）渲染管线、FreeGLUT&amp;GLEW、简单示例</h1><h2 id="1-渲染管线"><a href="#1-渲染管线" class="headerlink" title="1. 渲染管线"></a>1. 渲染管线</h2><ul>
-<li>主要整理自<a href="https://learnopengl-cn.github.io/01%20Getting%20started/04%20Hello%20Triangle/" title="LearnOpenGL CN - 你好，三角形" target="_blank" rel="noopener">[1]</a></li>
+                <h1 id="软件测试（一）黑盒测试"><a href="#软件测试（一）黑盒测试" class="headerlink" title="软件测试（一）黑盒测试"></a>软件测试（一）黑盒测试</h1><h2 id="动态黑盒测试（Black-Box-Test）"><a href="#动态黑盒测试（Black-Box-Test）" class="headerlink" title="动态黑盒测试（Black-Box Test）"></a>动态黑盒测试（Black-Box Test）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>不深入代码细节测试软件的方法称为<strong>动态黑盒测试</strong>。</li>
+<li><strong>动态</strong>（dynamic）：程序在运行；<strong>黑盒</strong>（black-box）：不知道如何运行。</li>
+<li>动态黑盒测试常被称为<strong>行为测试</strong>，因为测试的是软件在使用过程中的实际行动。</li>
 </ul>
-<h3 id="图形渲染管线（Graphics-Pipeline）"><a href="#图形渲染管线（Graphics-Pipeline）" class="headerlink" title="图形渲染管线（Graphics Pipeline）"></a>图形渲染管线（Graphics Pipeline）</h3><ul>
-<li><p>OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，而屏幕和窗口中则是显示为2D像素，<strong>图形渲染管线</strong>的作用就是实现2D坐标和3D坐标之间的互相转换。有以下两个部分：</p>
+<h2 id="测试用例设计技术"><a href="#测试用例设计技术" class="headerlink" title="测试用例设计技术"></a>测试用例设计技术</h2><h3 id="1-等价类划分法（Equivalence-Partitioning）"><a href="#1-等价类划分法（Equivalence-Partitioning）" class="headerlink" title="1. 等价类划分法（Equivalence Partitioning）"></a>1. 等价类划分法（Equivalence Partitioning）</h3><ul>
+<li><p><strong>概念</strong>：把程序的输入域划分成若干部分，然后从每个部分中选取少数代表性数据当作测试用例。</p>
+</li>
+<li><p><strong>有效等价类</strong> &amp; <strong>无效等价类</strong></p>
 <ul>
-<li>将3D坐标转换为2D坐标；</li>
-<li>将2D坐标转变为实际有色的像素。</li>
+<li>有效等价类：指对于程序的规格说明来说是合理的、有意义的输入数据构成的集合。利用有效等价类可检验程序是否实现 了规格说明中所规定的功能和非功能。 </li>
+<li>无效等价类：与有效等价类的定义恰巧相反。 </li>
 </ul>
 </li>
-<li><p>图形渲染管线的各个阶段的展示图如下：</p>
-<p><img src="./01-01.png" alt="01-01 图形渲染管线"></p>
+<li><p>测试：<strong>完备性</strong>、<strong>无冗余性</strong></p>
 </li>
-<li><p><strong>着色器</strong>（Shader）是在渲染管线中，每个阶段上运行处理数据的小程序。OpenGL着色器是用<strong>OpenGL着色器语言</strong>（OpenGL Shading Language, GLSL）写成的。</p>
-</li>
-<li><p>接下来将逐一介绍渲染管线的各个阶段。</p>
-</li>
-</ul>
-<h3 id="顶点数据（Vertex-Data）"><a href="#顶点数据（Vertex-Data）" class="headerlink" title="顶点数据（Vertex Data）"></a>顶点数据（Vertex Data）</h3><ul>
-<li><p>顶点数据作为图形渲染管线的输入，是一系列<strong>顶点</strong>（Vertex）的集合。</p>
-</li>
-<li><p>顶点是一个3D坐标数据的集合，用<strong>顶点属性</strong>（Vertex Attribute）表示。</p>
-</li>
-<li><p>OpenGL中指定的坐标都是3D坐标，但只有在<strong>标准化设备坐标</strong>（Normalized Device Corrdinates NDC，即三个轴坐标都在-1.0到1.0的范围内）范围内的坐标才能呈现在屏幕上。</p>
+<li><p><strong>确定等价类的原则：</strong></p>
 <ul>
-<li>标准化设备坐标之后会转化为<strong>屏幕空间坐标</strong>（Screen-space Coordinates），通过<em>glViewport</em>函数提供的数据，进行<strong>视口变换</strong>（Viewport Transform）完成。</li>
+<li>在输入条件规定了取值范围或值的个数的情况下，则可以确立一个有效等价类和两个无效等价类。 </li>
+<li>在输入条件规定了输入值的集合或者规定了“必须如何”的条件的情况下，可以确立一个有效等价类和一个无效等价类。 </li>
+<li>在输入条件是一个布尔量的情况下，可确定一个有效等价类和一个无效等价类。 </li>
+<li>在规定了输入数据的一组值 ，并且程序要对每一个输入值分别处理的情况下，可确立n个有效等价类和一个无效等价类。</li>
+<li>在规定了输入数据必须遵守的规则的情况下，可确立一个有效等价类（符合规则）和若干个无效等价类（从不同角度违反规则）。 </li>
+<li>如果确知，已划分的等价类中各个元素在程序中的处理方式不同，则应将此等价类进一步划分成更小的等价类。 </li>
 </ul>
 </li>
-<li><p>顶点数据定义后被传入顶点着色器中，会在GPU上创建内存用于存储顶点数据。通过<strong>顶点缓冲对象</strong>（Vertex Buffer Objects VBO）管理此内存，它会在GPU内存中存储大量顶点，然后批量发给显卡。</p>
-</li>
-<li><p><strong>顶点数组对象</strong>（Vertex Array Object, VAO）</p>
+<li><p><strong>示例</strong></p>
 <ul>
-<li>任何随后的顶点属性调用都会储存在这个VAO中。这样的好处就是，当配置顶点属性指针时，你只需要将那些调用执行一次，之后再绘制物体的时候只需要绑定相应的VAO就行了。这使在不同顶点数据和属性配置之间切换变得非常简单，只需要绑定不同的VAO就行了。</li>
-</ul>
-<p><img src="./01-02.png" alt="01-02 VAO与VBO"></p>
+<li><p>等价类划分：</p>
+<table>
+<thead>
+<tr>
+<th>被测项</th>
+<th>边长</th>
+<th>等价类编号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>有效等价类</td>
+<td>正数</td>
+<td>1</td>
+</tr>
+<tr>
+<td>无效等价类</td>
+<td>小于0</td>
+<td>2</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>测试用例设计：</p>
+<table>
+<thead>
+<tr>
+<th>测试用例编号</th>
+<th>输入值</th>
+<th>覆盖的等价类编号</th>
+<th>合理输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T1</td>
+<td>2</td>
+<td>(1)</td>
+<td>正确</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>0</td>
+<td>(2)</td>
+<td>错误</td>
+</tr>
+</tbody></table>
 </li>
 </ul>
-<h3 id="顶点着色器（Vertex-Shader）"><a href="#顶点着色器（Vertex-Shader）" class="headerlink" title="顶点着色器（Vertex Shader）"></a>顶点着色器（Vertex Shader）</h3><ul>
-<li><strong>顶点着色器</strong>是图形渲染管线的第一个部分，把一个单独的顶点作为输入。主要作用：<ul>
-<li>把3D坐标转换为另一种3D坐标；</li>
-<li>对顶点属性进行一些简单的处理。</li>
+</li>
+</ul>
+<h3 id="2-边界值分析法（VBA-Boundary-Value-Analysis）"><a href="#2-边界值分析法（VBA-Boundary-Value-Analysis）" class="headerlink" title="2. 边界值分析法（VBA, Boundary Value Analysis）"></a>2. 边界值分析法（VBA, Boundary Value Analysis）</h3><ul>
+<li><strong>概念：</strong>对等价划分类的补充，不是从某等价类中随便挑一个作为代表，而是使这个等价类的每个边界都要作为测试条件。</li>
+<li><strong>设计方法：</strong><ul>
+<li>确定边界情况（输入或输出等价类的边界）</li>
+<li>选取正好等于、刚刚大于或刚刚小于边界值作为测试数据 </li>
+<li>一般情况，一个边界可以给出3个边界测试用例，<strong>自身+左右值</strong></li>
 </ul>
 </li>
 </ul>
-<h3 id="图元装配（Primitive-Assembly）"><a href="#图元装配（Primitive-Assembly）" class="headerlink" title="图元装配（Primitive Assembly）"></a>图元装配（Primitive Assembly）</h3><ul>
-<li>将顶点着色器输出的所有顶点作为输入，将所有的点装配成制定图元的形状。</li>
-</ul>
-<h3 id="几何着色器（Geometry-Shader）"><a href="#几何着色器（Geometry-Shader）" class="headerlink" title="几何着色器（Geometry Shader）"></a>几何着色器（Geometry Shader）</h3><ul>
-<li><strong>几何着色器</strong>把图元形式的一系列顶点的集合作为输入，可以通过产生新顶点构造出新的图元来生成其它形状。</li>
-</ul>
-<h3 id="光栅化（Rasterization）"><a href="#光栅化（Rasterization）" class="headerlink" title="光栅化（Rasterization）"></a>光栅化（Rasterization）</h3><ul>
-<li><strong>光栅化</strong>把图元映射成对应的像素，生成片段（Fragment）。在<strong>片段着色器</strong>运行之前，会执行<strong>剪裁</strong>（Clipping）来提升执行效率。</li>
-</ul>
-<h3 id="片段着色器（Fragment-Shader）"><a href="#片段着色器（Fragment-Shader）" class="headerlink" title="片段着色器（Fragment Shader）"></a>片段着色器（Fragment Shader）</h3><ul>
-<li><strong>片段着色器</strong>的主要目的是计算一个像素的最终颜色，也包含3D场景的数据（如光照、阴影、光的颜色等）。</li>
-</ul>
-<h3 id="Alpha测试和混合（Blending）"><a href="#Alpha测试和混合（Blending）" class="headerlink" title="Alpha测试和混合（Blending）"></a>Alpha测试和混合（Blending）</h3><ul>
-<li>此阶段检测片段对应的深度，来判断这个像素对应其它物体的相对位置。也会检查alpha值来对物体进行混合。</li>
-</ul>
-<h2 id="2-FreeGLUT库-amp-GLEW库-配置"><a href="#2-FreeGLUT库-amp-GLEW库-配置" class="headerlink" title="2. FreeGLUT库 &amp; GLEW库 配置"></a>2. FreeGLUT库 &amp; GLEW库 配置</h2><ul>
-<li>以下配置针对Mac上的Xcode配置，如是其他平台其它软件请自行百度，参考<a href="https://www.cnblogs.com/fanghao/p/7559768.html" title="Mac使用Xcode配置openGL -- 潇雨危栏" target="_blank" rel="noopener">[2]</a><a href="https://www.cnblogs.com/leojason/p/9619193.html" title="OpenGL学习之旅01—Xcode+OpenGL环境配置 -- LeoJason" target="_blank" rel="noopener">[3]</a>。（安装主要也是因为课程要求，汗）</li>
-</ul>
-<h3 id="库简介"><a href="#库简介" class="headerlink" title="库简介"></a>库简介</h3><ul>
-<li><strong>FreeGLUT库</strong><ul>
-<li>由于GLUT项目已被废弃（不再维护，无法修改），FreeGLUT是GLUT的一个完全开源替代库。</li>
-</ul>
-</li>
-<li><strong>GLEW库</strong><ul>
-<li>OpenGL扩展库，用于帮助C/C++开发者初始化扩展（OpenGL扩展功能）并书写可移植的应用程序。</li>
+<h3 id="3-错误推测方法"><a href="#3-错误推测方法" class="headerlink" title="3. 错误推测方法"></a>3. 错误推测方法</h3><ul>
+<li><strong>概念：</strong><ul>
+<li>通过经验和直觉推测出程序的错误所在；</li>
+<li>主观、灵感、反向思维，难以复制等等；</li>
+<li>不是一个系统的方法，用作辅助手段。</li>
 </ul>
 </li>
 </ul>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
-<li><p><strong>安装homebrew</strong></p>
-<p>​    由于之前已经安装过了homebrew，是否当时使用的是以下命令已经不太清楚了，如果有问题 ，可以在网上寻找。</p>
-<pre class=" language-shell"><code class="language-shell">$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
+<h3 id="4-判定表驱动测试方法（Decision-Table）"><a href="#4-判定表驱动测试方法（Decision-Table）" class="headerlink" title="4. 判定表驱动测试方法（Decision Table）"></a>4. 判定表驱动测试方法（Decision Table）</h3><ul>
+<li><p><strong>概念：</strong>是分析和表达多逻辑条件下执行不同操作的工具，也叫判定表。</p>
 </li>
-<li><p><strong>安装FreeGLUT</strong></p>
-<pre class=" language-shell"><code class="language-shell">$ brew install freeglut</code></pre>
-<p>​    安装中可能会提示需要先安装XQuartz，此时同样照着提示来安装，完成后再次brew即可。</p>
+<li><p><strong>组成：</strong>条件桩（Condition Stub）、动作桩（Action Stub）、条件项、动作项、规则</p>
+<table>
+<thead>
+<tr>
+<th>条件桩</th>
+<th>条件项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>动作桩</td>
+<td>动作项</td>
+</tr>
+</tbody></table>
 </li>
-<li><p><strong>安装GLEW</strong></p>
-<pre class=" language-shell"><code class="language-shell">$ brew install glew</code></pre>
-<p>​    安装中可能会由于没有读写目录的权限的提示，此时只要按照终端的提示操作之后就可以了。</p>
-</li>
-<li><p><strong>安装后的库</strong></p>
-<p>brew安装的目录在/usr/local/Cellar下，之后在Xcode中的配置会用到。</p>
-</li>
-</ol>
-<h3 id="Xcode中的配置"><a href="#Xcode中的配置" class="headerlink" title="Xcode中的配置"></a>Xcode中的配置</h3><ol>
-<li><p>打开Xcode，新建一个Command Line Tool项目。</p>
-</li>
-<li><p>在Build Settings中的Search Paths加入头文件、库文件搜索路径。</p>
-<p><img src="./02-01.png" alt="02-01 加入搜索路径"></p>
-</li>
-<li><p>在Build Phases中Link Binary With Libraries中加入库</p>
-<p>​    不知为何上步完成后仍是无法搜索到，只能手动添加文件了，另外不要忘了基本库OpenGL.framework哦。</p>
-<p><img src="./02-02.png" alt="02-02 加入库"></p>
-</li>
-</ol>
-<h2 id="3-简单示例"><a href="#3-简单示例" class="headerlink" title="3. 简单示例"></a>3. 简单示例</h2><h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><ul>
-<li><p>代码来自计算机图形学课程的讲义，绘制一个简单的三角形。</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;GL/glew.h></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;GL/glut.h></span></span>
-
-<span class="token keyword">void</span> <span class="token function">doMyInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">glClearColor</span><span class="token punctuation">(</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Set the clear color to black</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">mydisplay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">glClear</span><span class="token punctuation">(</span> GL_COLOR_BUFFER_BIT<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Clear the frame buffer</span>
-    <span class="token function">glColor3f</span><span class="token punctuation">(</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Set current color to green</span>
-    <span class="token function">glBegin</span><span class="token punctuation">(</span> GL_TRIANGLES<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Draw the triangle</span>
-        <span class="token function">glVertex2f</span><span class="token punctuation">(</span> <span class="token operator">-</span><span class="token number">0.7</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">glVertex2f</span><span class="token punctuation">(</span> <span class="token number">0.7</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">glVertex2f</span><span class="token punctuation">(</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">glEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">glFlush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Force to display the new drawings immediately</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// initialize</span>
-    <span class="token function">glutInit</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>argc<span class="token punctuation">,</span>argv<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">glutInitDisplayMode</span><span class="token punctuation">(</span>GLUT_RGB <span class="token operator">|</span> GLUT_SINGLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">glutInitWindowSize</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">glutInitWindowPosition</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">glutCreateWindow</span><span class="token punctuation">(</span><span class="token string">"Simple"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">glewInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">doMyInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//define callback functions</span>
-    <span class="token function">glutDisplayFunc</span><span class="token punctuation">(</span>mydisplay<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">glutMainLoop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//main event loop</span>
-<span class="token punctuation">}</span></code></pre>
-</li>
-</ul>
-<h3 id="然而。。。"><a href="#然而。。。" class="headerlink" title="然而。。。"></a>然而。。。</h3><ul>
-<li><p>结果是无法成功跑出结果，显示如下：</p>
-<img src="./03-01.png" alt="03-01 失败截图" style="zoom:50%;">
-</li>
-<li><p>尝试多次后，放弃了，似乎是因为FreeGLUT无法在Mac上编译shader，只能重新改回原生的GLUT.framework了。<strong>（在03中再次证实真的无法使用，还浪费了时间，哭了）</strong></p>
-</li>
-</ul>
-<h3 id="修改后"><a href="#修改后" class="headerlink" title="修改后"></a>修改后</h3><ul>
-<li><strong>代码部分</strong><ul>
-<li>将 #include &lt;GL/glut.h&gt; 改为 #include &lt;GLUT/GLUT.h&gt;</li>
-</ul>
-</li>
-<li>Build Phases中改为</li>
-</ul>
-<img src="./03-02.png" alt="03-02 修改后的库增加" style="zoom:75%;">
-
+<li><p><strong>示例：</strong></p>
 <ul>
-<li><p><strong>运行结果</strong></p>
-<img src="./03-03.png" alt="03-03 运行结果" style="zoom:30%;">
-
-<ul>
-<li>关于FreeGLUT的问题，等之后遇到无法解决时再加以考虑了，汗汗，目前只找到<a href="https://blog.csdn.net/fqrq88918329/article/details/50154863" title="MAC OS上使用OpenGL遇到的大坑 -- 热心的李大妈" target="_blank" rel="noopener">[4]</a>。</li>
+<li><p>判定表：</p>
+<p><img src="./01-01.png" alt="01-01 判定表"></p>
+</li>
+<li><p>测试用例：</p>
+<p><img src="./01-02.png" alt="01-02 判定表测试用例"></p>
+</li>
 </ul>
 </li>
 </ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1]: <a href="https://learnopengl-cn.github.io/01%20Getting%20started/04%20Hello%20Triangle/" target="_blank" rel="noopener">https://learnopengl-cn.github.io/01%20Getting%20started/04%20Hello%20Triangle/</a>    “LearnOpenGL CN - 你好，三角形”<br><a href="https://www.cnblogs.com/fanghao/p/7559768.html" title="Mac使用Xcode配置openGL -- 潇雨危栏" target="_blank" rel="noopener">2</a>: <a href="https://www.cnblogs.com/fanghao/p/7559768.html" target="_blank" rel="noopener">https://www.cnblogs.com/fanghao/p/7559768.html</a>    “Mac使用Xcode配置openGL – 潇雨危栏”<br><a href="https://www.cnblogs.com/leojason/p/9619193.html" title="OpenGL学习之旅01—Xcode+OpenGL环境配置 -- LeoJason" target="_blank" rel="noopener">3</a>: <a href="https://www.cnblogs.com/leojason/p/9619193.html" target="_blank" rel="noopener">https://www.cnblogs.com/leojason/p/9619193.html</a>    “OpenGL学习之旅01—Xcode+OpenGL环境配置 – LeoJason”<br><a href="https://blog.csdn.net/fqrq88918329/article/details/50154863" title="MAC OS上使用OpenGL遇到的大坑 -- 热心的李大妈" target="_blank" rel="noopener">4</a>: <a href="https://blog.csdn.net/fqrq88918329/article/details/50154863" target="_blank" rel="noopener">https://blog.csdn.net/fqrq88918329/article/details/50154863</a>    “MAC OS上使用OpenGL遇到的大坑 – 热心的李大妈”</p>
+<h3 id="5-因果图法"><a href="#5-因果图法" class="headerlink" title="5. 因果图法"></a>5. 因果图法</h3><ul>
+<li><p><strong>概念：</strong></p>
+<ul>
+<li>借助图的方式，设计测试用例，被测程序有多种输入条件，输出结果依赖于输入条件的组合; </li>
+<li>着重分析输入条件的各种组合，每个条件就是一个“因”，这些“因”的组合必然有一个输出的结果，这就是“果”; </li>
+<li>与其他的方法相比，更侧重于输入条件的组合 。</li>
+</ul>
+</li>
+<li><p><strong>约束符号</strong></p>
+<ul>
+<li>E：互斥，不能同时出现</li>
+<li>I：包含，至少一个出现</li>
+<li>O：唯一，有且只有一个出现</li>
+<li>R：要求，若a=1那么要求b必须是1，反之如果a=0，那么b无所谓</li>
+<li>M：屏蔽，当a=1时，b=0，当a=0，b的值有可能是1，也有可能是0</li>
+</ul>
+</li>
+<li><p><strong>示例：</strong></p>
+<p><img src="./01-03.png" alt="01-03 因果图"></p>
+</li>
+<li><p><strong>步骤：</strong></p>
+<ul>
+<li>分析软件规格说明描述中, 哪些是原因（即输入条件或输入条件的等价类），哪些是结果（即输出条件），并给每个原因和结果赋予一个标识符。 </li>
+<li>分析软件规格说明描述中的语义，找出原因与结果之间、原因与原因之间对应的关系。根据这些关系，画出因果图。 </li>
+<li>把因果图转换为判定表。</li>
+<li>把判定表的每一列拿出来作为依据,设计测试用例。 </li>
+</ul>
+</li>
+</ul>
+<h3 id="6-场景法"><a href="#6-场景法" class="headerlink" title="6. 场景法"></a>6. 场景法</h3><ul>
+<li><p><strong>概念：</strong></p>
+<ul>
+<li>用例场景：用来描述流经用例的路径，从用例开始到结束遍历这条路径上所有基本流和备选流。</li>
+<li><strong>基本流</strong>和<strong>备选流</strong></li>
+<li><strong>场景</strong></li>
+</ul>
+</li>
+<li><p>测试用例设计<strong>步骤</strong>与<strong>示例</strong></p>
+<ul>
+<li><p><strong>设计场景</strong>：通过用例的主事件流和备选事件流的组合给出不同的场景</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>基本流&amp;备选流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>场景1</td>
+<td>基本流</td>
+</tr>
+<tr>
+<td>场景2</td>
+<td>基本流 备选流1</td>
+</tr>
+<tr>
+<td>场景3</td>
+<td>基本流 备选流1 备选流2</td>
+</tr>
+<tr>
+<td>场景4</td>
+<td>基本流 备选流3</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>设计测试用例标准</strong>：覆盖场景</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>测试用例编号</th>
+<th>覆盖的场景</th>
+<th>PIN</th>
+<th>账号</th>
+<th>输入（选择）的金额</th>
+<th>账面金额</th>
+<th>ATM中的金额</th>
+<th>预测结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>场景1-成功提款</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>成功提款</td>
+</tr>
+<tr>
+<td>2</td>
+<td>场景2-ATM内无现金</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>I</td>
+<td>提款选项不可用，用例结束</td>
+</tr>
+<tr>
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>根据测试用例标准给出<strong>具体的测试数据</strong><table>
+<thead>
+<tr>
+<th>测试用例编号</th>
+<th>覆盖的场景</th>
+<th>PIN</th>
+<th>账号</th>
+<th>输入（选择）的金额</th>
+<th>账面金额</th>
+<th>ATM中的金额</th>
+<th>预测结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>场景1-成功提款</td>
+<td>1987</td>
+<td>809-498</td>
+<td>100</td>
+<td>500</td>
+<td>2000</td>
+<td>成功提款</td>
+</tr>
+<tr>
+<td>2</td>
+<td>场景2-ATM内无现金</td>
+<td>1987</td>
+<td>809-398</td>
+<td>100</td>
+<td>500</td>
+<td>0</td>
+<td>提款选项不可用，用例结束</td>
+</tr>
+<tr>
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p><strong>应用场景</strong></p>
+<ul>
+<li>一般用于<strong>功能测试</strong>，基本上所有的功能流程测试都会用到；</li>
+<li>业务复杂时，针对关键业务场景进行业务的流程测试。</li>
+</ul>
+</li>
+</ul>
+<h2 id="黑盒测试策略总结"><a href="#黑盒测试策略总结" class="headerlink" title="黑盒测试策略总结"></a>黑盒测试策略总结</h2><ul>
+<li>针对功能具体页面中具体的输入域进行细化测试，采用等价类、边界值；</li>
+<li>用静态检查法检查按钮、链接、内容、图片等；</li>
+<li>针对每个功能的流程，采用场景法，进行该功能（用例）的全方位流程测试；</li>
+<li>如果是多个条件的组合可以采用判定表或因果图法；</li>
+<li>在任何情况下都必须使用边界值分析方法；</li>
+<li>用错误推测法再追加一些测试用例。</li>
+</ul>
 
             </div>
             <hr/>
@@ -743,7 +879,7 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">Yi勒</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/opengl-02/" class="b-link-green">OpenGL学习笔记（二）渲染管线、FreeGLUT&amp;GLEW、简单示例</a>
+                    <a href="/software-test-01/" class="b-link-green">软件测试（一）黑盒测试</a>
                 </p>
             </div>
         </div>
@@ -765,7 +901,7 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
         repo: 'jirehchan.github.io',
         owner: 'JirehChan',
         admin: ["JirehChan"],
-        id: '2019-10-02T18-36-00',
+        id: '2019-10-14T23-30-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -790,30 +926,32 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/data-preface/">
+                <a href="/software-test-02/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Data总序篇：介绍与目录">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="软件测试（二）白盒测试">
                         
-                        <span class="card-title">Data总序篇：介绍与目录</span>
+                        <span class="card-title">软件测试（二）白盒测试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Data总序篇：介绍与目录系列介绍缘由
-由于近期计划阅读、学习几本经典书籍，分别与数据挖掘、统计学方法与机器学习相关，所以计划编写一个系列的笔记。
-由于这些内容存在着极多交叉相通的部分，所以希望能将其整合在一个系列之中，避免重复造轮子。
-但</div>
+                    <div class="summary">软件测试方法（二）白盒测试白盒测试（White-Box Testing）
+基本原理：基于过程设计的控制结构导出测试用例。
+白盒测试分类
+Control Flow-Testing
+逻辑分支覆盖法
+语句覆盖、判定覆盖、条件覆盖、判定/条件覆盖、</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-03
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-15
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Data/" class="post-category" target="_blank">
-                                    Data
+                            <a href="/categories/Software-Engineering/" class="post-category" target="_blank">
+                                    Software Engineering
                                 </a>
                             
                             
@@ -823,12 +961,8 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Data/" target="_blank">
-                        <span class="chip bg-color">Data</span>
-                    </a>
-                    
-                    <a href="/tags/Preface/" target="_blank">
-                        <span class="chip bg-color">Preface</span>
+                    <a href="/tags/Software-Test/" target="_blank">
+                        <span class="chip bg-color">Software Test</span>
                     </a>
                     
                 </div>
@@ -842,28 +976,27 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/else-2019-01-ipadsoftware/">
+                <a href="/opengl-03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="iPad软件个人推荐">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="OpenGL学习笔记（三）第一个渲染程序">
                         
-                        <span class="card-title">iPad软件个人推荐</span>
+                        <span class="card-title">OpenGL学习笔记（三）第一个渲染程序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">iPad软件个人推荐前言
-用iPad来做学习工具已经一个学习多了，鉴于身边有意向购买、使用iPad的人似乎日渐增多，写下此篇小文章来介绍一下我日常使用的几款不错的软件。另外，本人的设备包含iPad（第六代）和Pencil（一代，二代不支持i</div>
+                    <div class="summary">OpenGL学习笔记（三）第一个渲染程序​    上一篇中简单介绍了渲染管线和FLEW、FreeGLUT库的安装，但示例程序仍是使用已经废止的glBegin和glEnd来实现的，这次将进行第一个真正的渲染程序的编写（毕竟将对管线的认知转到实</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-02
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Else/" class="post-category" target="_blank">
-                                    Else
+                            <a href="/categories/OpenGL/" class="post-category" target="_blank">
+                                    OpenGL
                                 </a>
                             
                             
@@ -873,8 +1006,8 @@ OpenGL是一个3D图形库，即其中的所有事物都存储在3D空间中，�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ipad/" target="_blank">
-                        <span class="chip bg-color">ipad</span>
+                    <a href="/tags/OpenGL/" target="_blank">
+                        <span class="chip bg-color">OpenGL</span>
                     </a>
                     
                 </div>
