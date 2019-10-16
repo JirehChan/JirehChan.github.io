@@ -5,12 +5,12 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="软件测试（二）白盒测试, Yi勒">
-    <meta name="description" content="软件测试方法（二）白盒测试白盒测试（White-Box Testing）
+    <meta name="description" content="软件测试（二）白盒测试白盒测试（White-Box Testing）
 基本原理：基于过程设计的控制结构导出测试用例。
 白盒测试分类
 Control Flow-Testing
 逻辑分支覆盖法
-语句覆盖、判定覆盖、条件覆盖、判定/条件覆盖、">
+语句覆盖、判定覆盖、条件覆盖、判定/条件覆盖、条件">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -422,7 +422,7 @@ Control Flow-Testing
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        1.1k
+                        1.3k
                     </div>
                     
 
@@ -445,7 +445,7 @@ Control Flow-Testing
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="软件测试方法（二）白盒测试"><a href="#软件测试方法（二）白盒测试" class="headerlink" title="软件测试方法（二）白盒测试"></a>软件测试方法（二）白盒测试</h1><h2 id="白盒测试（White-Box-Testing）"><a href="#白盒测试（White-Box-Testing）" class="headerlink" title="白盒测试（White-Box Testing）"></a>白盒测试（White-Box Testing）</h2><ul>
+                <h1 id="软件测试（二）白盒测试"><a href="#软件测试（二）白盒测试" class="headerlink" title="软件测试（二）白盒测试"></a>软件测试（二）白盒测试</h1><h2 id="白盒测试（White-Box-Testing）"><a href="#白盒测试（White-Box-Testing）" class="headerlink" title="白盒测试（White-Box Testing）"></a>白盒测试（White-Box Testing）</h2><ul>
 <li><strong>基本原理</strong>：基于过程设计的控制结构导出测试用例。</li>
 <li><strong>白盒测试分类</strong><ul>
 <li>Control Flow-Testing<ul>
@@ -545,6 +545,44 @@ Control Flow-Testing
 </ul>
 </li>
 </ul>
+<h2 id="数据流测试"><a href="#数据流测试" class="headerlink" title="数据流测试"></a>数据流测试</h2><ul>
+<li><p><strong>含义</strong>：数据流测试使用控制流图来进行测试。</p>
+<ul>
+<li>能填补路径和分支测试的缝隙</li>
+</ul>
+</li>
+<li><p><strong>数据对象类别：</strong></p>
+<ul>
+<li><strong>（d）</strong>：Defined, Created, Initialized</li>
+<li><strong>（k）</strong>：Killed, Undefined, Released</li>
+<li><strong>（u）</strong>：Used<ul>
+<li><strong>（c）</strong>：Used in a calculation</li>
+<li><strong>（p）</strong>：Used in a predicate</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>路径段</strong>（du Path Segments）</p>
+<ul>
+<li><p>Def-use Association: $(x , d, u)$</p>
+<ul>
+<li>x: 变量</li>
+<li>d: 含有x定义的节点</li>
+<li>u: 含有x使用的判断或语句</li>
+<li>路径段中不存在其它x的定义</li>
+</ul>
+</li>
+<li><p><strong>例子</strong></p>
+<p><img src="./03-01.png" alt="03-01 Du Path 示例"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>数据流测试策略：ADUP</strong>（All du Paths）</p>
+<ul>
+<li>找出测试所有的du paths路径</li>
+</ul>
+</li>
+</ul>
 <h2 id="终极示例"><a href="#终极示例" class="headerlink" title="终极示例"></a>终极示例</h2><ul>
 <li>其实就是课程作业啦…</li>
 </ul>
@@ -562,15 +600,15 @@ z <span class="token operator">=</span> <span class="token number">1.0</span><sp
     z <span class="token operator">=</span> <span class="token number">1.0</span> <span class="token operator">/</span> z<span class="token punctuation">;</span>
 printf <span class="token punctuation">(</span><span class="token string">"%f"</span><span class="token punctuation">,</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>用判定条件覆盖法、基本路径法完成测试用例设计（要求画程序流程图和控制流图）</p>
-<h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><ol>
+<h3 id="【答案】"><a href="#【答案】" class="headerlink" title="【答案】"></a>【答案】</h3><ol>
 <li><p>程序流程图</p>
-<p><img src="./03-01.png" alt="03-01 程序流程图"></p>
+<p><img src="./04-01.png" alt="04-01 程序流程图"></p>
 </li>
 <li><p>控制流图</p>
-<p><img src="./03-02.png" alt="03-02 控制流图"> </p>
+<p><img src="./04-02.png" alt="04-02 控制流图"> </p>
 </li>
 <li><p>判定条件覆盖法</p>
-<p><img src="./03-03.png" alt="03-03 判定条件覆盖"></p>
+<p><img src="./04-03.png" alt="04-03 判定条件覆盖"></p>
 </li>
 <li><p>基本路径法</p>
 <p>本因有四条基本路径，但由于判定1与判定3存在矛盾，所以无法找出四条基本路径的实际用例。</p>
@@ -793,31 +831,28 @@ printf <span class="token punctuation">(</span><span class="token string">"%f"</
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/software-test-02/">
+                <a href="/software-test-03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="软件测试（二）白盒测试">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="软件测试（三）黑白盒测试练习">
                         
-                        <span class="card-title">软件测试（二）白盒测试</span>
+                        <span class="card-title">软件测试（三）黑白盒测试练习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">软件测试方法（二）白盒测试白盒测试（White-Box Testing）
-基本原理：基于过程设计的控制结构导出测试用例。
-白盒测试分类
-Control Flow-Testing
-逻辑分支覆盖法
-语句覆盖、判定覆盖、条件覆盖、判定/条件覆盖、</div>
+                    <div class="summary">软件测试（三）黑白盒测试练习
+内容来自老师的课堂练习，偷偷留下。
+
+黑盒测试【题目】​        用等价类划分法和边界值法设计一个“日期检查功能”的测试用例，输入为6位数字字符，前四位表示年份，后两位表示月份，限定从1990年1月到20</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-15
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -830,7 +865,6 @@ Control Flow-Testing
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -985,6 +1019,13 @@ Control Flow-Testing
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
@@ -994,7 +1035,7 @@ Control Flow-Testing
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">15.2k</span>
+                <span class="white-color">15.9k</span>
             
 
             

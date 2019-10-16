@@ -4,11 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="软件测试（一）黑盒测试, Yi勒">
-    <meta name="description" content="软件测试（一）黑盒测试动态黑盒测试（Black-Box Test）概念
-不深入代码细节测试软件的方法称为动态黑盒测试。
-动态（dynamic）：程序在运行；黑盒（black-box）：不知道如何运行。
-动态黑盒测试常被称为行为测试，因为测试">
+    <meta name="keywords" content="软件测试（三）黑白盒测试练习, Yi勒">
+    <meta name="description" content="软件测试（三）黑白盒测试练习
+内容来自老师的课堂练习，偷偷留下。
+
+黑盒测试【题目】​        用等价类划分法和边界值法设计一个“日期检查功能”的测试用例，输入为6位数字字符，前四位表示年份，后两位表示月份，限定从1990年1月到20">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>软件测试（一）黑盒测试 | Yi勒</title>
+    <title>软件测试（三）黑白盒测试练习 | Yi勒</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -291,13 +291,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        软件测试（一）黑盒测试
+                        软件测试（三）黑白盒测试练习
                     </div>
                 </div>
             </div>
@@ -413,21 +413,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-10-14
+                    2019-10-16
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        1.7k
+                        535
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        5 Min
+                        2 Min
                     </div>
                     
                 
@@ -443,301 +443,242 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="软件测试（一）黑盒测试"><a href="#软件测试（一）黑盒测试" class="headerlink" title="软件测试（一）黑盒测试"></a>软件测试（一）黑盒测试</h1><h2 id="动态黑盒测试（Black-Box-Test）"><a href="#动态黑盒测试（Black-Box-Test）" class="headerlink" title="动态黑盒测试（Black-Box Test）"></a>动态黑盒测试（Black-Box Test）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
-<li>不深入代码细节测试软件的方法称为<strong>动态黑盒测试</strong>。</li>
-<li><strong>动态</strong>（dynamic）：程序在运行；<strong>黑盒</strong>（black-box）：不知道如何运行。</li>
-<li>动态黑盒测试常被称为<strong>行为测试</strong>，因为测试的是软件在使用过程中的实际行动。</li>
+                <h1 id="软件测试（三）黑白盒测试练习"><a href="#软件测试（三）黑白盒测试练习" class="headerlink" title="软件测试（三）黑白盒测试练习"></a>软件测试（三）黑白盒测试练习</h1><ul>
+<li>内容来自老师的课堂练习，偷偷留下。</li>
 </ul>
-<h2 id="测试用例设计技术"><a href="#测试用例设计技术" class="headerlink" title="测试用例设计技术"></a>测试用例设计技术</h2><h3 id="1-等价类划分法（Equivalence-Partitioning）"><a href="#1-等价类划分法（Equivalence-Partitioning）" class="headerlink" title="1. 等价类划分法（Equivalence Partitioning）"></a>1. 等价类划分法（Equivalence Partitioning）</h3><ul>
-<li><p><strong>概念</strong>：把程序的输入域划分成若干部分，然后从每个部分中选取少数代表性数据当作测试用例。</p>
+<h2 id="黑盒测试"><a href="#黑盒测试" class="headerlink" title="黑盒测试"></a>黑盒测试</h2><h3 id="【题目】"><a href="#【题目】" class="headerlink" title="【题目】"></a>【题目】</h3><p>​        用等价类划分法和边界值法设计一个“日期检查功能”的测试用例，输入为6位数字字符，前四位表示年份，后两位表示月份，限定从1990年1月到2049年12月。</p>
+<h3 id="【答案】"><a href="#【答案】" class="headerlink" title="【答案】"></a>【答案】</h3><ul>
+<li><p><strong>等价类</strong></p>
+<p><img src="./01-01.png" alt="01-01 等价类划分"></p>
 </li>
-<li><p><strong>有效等价类</strong> &amp; <strong>无效等价类</strong></p>
-<ul>
-<li>有效等价类：指对于程序的规格说明来说是合理的、有意义的输入数据构成的集合。利用有效等价类可检验程序是否实现 了规格说明中所规定的功能和非功能。 </li>
-<li>无效等价类：与有效等价类的定义恰巧相反。 </li>
-</ul>
-</li>
-<li><p>测试：<strong>完备性</strong>、<strong>无冗余性</strong></p>
-</li>
-<li><p><strong>确定等价类的原则：</strong></p>
-<ul>
-<li>在输入条件规定了取值范围或值的个数的情况下，则可以确立一个有效等价类和两个无效等价类。 </li>
-<li>在输入条件规定了输入值的集合或者规定了“必须如何”的条件的情况下，可以确立一个有效等价类和一个无效等价类。 </li>
-<li>在输入条件是一个布尔量的情况下，可确定一个有效等价类和一个无效等价类。 </li>
-<li>在规定了输入数据的一组值 ，并且程序要对每一个输入值分别处理的情况下，可确立n个有效等价类和一个无效等价类。</li>
-<li>在规定了输入数据必须遵守的规则的情况下，可确立一个有效等价类（符合规则）和若干个无效等价类（从不同角度违反规则）。 </li>
-<li>如果确知，已划分的等价类中各个元素在程序中的处理方式不同，则应将此等价类进一步划分成更小的等价类。 </li>
-</ul>
-</li>
-<li><p><strong>示例</strong></p>
-<ul>
-<li><p>等价类划分：</p>
+<li><p><strong>测试用例</strong></p>
 <table>
 <thead>
 <tr>
-<th>被测项</th>
-<th>边长</th>
-<th>等价类编号</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>有效等价类</td>
-<td>正数</td>
-<td>1</td>
-</tr>
-<tr>
-<td>无效等价类</td>
-<td>小于0</td>
-<td>2</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>测试用例设计：</p>
-<table>
-<thead>
-<tr>
-<th>测试用例编号</th>
+<th>用例编号</th>
 <th>输入值</th>
 <th>覆盖的等价类编号</th>
-<th>合理输出</th>
+<th>合理输出值</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>T1</td>
-<td>2</td>
-<td>(1)</td>
+<td>1</td>
+<td>201910</td>
+<td>（1）</td>
 <td>正确</td>
 </tr>
 <tr>
-<td>T2</td>
-<td>0</td>
-<td>(2)</td>
-<td>错误</td>
+<td>2</td>
+<td>2019</td>
+<td>（2）</td>
+<td>提示位数错误</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2019A1</td>
+<td>（3）</td>
+<td>提示存在非法字符</td>
+</tr>
+<tr>
+<td>4</td>
+<td>192911</td>
+<td>（4）</td>
+<td>提示年份过小</td>
+</tr>
+<tr>
+<td>5</td>
+<td>208011</td>
+<td>（5）</td>
+<td>提示年份过大</td>
+</tr>
+<tr>
+<td>6</td>
+<td>201900</td>
+<td>（6）</td>
+<td>提示月份过小</td>
+</tr>
+<tr>
+<td>7</td>
+<td>201914</td>
+<td>（7）</td>
+<td>提示月份过大</td>
 </tr>
 </tbody></table>
 </li>
+<li><p><strong>边界值</strong></p>
+<ul>
+<li>（1）数字6位</li>
+<li>（2）年份：1990</li>
+<li>（3）年份：2049</li>
+<li>（4）月份：01</li>
+<li>（5）月份：02</li>
 </ul>
 </li>
-</ul>
-<h3 id="2-边界值分析法（VBA-Boundary-Value-Analysis）"><a href="#2-边界值分析法（VBA-Boundary-Value-Analysis）" class="headerlink" title="2. 边界值分析法（VBA, Boundary Value Analysis）"></a>2. 边界值分析法（VBA, Boundary Value Analysis）</h3><ul>
-<li><strong>概念：</strong>对等价划分类的补充，不是从某等价类中随便挑一个作为代表，而是使这个等价类的每个边界都要作为测试条件。</li>
-<li><strong>设计方法：</strong><ul>
-<li>确定边界情况（输入或输出等价类的边界）</li>
-<li>选取正好等于、刚刚大于或刚刚小于边界值作为测试数据 </li>
-<li>一般情况，一个边界可以给出3个边界测试用例，<strong>自身+左右值</strong></li>
-</ul>
+<li><p><strong>边界值测试用例</strong></p>
+<p><img src="./01-02.png" alt="01-02 边界值测试用例"></p>
 </li>
 </ul>
-<h3 id="3-错误推测方法"><a href="#3-错误推测方法" class="headerlink" title="3. 错误推测方法"></a>3. 错误推测方法</h3><ul>
-<li><strong>概念：</strong><ul>
-<li>通过经验和直觉推测出程序的错误所在；</li>
-<li>主观、灵感、反向思维，难以复制等等；</li>
-<li>不是一个系统的方法，用作辅助手段。</li>
-</ul>
+<h2 id="白盒测试"><a href="#白盒测试" class="headerlink" title="白盒测试"></a>白盒测试</h2><h3 id="【题目】-1"><a href="#【题目】-1" class="headerlink" title="【题目】"></a>【题目】</h3><p>​    对以下伪代码绘制程序框图、程序流图，进行判定-条件、条件组合、路径覆盖、基本路径覆盖测试，设计测试用例：</p>
+<pre class=" language-pascal"><code class="language-pascal">DIM a<span class="token punctuation">,</span>b As Integer
+DIM c As Integer
+<span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> b<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>c<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
+        c <span class="token operator">=</span> a<span class="token operator">+</span>b
+    <span class="token keyword">else</span> c<span class="token operator">=</span>c<span class="token number">+1</span>
+    <span class="token keyword">end</span> <span class="token keyword">if</span>
+<span class="token keyword">else</span> c<span class="token operator">=</span>c<span class="token number">+2</span>
+<span class="token keyword">end</span> <span class="token keyword">if</span></code></pre>
+<h3 id="【答案】-1"><a href="#【答案】-1" class="headerlink" title="【答案】"></a>【答案】</h3><ul>
+<li><p><strong>程序框图</strong></p>
+<p><img src="./02-01.png" alt="02-01 程序框图"></p>
+</li>
+<li><p><strong>程序流图</strong></p>
+<p><img src="./02-02.png" alt="02-02 程序流图"></p>
+</li>
+<li><p><strong>判定-条件</strong></p>
+<ul>
+<li><p>执行路径可以不用写，写的话帮助分析路径走法，保证判定、条件被覆盖到</p>
+<p><img src="./02-03.png" alt="02-03 判定-条件用例设计"></p>
 </li>
 </ul>
-<h3 id="4-判定表驱动测试方法（Decision-Table）"><a href="#4-判定表驱动测试方法（Decision-Table）" class="headerlink" title="4. 判定表驱动测试方法（Decision Table）"></a>4. 判定表驱动测试方法（Decision Table）</h3><ul>
-<li><p><strong>概念：</strong>是分析和表达多逻辑条件下执行不同操作的工具，也叫判定表。</p>
 </li>
-<li><p><strong>组成：</strong>条件桩（Condition Stub）、动作桩（Action Stub）、条件项、动作项、规则</p>
+<li><p><strong>条件组合</strong></p>
+<ul>
+<li><p>条件组合：</p>
+<ul>
+<li>1: $T_1T_2$</li>
+<li>2: $T_1-T_2$</li>
+<li>3: $-T_1T_2$</li>
+<li>4: $-T_1-T_2$</li>
+<li>5: $T_3$</li>
+<li>6: $-T_3$</li>
+</ul>
+</li>
+<li><p>用例设计：</p>
 <table>
 <thead>
 <tr>
-<th>条件桩</th>
-<th>条件项</th>
+<th>测试用例</th>
+<th>a,b,c</th>
+<th>执行路径</th>
+<th>覆盖条件</th>
+<th>预期结果</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>动作桩</td>
-<td>动作项</td>
+<td>1</td>
+<td>1,1,1</td>
+<td>bdfg</td>
+<td>1，5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1,1,-1</td>
+<td>bceg</td>
+<td>1，6</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1,-1,1</td>
+<td>ah</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-1,1,1</td>
+<td>ah</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>-1,-1,1</td>
+<td>ah</td>
+<td>4</td>
+<td>3</td>
 </tr>
 </tbody></table>
 </li>
-<li><p><strong>示例：</strong></p>
+</ul>
+</li>
+<li><p><strong>路径覆盖</strong></p>
 <ul>
-<li><p>判定表：</p>
-<p><img src="./01-01.png" alt="01-01 判定表"></p>
+<li><p>路径分析：</p>
+<ul>
+<li>$ah+b(ce+df)g=ah+bceg+bdfg$ （共三条）</li>
+</ul>
 </li>
 <li><p>测试用例：</p>
-<p><img src="./01-02.png" alt="01-02 判定表测试用例"></p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="5-因果图法"><a href="#5-因果图法" class="headerlink" title="5. 因果图法"></a>5. 因果图法</h3><ul>
-<li><p><strong>概念：</strong></p>
-<ul>
-<li>借助图的方式，设计测试用例，被测程序有多种输入条件，输出结果依赖于输入条件的组合; </li>
-<li>着重分析输入条件的各种组合，每个条件就是一个“因”，这些“因”的组合必然有一个输出的结果，这就是“果”; </li>
-<li>与其他的方法相比，更侧重于输入条件的组合 。</li>
-</ul>
-</li>
-<li><p><strong>约束符号</strong></p>
-<ul>
-<li>E：互斥，不能同时出现</li>
-<li>I：包含，至少一个出现</li>
-<li>O：唯一，有且只有一个出现</li>
-<li>R：要求，若a=1那么要求b必须是1，反之如果a=0，那么b无所谓</li>
-<li>M：屏蔽，当a=1时，b=0，当a=0，b的值有可能是1，也有可能是0</li>
-</ul>
-</li>
-<li><p><strong>示例：</strong></p>
-<p><img src="./01-03.png" alt="01-03 因果图"></p>
-</li>
-<li><p><strong>步骤：</strong></p>
-<ul>
-<li>分析软件规格说明描述中, 哪些是原因（即输入条件或输入条件的等价类），哪些是结果（即输出条件），并给每个原因和结果赋予一个标识符。 </li>
-<li>分析软件规格说明描述中的语义，找出原因与结果之间、原因与原因之间对应的关系。根据这些关系，画出因果图。 </li>
-<li>把因果图转换为判定表。</li>
-<li>把判定表的每一列拿出来作为依据,设计测试用例。 </li>
-</ul>
-</li>
-</ul>
-<h3 id="6-场景法"><a href="#6-场景法" class="headerlink" title="6. 场景法"></a>6. 场景法</h3><ul>
-<li><p><strong>概念：</strong></p>
-<ul>
-<li>用例场景：用来描述流经用例的路径，从用例开始到结束遍历这条路径上所有基本流和备选流。</li>
-<li><strong>基本流</strong>和<strong>备选流</strong></li>
-<li><strong>场景</strong></li>
-</ul>
-</li>
-<li><p>测试用例设计<strong>步骤</strong>与<strong>示例</strong></p>
-<ul>
-<li><p><strong>设计场景</strong>：通过用例的主事件流和备选事件流的组合给出不同的场景</p>
 <table>
 <thead>
 <tr>
-<th>场景</th>
-<th>基本流&amp;备选流</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>场景1</td>
-<td>基本流</td>
-</tr>
-<tr>
-<td>场景2</td>
-<td>基本流 备选流1</td>
-</tr>
-<tr>
-<td>场景3</td>
-<td>基本流 备选流1 备选流2</td>
-</tr>
-<tr>
-<td>场景4</td>
-<td>基本流 备选流3</td>
-</tr>
-</tbody></table>
-</li>
-<li><p><strong>设计测试用例标准</strong>：覆盖场景</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>测试用例编号</th>
-<th>覆盖的场景</th>
-<th>PIN</th>
-<th>账号</th>
-<th>输入（选择）的金额</th>
-<th>账面金额</th>
-<th>ATM中的金额</th>
-<th>预测结果</th>
+<th>测试用例</th>
+<th>a,b,c</th>
+<th>执行路径</th>
+<th>预期结果</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>1</td>
-<td>场景1-成功提款</td>
-<td>V</td>
-<td>V</td>
-<td>V</td>
-<td>V</td>
-<td>V</td>
-<td>成功提款</td>
+<td>1,-1,1</td>
+<td>ah</td>
+<td>3</td>
 </tr>
 <tr>
 <td>2</td>
-<td>场景2-ATM内无现金</td>
-<td>V</td>
-<td>V</td>
-<td>V</td>
-<td>V</td>
-<td>I</td>
-<td>提款选项不可用，用例结束</td>
-</tr>
-<tr>
-<td>…</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<ul>
-<li>根据测试用例标准给出<strong>具体的测试数据</strong><table>
-<thead>
-<tr>
-<th>测试用例编号</th>
-<th>覆盖的场景</th>
-<th>PIN</th>
-<th>账号</th>
-<th>输入（选择）的金额</th>
-<th>账面金额</th>
-<th>ATM中的金额</th>
-<th>预测结果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>场景1-成功提款</td>
-<td>1987</td>
-<td>809-498</td>
-<td>100</td>
-<td>500</td>
-<td>2000</td>
-<td>成功提款</td>
-</tr>
-<tr>
-<td>2</td>
-<td>场景2-ATM内无现金</td>
-<td>1987</td>
-<td>809-398</td>
-<td>100</td>
-<td>500</td>
+<td>1,1,-1</td>
+<td>bceg</td>
 <td>0</td>
-<td>提款选项不可用，用例结束</td>
 </tr>
 <tr>
-<td>…</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>3</td>
+<td>1,1,1</td>
+<td>bdfg</td>
+<td>2</td>
 </tr>
 </tbody></table>
 </li>
 </ul>
 </li>
-<li><p><strong>应用场景</strong></p>
+<li><p><strong>基本路径覆盖</strong></p>
 <ul>
-<li>一般用于<strong>功能测试</strong>，基本上所有的功能流程测试都会用到；</li>
-<li>业务复杂时，针对关键业务场景进行业务的流程测试。</li>
-</ul>
+<li><p>数量：$V(G)=流程图中区域数=3$</p>
+</li>
+<li><p>测试用例：</p>
+<table>
+<thead>
+<tr>
+<th>测试用例</th>
+<th>a,b,c</th>
+<th>执行路径</th>
+<th>预期结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1,-1,1</td>
+<td>ah</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1,1,-1</td>
+<td>bceg</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1,1,1</td>
+<td>bdfg</td>
+<td>2</td>
+</tr>
+</tbody></table>
 </li>
 </ul>
-<h2 id="黑盒测试策略总结"><a href="#黑盒测试策略总结" class="headerlink" title="黑盒测试策略总结"></a>黑盒测试策略总结</h2><ul>
-<li>针对功能具体页面中具体的输入域进行细化测试，采用等价类、边界值；</li>
-<li>用静态检查法检查按钮、链接、内容、图片等；</li>
-<li>针对每个功能的流程，采用场景法，进行该功能（用例）的全方位流程测试；</li>
-<li>如果是多个条件的组合可以采用判定表或因果图法；</li>
-<li>在任何情况下都必须使用边界值分析方法；</li>
-<li>用错误推测法再追加一些测试用例。</li>
+</li>
 </ul>
 
             </div>
@@ -879,7 +820,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">Yi勒</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/software-test-01/" class="b-link-green">软件测试（一）黑盒测试</a>
+                    <a href="/software-test-03/" class="b-link-green">软件测试（三）黑白盒测试练习</a>
                 </p>
             </div>
         </div>
@@ -901,7 +842,7 @@
         repo: 'jirehchan.github.io',
         owner: 'JirehChan',
         admin: ["JirehChan"],
-        id: '2019-10-14T23-30-00',
+        id: '2019-10-16T15-25-04',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -922,30 +863,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/software-test-02/">
+                <a href="/software-test-03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="软件测试（二）白盒测试">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="软件测试（三）黑白盒测试练习">
                         
-                        <span class="card-title">软件测试（二）白盒测试</span>
+                        <span class="card-title">软件测试（三）黑白盒测试练习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">软件测试（二）白盒测试白盒测试（White-Box Testing）
-基本原理：基于过程设计的控制结构导出测试用例。
-白盒测试分类
-Control Flow-Testing
-逻辑分支覆盖法
-语句覆盖、判定覆盖、条件覆盖、判定/条件覆盖、条件</div>
+                    <div class="summary">软件测试（三）黑白盒测试练习
+内容来自老师的课堂练习，偷偷留下。
+
+黑盒测试【题目】​        用等价类划分法和边界值法设计一个“日期检查功能”的测试用例，输入为6位数字字符，前四位表示年份，后两位表示月份，限定从1990年1月到20</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -958,6 +898,7 @@ Control Flow-Testing
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -976,27 +917,32 @@ Control Flow-Testing
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/opengl-03/">
+                <a href="/software-test-02/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="OpenGL学习笔记（三）第一个渲染程序">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="软件测试（二）白盒测试">
                         
-                        <span class="card-title">OpenGL学习笔记（三）第一个渲染程序</span>
+                        <span class="card-title">软件测试（二）白盒测试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">OpenGL学习笔记（三）第一个渲染程序​    上一篇中简单介绍了渲染管线和FLEW、FreeGLUT库的安装，但示例程序仍是使用已经废止的glBegin和glEnd来实现的，这次将进行第一个真正的渲染程序的编写（毕竟将对管线的认知转到实</div>
+                    <div class="summary">软件测试（二）白盒测试白盒测试（White-Box Testing）
+基本原理：基于过程设计的控制结构导出测试用例。
+白盒测试分类
+Control Flow-Testing
+逻辑分支覆盖法
+语句覆盖、判定覆盖、条件覆盖、判定/条件覆盖、条件</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-14
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/OpenGL/" class="post-category" target="_blank">
-                                    OpenGL
+                            <a href="/categories/Software-Engineering/" class="post-category" target="_blank">
+                                    Software Engineering
                                 </a>
                             
                             
@@ -1006,8 +952,8 @@ Control Flow-Testing
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/OpenGL/" target="_blank">
-                        <span class="chip bg-color">OpenGL</span>
+                    <a href="/tags/Software-Test/" target="_blank">
+                        <span class="chip bg-color">Software Test</span>
                     </a>
                     
                 </div>
@@ -1108,6 +1054,13 @@ Control Flow-Testing
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
