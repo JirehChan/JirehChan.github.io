@@ -4,10 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="2019论文阅读笔记&lt;03&gt;, Yi勒">
-    <meta name="description" content="2019 论文阅读笔记 &amp;lt;03&amp;gt;【基本信息】
-论文题目：Attention is all you need
-作者：Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkorei">
+    <meta name="keywords" content="Data方法篇（一）决策树, Yi勒">
+    <meta name="description" content="Data方法篇（一）决策树
+对应《数据挖掘导论（完整版）》第4章、《机器学习》第4章、《统计学习方法》第5章。
+
+1. 决策树模型定义
+决策树（Decision Tree）是一种基本的分类与回归方法。
+可以认为是if-then规则的集合、定">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>2019论文阅读笔记&lt;03&gt; | Yi勒</title>
+    <title>Data方法篇（一）决策树 | Yi勒</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -290,13 +293,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        2019论文阅读笔记&lt;03&gt;
+                        Data方法篇（一）决策树
                     </div>
                 </div>
             </div>
@@ -388,12 +391,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Article/" target="_blank">
-                                <span class="chip bg-color">Article</span>
+                            <a href="/tags/Data/" target="_blank">
+                                <span class="chip bg-color">Data</span>
                             </a>
                         
-                            <a href="/tags/NLP/" target="_blank">
-                                <span class="chip bg-color">NLP</span>
+                            <a href="/tags/Model/" target="_blank">
+                                <span class="chip bg-color">Model</span>
                             </a>
                         
                     </div>
@@ -404,8 +407,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Article/" class="post-category" target="_blank">
-                                Article
+                            <a href="/categories/Data/" class="post-category" target="_blank">
+                                Data
                             </a>
                         
                     </div>
@@ -416,21 +419,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-09-27
+                    2019-10-19
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        1k
+                        3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        4 Min
+                        11 Min
                     </div>
                     
                 
@@ -446,145 +449,228 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="2019-论文阅读笔记-lt-03-gt"><a href="#2019-论文阅读笔记-lt-03-gt" class="headerlink" title="2019 论文阅读笔记 &lt;03&gt;"></a>2019 论文阅读笔记 &lt;03&gt;</h1><h2 id="【基本信息】"><a href="#【基本信息】" class="headerlink" title="【基本信息】"></a>【基本信息】</h2><ul>
-<li><strong>论文题目：</strong><a href="http://papers.nips.cc/paper/7181-attention-is-all-you-need" target="_blank" rel="noopener">Attention is all you need</a></li>
-<li><strong>作者：</strong>Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Adian N. Gomez, Łukasz Kaiser, Illia Polosukhin </li>
-<li><strong>出版：</strong> <a href="http://papers.nips.cc/book/advances-in-neural-information-processing-systems-30-2017" target="_blank" rel="noopener">Advances in Neural Information Processing Systems 30 (NIPS 2017)</a></li>
-<li><strong>日期：</strong>Submitted on 12 Jun 2017 （*<a href="https://arxiv.org/abs/1706.03762v1" target="_blank" rel="noopener">v1</a>*）, last revised 6 Dec 2017 （this version, v5）</li>
-<li><strong>简介：</strong>此论文针对以往NLP中使用RNN结构和endoder-decoder结构无法并行、速度慢的问题，基于<strong>注意力机制</strong>提出了一种称为<strong>Transformer</strong>的网络结构。</li>
+                <h1 id="Data方法篇（一）决策树"><a href="#Data方法篇（一）决策树" class="headerlink" title="Data方法篇（一）决策树"></a>Data方法篇（一）决策树</h1><ul>
+<li>对应《数据挖掘导论（完整版）》第4章、《机器学习》第4章、《统计学习方法》第5章。</li>
 </ul>
-<h2 id="【词汇术语】"><a href="#【词汇术语】" class="headerlink" title="【词汇术语】"></a>【词汇术语】</h2><h3 id="专业词汇-术语"><a href="#专业词汇-术语" class="headerlink" title="专业词汇/术语"></a>专业词汇/术语</h3><ul>
-<li><strong>sequence transduction models</strong></li>
-<li><strong>attention mechanism:</strong> 注意力机制</li>
-</ul>
-<h3 id="语言词汇"><a href="#语言词汇" class="headerlink" title="语言词汇"></a>语言词汇</h3><ul>
-<li><strong>push the boundaries</strong></li>
-<li><strong>integral</strong> 必需的</li>
-</ul>
-<h3 id="模型-模式-算法"><a href="#模型-模式-算法" class="headerlink" title="模型/模式/算法"></a>模型/模式/算法</h3><ul>
-<li><strong>softmax</strong><ul>
-<li>softmax用于多分类过程中，它将多个神经元的输出，映射到（0,1）区间内，可以看成概率来理解，从而来进行多分类</li>
-<li>$S_i=\frac{e^i}{\sum_je^j}$</li>
+<h2 id="1-决策树模型"><a href="#1-决策树模型" class="headerlink" title="1. 决策树模型"></a>1. 决策树模型</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li><strong>决策树</strong>（Decision Tree）是一种基本的分类与回归方法。<ul>
+<li>可以认为是if-then规则的集合、定义在特征空间与类空间与类空间上的条件概率分布。</li>
 </ul>
 </li>
+<li><strong>主要优点：</strong>模型具有可读性，分类速度快。</li>
+<li>学习时，利用训练数据，根据<strong>损失函数最小化</strong>的原则建立决策树模型。</li>
 </ul>
-<h2 id="【论文笔记】"><a href="#【论文笔记】" class="headerlink" title="【论文笔记】"></a>【论文笔记】</h2><h3 id="「简介前言」"><a href="#「简介前言」" class="headerlink" title="「简介前言」"></a>「简介前言」</h3><h4 id="当前缺陷"><a href="#当前缺陷" class="headerlink" title="当前缺陷"></a>当前缺陷</h4><ul>
-<li><strong>RNN</strong><ul>
-<li>前后状态的依赖性导致无法并行，在较长的词序时运行缓慢</li>
-</ul>
-</li>
-<li><strong>当前努力</strong><ul>
-<li>分解（factorization tricks）, 条件计算（conditional computation）</li>
-<li><em>Neural GPU<em>，</em>ByteNet</em> 和 <em>ConvS2S</em></li>
-<li>按序计算的限制仍然存在</li>
-</ul>
-</li>
-</ul>
-<h4 id="注意力机制（Attention-Mechanisms）"><a href="#注意力机制（Attention-Mechanisms）" class="headerlink" title="注意力机制（Attention Mechanisms）"></a>注意力机制（Attention Mechanisms）</h4><ul>
-<li><strong>注意力机制</strong>（Attention Mechanisms）<ul>
-<li>各种序列模型建模和转换模型中的一个组成部分（<em>an integral part of compelling sequence modeling and transduction models in various tasks</em>）</li>
-<li>可以不用考虑在输入输出序列中的距离而允许建模</li>
-<li>在少量情况，和循环网络结合使用</li>
-</ul>
-</li>
-<li><strong>自注意力机制</strong>（Self-attention，intra-attention）<ul>
-<li>把输入序列上不同位置的信息联系起来计算一个句子的表示内容</li>
-</ul>
-</li>
-</ul>
-<h3 id="「Transformer模型」"><a href="#「Transformer模型」" class="headerlink" title="「Transformer模型」"></a>「Transformer模型」</h3><h4 id="Encoder-Decoder"><a href="#Encoder-Decoder" class="headerlink" title="Encoder-Decoder"></a>Encoder-Decoder</h4><ul>
-<li><p><strong>结构图</strong></p>
-<p><img src="./03-01the-transformer-model-architecture.png" alt="03-01the-transformer-model-architecture"></p>
-</li>
-<li><p><strong>Encoder</strong></p>
+<h3 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h3><p><img src="./01-01.png" alt="01-01 决策树示意图"></p>
 <ul>
-<li>由6个基本层堆叠</li>
-<li>每层含有两个子层：<ul>
-<li>注意力机制（<em>multi-head self-attention mechanism</em>）</li>
-<li>全连接前向网络（<em>simple, position-wise fully connected feed-forward network</em>）</li>
-</ul>
-</li>
-<li>在两个子层中都有剩余连接（<em>residual connection</em>）和层标准化（<em>layer normalization</em>）<ul>
-<li>子层的输出：$LayerNorm(x+Sublayer(x))$</li>
+<li><strong>「元素」</strong><ul>
+<li><strong>叶结点（left node）或终结点（terminal node）：</strong>决策结果</li>
+<li><strong>内部结点（internal node）或非终止结点（non-terminal node）：</strong>属性测试条件</li>
 </ul>
 </li>
 </ul>
+<h3 id="决策树学习"><a href="#决策树学习" class="headerlink" title="决策树学习"></a>决策树学习</h3><ul>
+<li><p><strong>本质</strong>：是<strong>从训练数据集中归纳出一组分类规则</strong>。</p>
 </li>
-<li><p><strong>Decoder</strong></p>
+<li><p>决策树学习使用<strong>损失函数</strong>，通常是正则化的极大似然函数，决策树学习的策略是<strong>以损失函数为目标函数的最小化</strong>。</p>
+</li>
+<li><p><strong>三个关键步骤：</strong> <strong>特征选择</strong>（划分选择）、<strong>决策树的生成</strong>和<strong>决策树的修剪</strong>。</p>
 <ul>
-<li>在encoder的输出外再增加了一层注意力机制</li>
-<li>掩饰（<em>masking</em>）<ul>
-<li>确保每个位置的预测只基于前面已知位置的词</li>
+<li>决策树的生成对应于模型的<strong>局部</strong>选择，决策树的剪枝对应于模型的<strong>全局</strong>选择。</li>
+<li>特征选择是在决策树的生成过程之中使用，而修剪是可以在生成前后都可以进行的。</li>
+</ul>
+</li>
+<li><p><strong>常用的算法：</strong>ID3、C4.5与CART</p>
+</li>
+</ul>
+<h2 id="2-特征选择"><a href="#2-特征选择" class="headerlink" title="2. 特征选择"></a>2. 特征选择</h2><ul>
+<li><strong>特征选择</strong>（划分选择）是决策树学习的关键，即如何选择最优划分属性。特征选择在于选取对训练数据具有分类能力的特征，即提高结点的<strong>纯度</strong>（purtiy）。</li>
+<li>以下是用于特征选择常用的几种指标：<strong>信息增益</strong>、<strong>信息增益比</strong>、<strong>基尼指数</strong></li>
+</ul>
+<h3 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h3><ul>
+<li><strong>信息熵</strong>（information entropy）：度量样本集合纯度最常用的一种指标。<ul>
+<li>样本集合$D$中第k类样本所占的比例为$p_k(k=1,2,..,|y|)$，则D的信息熵定义为：<ul>
+<li>$Ent(D)=-\sum^{|y|}_{k=1}p_k\log_2p_k$</li>
+</ul>
+</li>
+<li>$Ent(D)$的值越小，则$D$的纯度越高</li>
+</ul>
+</li>
+<li><strong>信息增益</strong>（information gain）<ul>
+<li>属性a对样本集D进行划分所获的”信息增益“<ul>
+<li>$Gain(D,a)=Ent(D)-\sum^V_{v=1}\frac{|D^v|}{|D|}Ent(D^v)$</li>
+</ul>
+</li>
+<li>一般而言，信息增益越大，则意味着使用属性a来进行划分所获得的“纯度提升”越大。</li>
+<li><strong>存在的问题：</strong>偏向于选择取值较多的特征的问题。</li>
 </ul>
 </li>
 </ul>
+<h3 id="信息增益比"><a href="#信息增益比" class="headerlink" title="信息增益比"></a>信息增益比</h3><ul>
+<li><strong>信息增益比</strong>（增益率，information gain ratio）<ul>
+<li>$Gain_ratio(D,a)=\frac{Gain(D,a)}{IV(a)}$</li>
+<li><strong>固有值</strong>（intrinsic value）：$IV(a)=-\sum^V_{v=1}\frac{|D|^v}{|D|}\log_2(\frac{|D^v|}{|D|})$</li>
+</ul>
+</li>
+<li><strong>缺陷：</strong>增益率准则对可取数目较少的属性有所偏好<ul>
+<li>C4.5中使用启发式算法，先从候选划分属性中选出信息增益高于平均水平的属性，再从中选择增益率最高的最高的</li>
+</ul>
 </li>
 </ul>
-<h4 id="注意力机制（Attention）"><a href="#注意力机制（Attention）" class="headerlink" title="注意力机制（Attention）"></a>注意力机制（Attention）</h4><ul>
-<li><p><strong>注意力机制</strong></p>
+<h3 id="基尼系数"><a href="#基尼系数" class="headerlink" title="基尼系数"></a>基尼系数</h3><ul>
+<li><strong>基尼系数</strong>（Gini index）：被CART决策树使用<ul>
+<li>$Gini(D)=\sum^{|y|}<em>{k=1}\sum</em>{k’\neq k}p_kp_{k’}=1-\sum^{|y|}_{k=1}p_k^2$</li>
+<li>$Gini(D)$反应了从数据集D中随机抽取两个样本，其类别标记不一致的概率。</li>
+<li>$Gini(D)$越小，则数据集D的纯度越高</li>
+</ul>
+</li>
+<li>属性a的基尼指数定义为：<ul>
+<li>$Gini_index(D,a)=\sum^V_{v=1}\frac{|D^v|}{|D|}Gini(D^v)$</li>
+</ul>
+</li>
+<li>选择划分后基尼指数最小的属性作为最优划分属性，即$a_*=\arg \min_{a\in A}Gini_index(D,a)$</li>
+</ul>
+<h2 id="3-决策树的生成"><a href="#3-决策树的生成" class="headerlink" title="3. 决策树的生成"></a>3. 决策树的生成</h2><ul>
+<li>由于搜索空间是指数规模的，找出最佳决策树在计算上是不可行的。所以人们开发了一些有效的算法来构造<strong>次最优决策树</strong>。这些算法通常都采用<strong>贪心策略</strong>，采取一系列的<strong>局部最优策略</strong>来构造决策树。</li>
+</ul>
+<h3 id="Hunt-算法"><a href="#Hunt-算法" class="headerlink" title="Hunt 算法"></a>Hunt 算法</h3><ul>
+<li><strong>Hunt算法</strong>通过将训练记录相继划分成较纯的子集，以递归方式建立决策树，是许多决策树算法的基础，包括ID3、C4.5和CART。</li>
+<li><strong>算法：</strong>设$D_t$是与结点t关联的训练记录集，而$y={y_1,y_2,…,y_c}$是类标签<ul>
+<li>如果$D_t$中所有记录都属于同一个类$y_t$，则$t$是叶节点，用$y_t$表示</li>
+<li>如果$D_t$中包含属于多个类的记录，则选择一个<strong>属性测试条件</strong>，将记录划分成较小的子集。对于测试条件的每个输出，创建一个子女结点，并根据测试结果将$D_t$中的记录分布到子女结点中。然后，对于每个子女结点，递归地调用该算法。</li>
+</ul>
+</li>
+<li><strong>补充附加条件：</strong>处理特殊情况<ul>
+<li>当创建的子女结点为空，即不存在与这些结点相关联的记录时，则该结点为叶结点，类标号为父结点上训练记录的多数类。</li>
+<li>当与$D_t$相关联的所有记录都具有相同的属性值，无法划分，但类又不同时，标号记为与结点相关联的训练记录中的多数类。</li>
+</ul>
+</li>
+</ul>
+<h3 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="ID3 算法"></a>ID3 算法</h3><ul>
+<li><p><strong>ID3算法</strong>的核心是在决策树各个节点上应用<strong>信息增益</strong>准则选择特征，递归地构建决策树。</p>
 <ul>
-<li>将一个查找和一组键值对映射到正确的输出（<em>mapping a query and a set of key-value pairs to an output</em>）</li>
+<li>相当于用极大似然法进行概率模型的选择。</li>
 </ul>
-<p><img src="./03-02tow-attention.png" alt="03-02tow-attention"></p>
 </li>
-<li><p><strong>Scaled Dot-Product Attention</strong></p>
+<li><p><strong>算法</strong>：</p>
 <ul>
-<li>$Attention(Q,K,V)=softmax(\frac{QK^T}{\sqrt{d_k}})V$</li>
-<li>$d_k$：keys的维度；$d_v$：value的维度</li>
-<li>$Q$：查询矩阵；$K$：keys的矩阵；$V$：values的矩阵</li>
-</ul>
+<li><p><strong>输入：</strong>训练数据集$D$，特征集$A$阈值$\epsilon $</p>
 </li>
-<li><p><strong>Multi-Head Attention</strong></p>
-<ul>
-<li>$MultiHead(Q,K,V)=Concat(head_1,…,head_h)W^{\bigcirc}$</li>
-<li>$head_i=Attention(QW_i^Q,KW_i^K,VW_i^V)$</li>
-</ul>
+<li><p><strong>输出：</strong>决策树$T$</p>
+<ol>
+<li><p>若$D$中所有实例属于同一类$C_k$，则$T$为单结点树，并将类$C_k$作为该结点的类标记，返回$T$；</p>
 </li>
-<li><p>文章使用的注意力机制</p>
-<ul>
-<li>Multi-Head Attention，三个方面：</li>
-<li>Encoder-Decoder Attention层<ul>
-<li>查询来自前一个decoder层，允许decoder的每个位置都能关注输入的所有位置</li>
-</ul>
+<li><p>若$A=\phi$，则$T$为单结点树，并将$D$中实例数最大的类$C_k$作为该结点的类标记，返回$T$；</p>
 </li>
-<li>Encoder层中的Self-attention层<ul>
-<li>在self-attention层中所有的key、value和query都来自前一层的encoder，encoder的每个位置都能关注前一层输出的所有位置。</li>
-</ul>
+<li><p>否则，计算$A$中各特征对$D$的<strong>信息增益</strong>，选择<strong>信息增益最大的特征</strong>$A_g$</p>
+<p>$Gain(D,a)=Ent(D)-\sum^V_{v=1}\frac{|D^v|}{|D|}Ent(D^v)$；</p>
 </li>
-<li>Decoder层中的Self-attention层</li>
+<li><p>如果$A_g$的信息增益小于阈值$\epsilon$，则置$T$为单结点树，并将$D$中实例数最大的类$C_k$作为该结点的类标记，返回$T$；</p>
+</li>
+<li><p>否则，对$A_g$的每一可能值$a_i$，依$A_g=a_i$将$D$分割为若干非空子集$D_i$，将$D_i$中实例数最大的类作为标记，构建子结点，由结点及其子结点构成树$T$，返回$T$；</p>
+</li>
+<li><p>对第$i$个结点，以$D_i$作为训练集，以$A-{A_g}$为特征集，递归地调用1~5步，得到子树$T_i$，返回$T_i$。</p>
+</li>
+</ol>
+</li>
 </ul>
 </li>
 </ul>
-<h4 id="Position-wise-Feed-Forward-Networks"><a href="#Position-wise-Feed-Forward-Networks" class="headerlink" title="Position-wise Feed-Forward Networks"></a>Position-wise Feed-Forward Networks</h4><ul>
-<li>每一层都有一个<strong>fukky connected feed-forward network</strong><ul>
-<li>$FNN(x)=\max(0,xW_1+b_1)W_2+b_2$</li>
-<li>两个线性转换，中间一个ReLU</li>
+<h3 id="C4-5-算法"><a href="#C4-5-算法" class="headerlink" title="C4.5 算法"></a>C4.5 算法</h3><ul>
+<li><strong>C4.5 算法</strong>在生成过程中用<strong>信息增益比</strong>来选择特征，其它步骤相同。</li>
+<li><strong>信息增益比：</strong>$Gain_ratio(D,a)=\frac{Gain(D,a)}{IV(a)}$<ul>
+<li><strong>固有值</strong>（intrinsic value）：$IV(a)=-\sum^V_{v=1}\frac{|D|^v}{|D|}\log_2(\frac{|D^v|}{|D|})$</li>
 </ul>
 </li>
 </ul>
-<h4 id="Embeddings-and-Softmax"><a href="#Embeddings-and-Softmax" class="headerlink" title="Embeddings and Softmax"></a>Embeddings and Softmax</h4><h4 id="位置编码（Positional-Encoding）"><a href="#位置编码（Positional-Encoding）" class="headerlink" title="位置编码（Positional Encoding）"></a>位置编码（Positional Encoding）</h4><ul>
-<li>不使用递归结构和卷积结构，引入位置编码来使用输入顺序信息</li>
-<li><strong>位置编码：</strong><ul>
-<li>$PE_{(pos,2i)}=\sin(pos/10000^{2i/d_{model}})$</li>
-<li>$PE_{(pos,2i+1)}=\cos(pos/10000^{2i/d_{model}})$</li>
-<li>$pos$: position; $i$: dimension</li>
+<h3 id="CART-算法"><a href="#CART-算法" class="headerlink" title="CART 算法"></a>CART 算法</h3><ul>
+<li><strong>分类与回归树</strong>（classification and regression tree, CART）模型，是<strong>广泛的决策树学习方法</strong>。同样由<strong>特征选择</strong>、<strong>树的生成</strong>和<strong>剪枝</strong>组成，既可以用于分类也可以用于回归。</li>
+<li><strong>组成</strong>：<ul>
+<li><strong>生成</strong>：基于训练数据集生成决策树，生成的决策树要尽量大；</li>
+<li><strong>剪枝</strong>：用<strong>验证数据集</strong>对已生成的树进行剪枝并选择最优子树，用<strong>损失函数最小</strong>作为剪枝的标准。</li>
 </ul>
 </li>
-<li>使用sin版本，因为它允许序列用到更长</li>
-</ul>
-<h3 id="「为什么使用自注意力机制」"><a href="#「为什么使用自注意力机制」" class="headerlink" title="「为什么使用自注意力机制」"></a>「为什么使用自注意力机制」</h3><ul>
-<li>三个方面比较其与递归结构、卷积结构<ul>
-<li>每层的计算复杂度（<em>total computational complexity per layer</em>）</li>
-<li>能被并行计算的数量（<em>the amount of computation that can be parallelized</em>）</li>
-<li>网络中长范围以来的路径长度（<em>the path length between long-range dependencies in the network</em>）</li>
+<li><strong>生成</strong><ul>
+<li><strong>回归树：</strong>平方误差最小化准则<ul>
+<li><strong>平方误差：</strong>$\sum_{x_i\in R_{m}}(y_i-f(x_i))^2$</li>
+<li>寻找最优<strong>切分变量</strong>（splitting variable）、<strong>切分点</strong>（splitting point），即求解：<ul>
+<li>$\min_{j,s}[\min_{c_1}\sum_{x_i\in R_1(j,s)}(y_i-c_1)^2+\min_{c_2}\sum_{x_i\in R_2(j,s)}(y_i-c_2)^2]$</li>
+<li>$R_1(j,s)={x|x^{(j)}\le s}$；$R_2(j,s)={x|x^{(j)}&gt; s}$</li>
 </ul>
 </li>
 </ul>
-<h3 id="「实验与结论」"><a href="#「实验与结论」" class="headerlink" title="「实验与结论」"></a>「实验与结论」</h3><ul>
-<li>同前文，不加以赘述，有兴趣可以自行查看论文以及相关代码。</li>
+</li>
+<li><strong>分类树：</strong>基尼指数最小化准则<ul>
+<li><strong>基尼指数最小化</strong><ul>
+<li>$Gini_index(D,a)=\sum^V_{v=1}\frac{|D^v|}{|D|}Gini(D^v)$</li>
 </ul>
-<h2 id="「小记总结」"><a href="#「小记总结」" class="headerlink" title="「小记总结」"></a>「小记总结」</h2><ul>
-<li>论文中为提高并行能力，引入注意力机制代替递归结构和卷积结构，用位置编码来体现句子顺序信息。换种思路实现位置表示，NICE～是否还有其他方法，或者还有其他的耗时处理可以用更为简洁的方法来代替处理呢？</li>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>剪枝</strong><ul>
+<li><strong>两步</strong><ul>
+<li><strong>剪枝，形成一个子树序列</strong>（关于损失函数参照下一节剪枝内容，来便于理解）<ul>
+<li>计算<strong>损失函数</strong>：$C_\alpha(T)=C(T)+\alpha |T|$</li>
+<li>将$\alpha$从小增大，形成一系列的区间$[\alpha_i,\alpha_{i+1})$，得到对应区间的最优子树$T_i$</li>
+<li>对$T_0$的任意内部结点$t$<ul>
+<li>以$t$为单结点树的损失函数：$C_\alpha(t)=C(t)+\alpha$</li>
+<li>以$t$为根结点的子树$T_t$的损失函数：$C_\alpha(T_t)=C(T_t)+\alpha|T_t|$</li>
+<li>$\alpha=\frac{C(t)-C(T_t)}{|T_t|-1}$，即$C_\alpha(T_t)=C_\alpha(t)$时，$T_t$与$t$具有相同的损失函数，而$t$的结点少，因此$t$比$T_t$更可取，对$T_t$进行剪枝</li>
+<li>因此，<ul>
+<li>$g(t)=\frac{C(t)-C(T_t)}{|T_t|-1}$，表示剪枝后<strong>整体损失函数减少的程度</strong></li>
+<li>将$\alpha_k=\alpha,T_k=T$，不断剪枝下去，直到根结点。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>在得到的子树序列$T_0,T_1,…,T_n$中通过交叉验证选取最优子树</strong><ul>
+<li>利用独立的验证数据集，测试子树序列中各棵子树的平方误差或基尼指数，最小的被认为是最优的决策树。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>步骤</strong><ol>
+<li>设$k=0,T=T_0$。</li>
+<li>设$\alpha=+\infty$。</li>
+<li>自下而上地对各内部结点$t$计算$C(T_t)$，$|T_t|$以及$g(t)$和$\alpha$<ul>
+<li>$T_t$为以$t$为根结点的子树，$C(T_t)$为对训练数据的预测误差，$|T_t|$是$T_t$的叶结点个数</li>
+<li>$g(t)=\frac{C(t)-C(T_t)}{|T_t|-1}$，$\alpha=\min(\alpha,g(t))$</li>
+</ul>
+</li>
+<li>对$g(t)=\alpha$的内部结点$t$进行剪枝，并对叶结点$t$以多数表决法决定其类，得到树$T$。</li>
+<li>设$k=k+1,\alpha_k=\alpha,T_k=T$</li>
+<li>如果$T_k$不是由根结点及两个叶结点构成的树，则回到步骤（2）；否则令$T_k=T_n$</li>
+<li>采用交叉验证法在子树序列$T_0,T_1,…,T_n$中选取最优子树$T_\alpha$</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-剪枝处理"><a href="#4-剪枝处理" class="headerlink" title="4. 剪枝处理"></a>4. 剪枝处理</h2><ul>
+<li>在上一节的CART算法中已经提及了它的剪枝处理，在本节将对剪枝处理本身进行一些描述。这里主要做一些描述性的介绍，不再进行具体细化的描述，不清楚可以自行寻找一些例子。</li>
+<li><strong>剪枝</strong>（pruning）是决策树学习算法应对<strong>过拟合</strong>的主要手段，可以通过主动去掉一些分支来降低过拟合的风险，基本策略有“<strong>预剪枝</strong>“（prepruning）和“<strong>后剪枝</strong>“（postpruning）两种。</li>
+<li><strong>预剪枝</strong>是指在<strong>决策树生成过程中</strong>，对每个结点在划分前先进行估计，若当前结点的划分不能带来决策树<strong>泛化性能</strong>的提升则停止划分，并将当前结点标记为叶结点；<strong>后剪枝</strong>则是先从训练集<strong>生成一棵完整的决策树</strong>，然后<strong>自底向上</strong>地对非叶结点进行考察，若将该结点对应的子树替换为叶结点能带来决策树泛化性能的提升，则将该子树替换为叶结点。</li>
+<li><strong>剪枝方法</strong>：极小化决策树整体的损失函数（loss function）或代价函数（cost function）来实现。<ul>
+<li><strong>损失函数：</strong>$C_\alpha(T)=C(T)+\alpha |T|$<ul>
+<li>$C(T)$：对训练数据的预测误差，即模型与训练数据的拟合程度（如基尼指数）</li>
+<li>$|T|$：子树的叶结点个数，即模型复杂度</li>
+<li>$\alpha\ge0$：参数，参数$\alpha$权衡训练数据的拟合程度与模型的复杂程度<ul>
+<li>较大：较简单的模型；较小：较复杂的模型</li>
+<li>$\alpha=0$：只考虑模型与训练数据的拟合程度，不考虑模型的复杂程度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>剪枝，就是<strong>当$\alpha$确定时，选择损失函数最小的模型</strong>，即损失函数最小的子树。</li>
+</ul>
+</li>
+<li>决策树生成学习<strong>局部</strong>的模型，而决策树剪枝学习<strong>整体</strong>的模型。</li>
+</ul>
+<h2 id="5-其它相关内容"><a href="#5-其它相关内容" class="headerlink" title="5. 其它相关内容"></a>5. 其它相关内容</h2><ul>
+<li>还有一些内容与决策树相关，但对决策树的基础而言不显得十分重要，所以不再介绍，只是提及词汇，有兴趣可以参考三本书中的内容。包括，<strong>连续值与缺失值的处理</strong>（《机器学习》4.4、《数据挖掘（导论）完整版》）、<strong>多变量决策树</strong>（《机器学习》4.5、《数据挖掘（导论））。</li>
 </ul>
 
             </div>
@@ -726,7 +812,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">Yi勒</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/article-2019-03/" class="b-link-green">2019论文阅读笔记&lt;03&gt;</a>
+                    <a href="/data-model-01/" class="b-link-green">Data方法篇（一）决策树</a>
                 </p>
             </div>
         </div>
@@ -748,7 +834,7 @@
         repo: 'jirehchan.github.io',
         owner: 'JirehChan',
         admin: ["JirehChan"],
-        id: '2019-09-27T22-00-00',
+        id: '2019-10-19T17-08-57',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -769,43 +855,53 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/opengl-01/">
+                <a href="/data-model-01/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="OpenGL学习笔记（一）简介&初探">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Data方法篇（一）决策树">
                         
-                        <span class="card-title">OpenGL学习笔记（一）简介&初探</span>
+                        <span class="card-title">Data方法篇（一）决策树</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">OpenGL学习笔记（一）简介&amp;初探1. OpenGLOpenGL 简介
-OpenGL（Open Graphics Library，开放式图形库）是用于渲染2D、3D矢量图形的跨语言、跨平台的应用程序接口（API），包含了一系列可以</div>
+                    <div class="summary">Data方法篇（一）决策树
+对应《数据挖掘导论（完整版）》第4章、《机器学习》第4章、《统计学习方法》第5章。
+
+1. 决策树模型定义
+决策树（Decision Tree）是一种基本的分类与回归方法。
+可以认为是if-then规则的集合、定</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/OpenGL/" class="post-category" target="_blank">
-                                    OpenGL
+                            <a href="/categories/Data/" class="post-category" target="_blank">
+                                    Data
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/OpenGL/" target="_blank">
-                        <span class="chip bg-color">OpenGL</span>
+                    <a href="/tags/Data/" target="_blank">
+                        <span class="chip bg-color">Data</span>
+                    </a>
+                    
+                    <a href="/tags/Model/" target="_blank">
+                        <span class="chip bg-color">Model</span>
                     </a>
                     
                 </div>
@@ -819,30 +915,30 @@ OpenGL（Open Graphics Library，开放式图形库）是用于渲染2D、3D矢�
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/article-2019-02/">
+                <a href="/software-test-03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="2019论文阅读笔记<02>">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="软件测试（三）黑白盒测试练习">
                         
-                        <span class="card-title">2019论文阅读笔记<02></span>
+                        <span class="card-title">软件测试（三）黑白盒测试练习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">2019 论文阅读笔记 &lt;02&gt;【基本信息】
-论文题目：Convolutional Neural Networks for Sentence Classification
-作者：Yoon Kim
-组织：New York Univ</div>
+                    <div class="summary">软件测试（三）黑白盒测试练习
+内容来自老师的课堂练习，偷偷留下。
+
+黑盒测试【题目】​        用等价类划分法和边界值法设计一个“日期检查功能”的测试用例，输入为6位数字字符，前四位表示年份，后两位表示月份，限定从1990年1月到20</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-23
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Article/" class="post-category" target="_blank">
-                                    Article
+                            <a href="/categories/Software-Engineering/" class="post-category" target="_blank">
+                                    Software Engineering
                                 </a>
                             
                             
@@ -852,12 +948,8 @@ OpenGL（Open Graphics Library，开放式图形库）是用于渲染2D、3D矢�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Article/" target="_blank">
-                        <span class="chip bg-color">Article</span>
-                    </a>
-                    
-                    <a href="/tags/NLP/" target="_blank">
-                        <span class="chip bg-color">NLP</span>
+                    <a href="/tags/Software-Test/" target="_blank">
+                        <span class="chip bg-color">Software Test</span>
                     </a>
                     
                 </div>
