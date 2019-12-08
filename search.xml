@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>2020论文阅读笔记&lt;01&gt;</title>
+      <link href="/article-2020-01/"/>
+      <url>/article-2020-01/</url>
+      
+        <content type="html"><![CDATA[<h1 id="2020论文阅读笔记-lt-01-gt"><a href="#2020论文阅读笔记-lt-01-gt" class="headerlink" title="2020论文阅读笔记 &lt;01&gt;"></a>2020论文阅读笔记 &lt;01&gt;</h1><h2 id="【基本信息】"><a href="#【基本信息】" class="headerlink" title="【基本信息】"></a>【基本信息】</h2><ul><li><strong>论文题目：</strong><a href="https://www.researchgate.net/publication/327336071_Towards_a_Better_Metric_for_Evaluating_Question_Generation_Systems" target="_blank" rel="noopener">Towards a Better Metric for Evaluating Question Generation Systems</a></li><li><strong>作者：</strong>Preksha Nema, Mitesh M. Khapra</li><li><strong>日期：</strong>August 2018</li><li><strong>标签：</strong>AQG、NLG</li><li><strong>简介：</strong>本文分析了传统NLG评价指标（BLEU、METEOR、NIST、ROUGE）在AQG问题上的效果，通过在噪声问题上与人工评分的比较，指出这些传统指标无法准确、有效地反映生成问题的好坏。本文的作者用可回答性（answerability）来反映一个生成的问题的优劣，并提出了利用不同词性（关联内容词、命名实体、问题类型、功能词）加权与传统指标相结合的新指标，使得新指标更加接近人工结果。</li></ul><h2 id="【论文概要】"><a href="#【论文概要】" class="headerlink" title="【论文概要】"></a>【论文概要】</h2><h3 id="1-研究问题"><a href="#1-研究问题" class="headerlink" title="1. 研究问题"></a>1. 研究问题</h3><p>a. 传统的自然语言生成（NLG）指标在自动问题生成（AQG）方面是否仍然有效？</p><p>b. 如何来衡量或分析这些指标的有效性或好坏？</p><p>c. 如何创造一个更符合AQG问题需要的新的指标？</p><h3 id="2-传统的指标"><a href="#2-传统的指标" class="headerlink" title="2. 传统的指标"></a>2. 传统的指标</h3><h4 id="a-BLEU"><a href="#a-BLEU" class="headerlink" title="a. BLEU"></a>a. BLEU</h4><ul><li>一种基于精度（precision）的评估指标。</li><li>考虑n-gram的形式：$p_n=\frac{\sum_{c\in candidates}\sum_{n-gram\in c}Count_{clip}(n-gram)}{\sum_{c’\in candidates}\sum_{n-gram’\in c’}Count_{clip}(n-gram’)}$</li><li>举例：<ul><li><strong>candidate:</strong> the cat sat on the mat</li><li><strong>reference:</strong> the cat is on the mat</li><li>$p_1=\frac{5}{6}$, $p_2=\frac{3}{5}$, $p_3=\frac{1}{4}$, $p_4=\frac{0}{3}$</li></ul></li></ul><h4 id="b-METEOR"><a href="#b-METEOR" class="headerlink" title="b. METEOR"></a>b. METEOR</h4><ul><li><p>考虑了精度和召回率（recall），也考虑词性、同义词等问题，也能给以功能词和内容词的权重。</p></li><li><p>是基于单精度的加权调和平均数和单子召回率的调和平均。</p></li><li><p>$$<br>惩罚系数\ Pen=\gamma(\frac{ch}{m})^\theta \<br>F_{mean}=\frac{P_mR_m}{\alpha P_m+(1-\alpha)R_m} \<br>P_m=\frac{|m|}{\sum_kh_k(c_i)} \<br>R_m=\frac{|m|}{\sum_kh_k(s_{ij})} \<br>METEOR=(1-Pen)F_{mean}<br>$$</p></li></ul><h4 id="c-NIST"><a href="#c-NIST" class="headerlink" title="c. NIST"></a>c. NIST</h4><ul><li>是标准BLEU的一个变体。</li><li>给在语料库中低频的词增高权重。</li></ul><h4 id="d-ROUGE"><a href="#d-ROUGE" class="headerlink" title="d. ROUGE"></a>d. ROUGE</h4><ul><li>自动摘要方面的指标，通过统计翻译的摘要与人工生成的标准摘要的重叠基本单元（n元语法、词序列和词对）的数目，来评价摘要的质量。</li></ul><h3 id="3-评价指标好坏的方法"><a href="#3-评价指标好坏的方法" class="headerlink" title="3. 评价指标好坏的方法"></a>3. 评价指标好坏的方法</h3><ul><li>从已有的三个主流问题生成数据库中选出数据：<ul><li>SQuAD：阅读理解数据库（约500文章，100k的问题）</li><li>WikiMovies：电影知识图谱（约43k实体，9种关系，100k的问题）</li><li>VQA：图片问题数据库（265,016图片，平均每张图5.4个问题）</li></ul></li><li>对问题随机进行四类噪声处理：<ul><li>删除功能词（如be, do, can, shall, will, have, let, make等词）</li><li>删除命名实体</li><li>删除内容词（如killed/married）</li><li>更改提问类型（who, what, which, how, why, when, where, 7-Wh）</li></ul></li><li>人工对这些噪声处理后的问题进行评价，分为五类<ul><li>重要信息缺失，不可能回答</li><li>大部分重要信息缺失，无法回答</li><li>一些重要信息缺失，答案不确定</li><li>大部分重要信息保留，可以推导回答</li><li>全部重要信息保留，完全可以回答</li></ul></li><li>通过指标的数据结果和人工结果的比较，来评价指标的合理性、有效性。</li></ul><h3 id="4-新的指标"><a href="#4-新的指标" class="headerlink" title="4. 新的指标"></a>4. 新的指标</h3><ul><li>将词汇分为四类：<ul><li>关联内容词（relevant content words）</li><li>命名实体（named entities）</li><li>问题类型（question types）</li><li>功能词（function words）</li></ul></li><li>计算四类词的加权精度和召回率<ul><li>$P_{avg}=\sum_iw_i\frac{c(S_i)}{|l_i|}$</li><li>$R_{avg}=\sum_iw_i\frac{S_i}{|r_i|}$</li></ul></li><li>调和平均计算可回答性（answerability）<ul><li>$Answerability=2\frac{P_{avg}R_{avg}}{P_{avg}+R_{avg}}$</li></ul></li><li>与现有指标进行加权<ul><li>$Q-BLEU4=\delta Answerability+(1-\delta)BLEU4$</li></ul></li></ul><h3 id="5-结果结论"><a href="#5-结果结论" class="headerlink" title="5. 结果结论"></a>5. 结果结论</h3><ul><li>新的指标更为接近人工评分。</li><li>对于不同的数据集，权重效果不同。</li><li>仍有很大的空间。</li></ul><h2 id="【收获小结】"><a href="#【收获小结】" class="headerlink" title="【收获小结】"></a>【收获小结】</h2><ol><li>本文虽然针对问题生成问题，但主要是分析评价指标，不涉及生成方法，所以读起来还是蛮轻松、开心的，嘿嘿。</li><li>问题生成问题和传统的翻译之类的文本生成问题有很大的不同，传统指标的不适用是显然的，但本文团队通过人工评分的对比来评价传统指标，并能从数据的分析中发现问题，提出一种可行的新的指标思路，这是很可取的一种方法。</li><li>此文似乎没能解决一个问题：现在的可回答性是基于人工就问题本身的分析，而到底能否从原文（知识图谱或图片）中得出答案，还是这个问题虽然合理但无法从原材料中找出答案（或者说问题与原材料的相关性）似乎目前模型仍是未能解决的。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Article </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Article </tag>
+            
+            <tag> QG </tag>
+            
+            <tag> NLG </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2020论文阅读列表</title>
+      <link href="/article-2020-00/"/>
+      <url>/article-2020-00/</url>
+      
+        <content type="html"><![CDATA[<h1 id="2020论文阅读列表"><a href="#2020论文阅读列表" class="headerlink" title="2020论文阅读列表"></a>2020论文阅读列表</h1><p>​    2019年后半由于其他事物的忙碌，所以没有怎么看论文，所以重新开始了，从2019年12月8日进入新的部分了。</p><ol><li>Towards a Better Metric for Evaluating Question Generation Systems</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Article </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Article </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Data方法篇（一）决策树</title>
       <link href="/data-model-01/"/>
       <url>/data-model-01/</url>
