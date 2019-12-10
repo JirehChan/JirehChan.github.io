@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>2020论文阅读笔记&lt;02&gt;</title>
+      <link href="/article-2020-02/"/>
+      <url>/article-2020-02/</url>
+      
+        <content type="html"><![CDATA[<h1 id="2020论文阅读笔记-lt-02-gt"><a href="#2020论文阅读笔记-lt-02-gt" class="headerlink" title="2020论文阅读笔记 &lt;02&gt;"></a>2020论文阅读笔记 &lt;02&gt;</h1><h2 id="【基本信息】"><a href="#【基本信息】" class="headerlink" title="【基本信息】"></a>【基本信息】</h2><ul><li><strong>论文题目：</strong><a href="https://www.researchgate.net/publication/334115921_A_Graph-theoretic_Summary_Evaluation_for_ROUGE" target="_blank" rel="noopener">A Graph-theoretic Summary Evaluation for ROUGE</a></li><li><strong>作者：</strong>Elaheh ShafieiBavani, Mohammad Ebrahimi, Raymond Wong, Fang Chen</li><li><strong>日期：</strong>Jan 2018</li><li><strong>标签：</strong>NLG</li><li><strong>简介：</strong>由于ROUGE仅仅依赖于生成文本（peer）和参考文本（model）之间的表面相似度，而忽略了词汇的变化和释义，所以无法正确地评估摘要。本文使用了一种基于图的方法（sense-based represtation，PPR向量，Path-based and Rank and Weight measure）修改ROUGE，基于词汇和语义相似性，提高评估效果。并使用显著性评估来表明，改进后的指标ROUGE-G与手工判断的相关性更高。</li></ul><h2 id="【论文概要】"><a href="#【论文概要】" class="headerlink" title="【论文概要】"></a>【论文概要】</h2><h3 id="1-研究问题"><a href="#1-研究问题" class="headerlink" title="1. 研究问题"></a>1. 研究问题</h3><p>a. 当前ROUGE对摘要评估存在的问题？（忽略了词汇的语义相关性）</p><p>b. 如何修改ROUGE，增加对词汇相关性的考量。（基于图的方法，PPR向量、基于路径、增加权重、消除歧义等）</p><p>c. 在增加相关性的时候，如何提高效率。（剪裁）</p><p>c. 如何评估新指标ROUGE-G与原指标的“好坏”。（显著性评估，Pearson、Sperman、Kendall）</p><h3 id="2-ROUGE与其存在的问题"><a href="#2-ROUGE与其存在的问题" class="headerlink" title="2. ROUGE与其存在的问题"></a>2. ROUGE与其存在的问题</h3><ul><li>ROUGE （Recall-Oriented Understanding for Gisting Evaluation)<ul><li>最早且应用最广泛的文本摘要评价指标之一。</li><li>$ROUGE-N=\frac{\sum_{S\in {Ref\ Summaries}}\sum_{n-gram\in S}Count_{match}(n-gram)}{\sum_{S\in {Ref\ Summaries}}\sum_{n-gram\in S}Count(n-gram)}$</li></ul></li><li>存在的问题<ul><li>问题：忽略了词汇相关性的考量</li><li>示例：<ul><li>The strolled around the city.</li><li>They took a walk to explore the town.</li><li>两句话的语义含义相同，但用词不同，如果只有一个在参考中则另一个评分低。</li></ul></li></ul></li></ul><h3 id="3-ROUGE-G-解决方案"><a href="#3-ROUGE-G-解决方案" class="headerlink" title="3. ROUGE-G 解决方案"></a>3. ROUGE-G 解决方案</h3><h4 id="a-PPR向量表示"><a href="#a-PPR向量表示" class="headerlink" title="a. PPR向量表示"></a>a. PPR向量表示</h4><ul><li><strong>WordNet图：</strong>忽略各种边的类型，但增加不同词性（Part-of-Speech POS）的考虑，用连接点的个数来表示维数。</li><li>S位置的PPR向量：<ul><li>$p^{(k)}(S)=dAp^{(k-1)}(S)+(1-d)p^{(0)}(S)$</li><li>随机漫步（random walker）：d的概率跳到下一节点，1-d的概率返回出发点。</li><li>A：邻接矩阵，跳动</li></ul></li></ul><h4 id="b-向量的语义相似度"><a href="#b-向量的语义相似度" class="headerlink" title="b. 向量的语义相似度"></a>b. 向量的语义相似度</h4><ul><li><p>比较存在的问题：随机漫步特定顶点的特定迭代次数，可能产生假相似</p><ul><li>例子：law-suit-tailor-dress中，law 和dress是假相似</li><li>增加到一个特定点的路径长度考量</li></ul></li><li><p>每次迭代x中，排序维度（dimensions, senses）</p><ul><li>$Sim_{sem}(I,J)=\sum^{k}_{x=0}c^x\times RW(p^{(x)}(I),p^{(x)}(J))$</li></ul></li><li><p>加权之间的重叠</p><ul><li><p>$$<br>\begin{equation}<br>RW(Y,Z)=\left{<br>\begin{aligned}<br>&amp;\frac{\sum_{h\in H}(r_h(Y)+r_h(Z))^{-1}}{\sum_{i=1}^{|H|}(2i)^{-1}},\ &amp;if\ |H|&gt;0\<br>&amp;0,\ &amp;otherwise<br>\end{aligned}<br>\right.<br>\end{equation}<br>$$</p></li></ul></li></ul><h4 id="c-ROUGE-G计算"><a href="#c-ROUGE-G计算" class="headerlink" title="c. ROUGE-G计算"></a>c. ROUGE-G计算</h4><ul><li><p>ROUGE-G 综合词汇和语义相似性计算：</p><ul><li>$ROUGE-G-N=\frac{\sum_{M\in{ModelSums}}\sum_{n-gram_m\in M,\n-gram_p\in PeerSum}Sim_{LS}(n-gram_m,n-gram_p)}{\sum_{M\in {ModelSums}}\sum_{n-gram_m\in M}Count(n-gram_m)}$</li></ul></li><li><p>$Sim_{LS}$：模型摘要和文本摘要</p><ul><li>$$<br>\begin{aligned}<br>Sim_{LS}(n-gram_m,n-gram_p)=<br>&amp;\beta\times Count_{match}(n-gram_m,n-gram_p)\<br>&amp;+(1-\beta)\times Sim_{sem}(n-gram_m,n-gram_p)<br>\end{aligned}<br>$$</li></ul></li></ul><h4 id="d-上下文信息的缺失处理"><a href="#d-上下文信息的缺失处理" class="headerlink" title="d. 上下文信息的缺失处理"></a>d. 上下文信息的缺失处理</h4><ul><li>使用语义对齐（semantic alignment）最大化比较词的相似性。</li><li>例：<ul><li>句$P_{a1}.officer^3_n,fire^4_v$</li><li>句$P_{a2}.policeman^1_n,terminate^4_v,corruption^6_n,probe^1_n$</li><li>$t^i_p$表示：WordNet中的p词性的词汇t的第i维感官</li><li>会有结果：$Sim_{sem}(fire^4_v,terminate^4_v)=1$</li></ul></li></ul><h4 id="e-OOV处理"><a href="#e-OOV处理" class="headerlink" title="e. OOV处理"></a>e. OOV处理</h4><ul><li>OOV：词汇资源中没有定义的单词</li><li>在PPR中增加一个额外的变量。</li></ul><h3 id="4-实验验证方法"><a href="#4-实验验证方法" class="headerlink" title="4. 实验验证方法"></a>4. 实验验证方法</h3><ul><li>显著性检验（significance tests）<ul><li>由于在与人类的竞争关系中存在的大/小的差异并不能作为一种度量优于另一种度量的证明，因此应采用显著性检验。</li><li>采用Graham提出的两两配对Williams显著性检验</li><li>先对ROUGE进行重新采样</li></ul></li><li>三个指标分析：Person、Spearman、Kendall</li></ul><h2 id="【收获小节】"><a href="#【收获小节】" class="headerlink" title="【收获小节】"></a>【收获小节】</h2><ol><li>文章的大致思路清楚了，但对于语义对齐、WordNet和显著性检验的具体操作方法可能还需要再多了解一点（目前知道其作用和意思，但具体实现还是有一些疑惑）。</li><li>对于实验指标的好坏比较，与人工评估的对比，直接的大小差异不能作为直接的证明，可以使用显著性检验。</li><li>语义相似度、词汇的缺失等内容也可以加入考虑之中。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Article </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Article </tag>
+            
+            <tag> NLG </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020论文阅读笔记&lt;01&gt;</title>
       <link href="/article-2020-01/"/>
       <url>/article-2020-01/</url>
@@ -37,7 +64,7 @@
       <link href="/article-2020-00/"/>
       <url>/article-2020-00/</url>
       
-        <content type="html"><![CDATA[<h1 id="2020论文阅读列表"><a href="#2020论文阅读列表" class="headerlink" title="2020论文阅读列表"></a>2020论文阅读列表</h1><p>​    2019年后半由于其他事物的忙碌，所以没有怎么看论文，所以重新开始了，从2019年12月8日进入新的部分了。</p><ol><li>Towards a Better Metric for Evaluating Question Generation Systems</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="2020论文阅读列表"><a href="#2020论文阅读列表" class="headerlink" title="2020论文阅读列表"></a>2020论文阅读列表</h1><p>​    2019年后半由于其他事物的忙碌，所以没有怎么看论文，所以重新开始了，从2019年12月8日进入新的部分了。</p><ol><li>Towards a Better Metric for Evaluating Question Generation Systems</li><li>A Graph-theoretic Summary Evaluation for ROUGE</li></ol>]]></content>
       
       
       <categories>
