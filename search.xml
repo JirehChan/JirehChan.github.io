@@ -4,11 +4,281 @@
   
     
     <entry>
-      <title>软件测试与维护（一）介绍</title>
+      <title>软件测试与维护（十一）软件维护</title>
+      <link href="/software-test-maintance-11/"/>
+      <url>/software-test-maintance-11/</url>
+      
+        <content type="html"><![CDATA[<h1 id="软件测试与维护（十一）：软件维护"><a href="#软件测试与维护（十一）：软件维护" class="headerlink" title="软件测试与维护（十一）：软件维护"></a>软件测试与维护（十一）：软件维护</h1><h2 id="软件维护的定义"><a href="#软件维护的定义" class="headerlink" title="软件维护的定义"></a>软件维护的定义</h2><ul><li><strong>软件维护</strong>是指软件系统交付使用以后，为了改正错误或满足新的需求而修改软件的过程。</li><li>要求进行维护的原因：<ul><li>改正程序中的错误和缺陷。</li><li>改进软件以适应新的软、硬件环境。</li><li>增加新的应用范围。</li></ul></li></ul><h2 id="软件维护的类型"><a href="#软件维护的类型" class="headerlink" title="软件维护的类型"></a>软件维护的类型</h2><ul><li><strong>改正性维护</strong><ul><li>在软件交付使用后，因开发阶段的问题以及测试不彻底、不完全，必然会有部分隐藏的错误遗留到运行阶段。</li><li>为了<strong>识别和纠正</strong>软件错误、改正软件功能、非功能（性能）上的缺陷、排除实施中的误使用， 应当进行的<strong>诊断和改正错误的过程</strong>就叫做改正性维护。</li></ul></li><li><strong>适应性维护</strong><ul><li>在使用过程中，<ul><li>外部环境（新的硬、软件配置）</li><li>数据环境（数据库、数据格式、数据输入/输出方式、数据存储介质）可能发生变化。</li></ul></li><li>为使软件<strong>适应这种变化</strong>，而去修改软件的过程叫做适应性维护。</li></ul></li><li><strong>完善性维护</strong><ul><li>在软件的使用过程中，用户往往会对软件提出<strong>新的功能与性能要求</strong>。</li><li>为满足这些要求，需要<strong>修改或再开发软件软件，以扩充软件功能、增强软件性能、改进加工效率、提高软件的可维护性</strong>。</li><li>这种情况下进行的维护活动叫做完善性维护。</li></ul></li><li><strong>预防性维护</strong><ul><li>预防性维护即<strong>软件再工程</strong>，是为了提高软件的可维护性、可靠性等，为以后进一步改进软件打下良好基础。</li><li>采用先进的软件工程方法对需要维护的软件或软件中的某一部分（重新）进行设计、编制和测试，称为预防性维护。</li></ul></li><li><strong>各种占比</strong><ul><li>完善性维护：50-66%、适应性维护：18-25%</li><li>改正性维护：17-21%、其它维护：4%</li><li>维护占比：70.8%</li></ul></li></ul><h2 id="结构化维护-VS-非结构化维护"><a href="#结构化维护-VS-非结构化维护" class="headerlink" title="结构化维护 VS 非结构化维护"></a>结构化维护 VS 非结构化维护</h2><ul><li><strong>结构性维护：</strong>如果采用软件工程的方法进行软件开发，保证<strong>每个阶段都有完整且详细的文档</strong>，这样维护会相对容易。</li><li><strong>非结构化的维护：</strong>如果不采用软件工程方法开发软件，软件只有程序而欠缺文档，则维护工作变得十分困难。</li></ul><h2 id="影响软件维护工作量的因素"><a href="#影响软件维护工作量的因素" class="headerlink" title="影响软件维护工作量的因素"></a>影响软件维护工作量的因素</h2><ul><li><strong>系统的大小</strong></li><li><strong>程序设计语言</strong></li><li><strong>系统年龄</strong></li><li><strong>先进的软件开发技术</strong></li><li><strong>其它一些因素</strong></li></ul><h2 id="软件维护的过程"><a href="#软件维护的过程" class="headerlink" title="软件维护的过程"></a>软件维护的过程</h2><h3 id="系统开发流程"><a href="#系统开发流程" class="headerlink" title="系统开发流程"></a>系统开发流程</h3><p><img src="./11-01.png" alt="11-01 系统开发流程"></p><h3 id="实现变更"><a href="#实现变更" class="headerlink" title="实现变更"></a>实现变更</h3><ul><li>修改软件需求说明</li><li>修改软件设计</li><li>设计评审</li><li>对源程序做必要的修改</li><li>单元测试</li><li>集成测试（回归测试）</li><li>确认测试</li><li>软件配置评审</li></ul><h3 id="整体变更控制"><a href="#整体变更控制" class="headerlink" title="整体变更控制"></a>整体变更控制</h3><p><img src="./11-02.png" alt="11-02 软件变更控制流程"></p><h3 id="维护的流程"><a href="#维护的流程" class="headerlink" title="维护的流程"></a>维护的流程</h3><ul><li>维护申请 -&gt; 影响分析与评价 -&gt; 维护修改报告 -&gt; 维护记录保存 -&gt; 维护后评审 -&gt; 维护后测试 -&gt; 维护后验收</li></ul><h2 id="可维护性（maintenanceability）"><a href="#可维护性（maintenanceability）" class="headerlink" title="可维护性（maintenanceability）"></a>可维护性（maintenanceability）</h2><ul><li><strong>软件可维护性</strong>是指纠正软件系统系统出现的错误和缺陷，以及为满足新的要求进行修改、扩充或压缩的<strong>容易程度</strong>。</li><li><strong>七个特性</strong>：<ul><li>可理解性：表明人们通过阅读源代码和相关文档，了解程序功能及其如何运行的容易程度。</li><li>可靠性：表明一个程序按照用户的要求和设计目标，再给定的一段时间内正确执行的概率。</li><li>可测试性：表明论证程序正确性的容易程度。程序越简单，证明其正确性就越容易。而且设计合用的测试用例，取决于对程序的全面理解。<ul><li>一个可测试的程序应当是可理解的，可靠的，简单的。</li></ul></li><li>可修改性：程序容易修改的程度</li><li>可移植性：表明程序转移到一个新的计算环境的可能性大小。或者它表明程序可以容易地、有效地在各种各样的计算环境中运行的容易程度。</li><li>效率：表明一个程序能执行预定功能而又不浪费机器资源的程度。资源包括内存容量、外存容量、通道容量和执行时间。</li><li>可使用性：从用户观点出发，可使用性定义为程序方便、实用、及易于使用的程度。</li></ul></li></ul><h2 id="软件维护的管理"><a href="#软件维护的管理" class="headerlink" title="软件维护的管理"></a>软件维护的管理</h2><ul><li><strong>维护的文档</strong><ul><li>维护合同、维护方案、维护手册、维护申请表、维护记录、维护报告。</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Software Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Software Test </tag>
+            
+            <tag> School </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件测试与维护（十）报告缺陷和测试报告</title>
+      <link href="/software-test-maintance-10/"/>
+      <url>/software-test-maintance-10/</url>
+      
+        <content type="html"><![CDATA[<h1 id="软件测试与维护（十）：报告缺陷和测试报告"><a href="#软件测试与维护（十）：报告缺陷和测试报告" class="headerlink" title="软件测试与维护（十）：报告缺陷和测试报告"></a>软件测试与维护（十）：报告缺陷和测试报告</h1><h2 id="软件缺陷"><a href="#软件缺陷" class="headerlink" title="软件缺陷"></a>软件缺陷</h2><h3 id="软件缺陷的基本描述"><a href="#软件缺陷的基本描述" class="headerlink" title="软件缺陷的基本描述"></a>软件缺陷的基本描述</h3><ul><li><strong>软件缺陷的描述</strong>是软件缺陷报告中测试人员对问题的陈述的一部分并且是软件缺陷报告的基础部分。</li><li><strong>软件缺陷的有效描述规则：</strong><ul><li>单一准确、可以再现、完整统一、短小简介、特定条件、补充完善、不做评价。</li></ul></li></ul><h3 id="软件缺陷属性"><a href="#软件缺陷属性" class="headerlink" title="软件缺陷属性"></a>软件缺陷属性</h3><ul><li><strong>软件缺陷属性</strong>包括：<ul><li>缺陷标识：标记某个缺陷的唯一表示，可以用数字序号表示。</li><li>缺陷类型：根据缺陷的自然属性划分缺陷种类。</li><li>缺陷严重程度：因缺陷引起的故障对软件产品的影响程度。</li><li>缺陷优先级：指缺陷必须被修复的紧急程度。</li><li>缺陷产生可能性：通常可以用频率来表示。</li><li>缺陷状态：指缺陷通过一个跟踪修复过程的进展情况，也就是在软件生命周期中的状态基本定义（激活或打开、已修正或修复、关闭或非激活、重新打开、推迟、保留、不能重现、需要更多信息、重复、不是缺陷、需要修改软件规格说明书）。</li><li>缺陷起源：缺陷引起的故障或事件第一次被检测到的阶段。</li><li>缺陷来源：缺陷存在的地方，如文档、代码等。</li><li>缺陷根源（背后因素）</li><li>加上时间因素和人的因素</li></ul></li></ul><h3 id="软件缺陷生命周期"><a href="#软件缺陷生命周期" class="headerlink" title="软件缺陷生命周期"></a>软件缺陷生命周期</h3><p><img src="./10-01.png" alt="10-01 软件缺陷生命周期"></p><h3 id="软件缺陷跟踪系统"><a href="#软件缺陷跟踪系统" class="headerlink" title="软件缺陷跟踪系统"></a>软件缺陷跟踪系统</h3><ul><li>主要包括<strong>缺陷管理功能</strong>和<strong>统计功能</strong>。</li></ul><h3 id="缺陷管理工具"><a href="#缺陷管理工具" class="headerlink" title="缺陷管理工具"></a>缺陷管理工具</h3><ul><li>常见免费：Mantis、Bugzilla</li><li>付费：Testdirector、JIRA</li></ul><h2 id="软件缺陷报告-amp-测试报告"><a href="#软件缺陷报告-amp-测试报告" class="headerlink" title="软件缺陷报告&amp;测试报告"></a>软件缺陷报告&amp;测试报告</h2><h3 id="软件缺陷报告"><a href="#软件缺陷报告" class="headerlink" title="软件缺陷报告"></a>软件缺陷报告</h3><ul><li>任何一个缺陷跟踪系统的核心都是“软件缺陷报告”</li><li>详细信息：<ul><li>分类、项目、描述</li><li>可跟踪信息、软件缺陷基本信息、缺陷的详细描述（步骤、期望的结果、实际发生的结果）、测试环境说明、必要的附件</li></ul></li></ul><h3 id="测试报告"><a href="#测试报告" class="headerlink" title="测试报告"></a>测试报告</h3><ul><li>测试报告是<strong>把测试的过程和结果</strong>写成文档，并<strong>对发现的问题和缺陷进行分析</strong>，为纠正软件存在的质量问题<strong>提供依据</strong>，同时为软件验收和交付<strong>打下基础</strong>。</li><li>测试报告是测试阶段<strong>最后的文档产出物</strong>，优秀的测试经理应该具备良好的文档编写能力，一 份详细的测试报告包含足够的信息，包括<strong>产品质量</strong>和<strong>测试过程的评价</strong>，测试报告<strong>基于测试中的数据采集以及对最终的测试结果分析</strong>。</li><li>测试报告的<strong>内容</strong>：<ul><li>首页</li><li>引言（目的、背景、缩略语、参考文献）</li><li>测试概要（测试方法、范围、测试环境、工具）</li><li>测试结果与缺陷分析（功能、非功能）</li><li>测试建议与结论（项目概况、测试时间、测试情况、结论性能汇总）</li><li>附录（缺陷统计）</li></ul></li></ul><h3 id="测试报告与缺陷报告的区别"><a href="#测试报告与缺陷报告的区别" class="headerlink" title="测试报告与缺陷报告的区别"></a>测试报告与缺陷报告的区别</h3><ul><li><strong>定义</strong><ul><li>缺陷报告：描述清楚缺陷，是测试过程的结果。</li><li>测试报告：分析与总结，是阶段性的总结。</li></ul></li><li><strong>时间</strong></li><li><strong>撰写人</strong></li><li><strong>二者关系</strong><ul><li>缺陷报告为测试报告提供数据与依据，测试报告是缺陷报告的总结。</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Software Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Software Test </tag>
+            
+            <tag> School </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件测试与维护（九）Acceptance Testing</title>
+      <link href="/software-test-maintance-09/"/>
+      <url>/software-test-maintance-09/</url>
+      
+        <content type="html"><![CDATA[<h1 id="软件测试与维护（九）：Acceptance-Testing"><a href="#软件测试与维护（九）：Acceptance-Testing" class="headerlink" title="软件测试与维护（九）：Acceptance Testing"></a>软件测试与维护（九）：Acceptance Testing</h1><h2 id="验收测试的基本概念"><a href="#验收测试的基本概念" class="headerlink" title="验收测试的基本概念"></a>验收测试的基本概念</h2><ul><li><strong>验收测试</strong>：在软件产品完成了<strong>功能测试和系统测试之后</strong>、<strong>产品发布之前</strong>所进行的软件测试活动，是技术测试的<strong>最后</strong>一个阶段，也称为<strong>交付测试</strong>。</li><li><strong>过程和主要内容</strong><ul><li>前提：系统或软件产品已通过系统测试的软件系统。</li><li>测试内容：验证系统是否达到了<strong>用户需求规格说明书</strong>（可能包括项目或产品验收准则）中的要求，测试试图尽可能地发现软件中存留的缺陷，从而为软件进一步改善提供帮助，并保证系统或软件产品最终被用户接受。还需进行<strong>易用性测试、兼容性测试、安装测试、 文档（如用户手册、操作手册等）测试</strong>等几个方面的内容。</li></ul></li><li><strong>验收标准和注意事项</strong><ul><li>验收标准<ul><li>完全执行了验收测试计划中的每个<strong>测试用例</strong>。</li><li>在验收测试中发现的错误已经<strong>得到修改</strong>并且<strong>通过了测试</strong>或者经过评估<strong>留待到下一版本中修改</strong>。</li><li>完成软件<strong>验收测试报告</strong>。</li></ul></li><li>注意事项<ul><li>必须编写正式的、单独的验收测试报告</li><li>验收测试必须在<strong>实际用户运行环境</strong>中进行</li><li><strong>由用户和测试部门共同执行</strong>。</li></ul></li></ul></li><li><strong>其他的验收</strong><ul><li>a测试：内部人员模拟各类用户测试</li><li>B测试：组织典型用户在日常中使用，报告异常情况，提出批评意见</li></ul></li></ul><h2 id="验收测试的测试"><a href="#验收测试的测试" class="headerlink" title="验收测试的测试"></a>验收测试的测试</h2><ul><li><p><strong>用户界面和可用性测试</strong></p><ul><li>用户界面的7个要素：符合标准和规范、直观性、一致性、灵活性、舒适性、正确性、实用性</li><li>易用性测试没有具体的量化指标</li></ul></li><li><p><strong>兼容性测试</strong></p></li><li><p>软件兼容性测试是指验证软件之间是否正确地交互和共享信息。</p><ul><li>包括：硬件兼容、软件之间兼容、数据之间兼容</li></ul></li><li><p><strong>向前和向后兼容</strong></p><ul><li>向后兼容：可以使用以前版本</li><li>向前兼容：可以使用未来版本</li></ul></li><li><p><strong>可安装性和可恢复性测试</strong></p><ul><li>可安装性：系统软件安装、应用软件安装、服务器安装、客户端安装、产品升级安装</li></ul></li><li><p><strong>文档测试</strong></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Software Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Software Test </tag>
+            
+            <tag> School </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件测试与维护（八）Integration Test &amp; System Test</title>
+      <link href="/software-test-maintance-08/"/>
+      <url>/software-test-maintance-08/</url>
+      
+        <content type="html"><![CDATA[<h2 id="软件测试与维护（八）：Integration-Test-amp-System-Test"><a href="#软件测试与维护（八）：Integration-Test-amp-System-Test" class="headerlink" title="软件测试与维护（八）：Integration Test &amp; System Test"></a>软件测试与维护（八）：Integration Test &amp; System Test</h2><h2 id="测试环境的建立"><a href="#测试环境的建立" class="headerlink" title="测试环境的建立"></a>测试环境的建立</h2><h3 id="测试环境的五要素"><a href="#测试环境的五要素" class="headerlink" title="测试环境的五要素"></a>测试环境的五要素</h3><ul><li><strong>基本要素：</strong>软件、硬件</li><li><strong>派生要素：</strong>网络环境、数据准备、测试工具</li></ul><h3 id="测试部门建设模式"><a href="#测试部门建设模式" class="headerlink" title="测试部门建设模式"></a>测试部门建设模式</h3><ul><li>独立运作、与第三方测试机构合作、与相关企业合作、测试外包、项目经理式外包</li><li>例：TPC事物处理性能委员会</li></ul><h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><ul><li><strong>软件逻辑架构（软件技术架构）</strong></li><li><strong>系统物理架构</strong><ul><li>将具体的软件元件放在物理元件上</li><li>具体用了几台机器做什么用，机器上装了什么软件</li></ul></li></ul><h2 id="集成测试-Integration-Test"><a href="#集成测试-Integration-Test" class="headerlink" title="集成测试 Integration Test"></a>集成测试 Integration Test</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul><li><strong>集成</strong> Integration：putting the pieces together</li><li><strong>集成测试：</strong>将单元组装起来再进行测试，以检查这些单元之间的<strong>接口</strong>是否存在问题，如：数据丢失、模块间相互影响、组合后不能实现主功能等。</li><li>集成测试前的准备：人员安排、测试计划、测试内容、集成策略、测试方法</li><li><strong>集成测试目标</strong> Objectives：<ul><li>保证系统设计的完整性 Gain confidence in the integraity of overall system design</li><li>保证各个组件间正常的交互 Ensure proper interaction of compoents</li><li>运行简单系统层的测试 Run simple system-level tests</li></ul></li></ul><h3 id="集成策略"><a href="#集成策略" class="headerlink" title="集成策略"></a>集成策略</h3><ul><li><p><strong>集成测试的模式</strong></p><ul><li><strong>非渐增式测试模式</strong>：先分别测试每个模块，再把所有模块按设计要求放在一起结合成所要的程序，如大棒模式。</li><li><strong>渐增式测试模式</strong>：把下一个要测试的模块同已经测试好的模块结合起来进行测试，测试完以后再把下一个应该测试的模块结合起来测试。</li></ul></li><li><p><strong>非渐增式测试模式</strong></p><ul><li><strong>大棒集成</strong> Big bang<ul><li>知道全部的模块测试完成，再组合起来测试。</li><li>问题：<ul><li>避免了脚手架（桩模块和驱动模块的开销）</li><li>不易发现错误</li></ul></li></ul></li></ul></li><li><p><strong>渐增式测试模式</strong></p><ul><li>自顶向下集成测试 Top-Down<ul><li><strong>驱动程序/驱动模块</strong>（driver）：用以模拟被测模块的上级模块。启动被测模块，并打印出相应的结果。</li><li><strong>桩程序/桩模块</strong>（stub）：用以模拟被测模块工作过程中所调用的模块。 桩模块由被测模块调用。</li><li>好处：<ul><li>总是有顶层的系统</li><li>桩模块可以从接口说明书来书写</li></ul></li><li>坏处：<ul><li>可能会太迟发现性能问题</li><li>桩模块花费多</li></ul></li></ul></li><li>自底向上集成测试 Bottom-up<ul><li>好处：<ul><li>基础函数得到最多的测试</li><li>驱动程序相对便宜</li></ul></li><li>坏处：<ul><li>只有在最后才能测试完整的系统</li></ul></li></ul></li><li>混合策略测试 Modified Top-down Integration</li><li><strong>关键先行</strong> Critical-first<ul><li>首先集成最重要最关键的模块，之后增加其他的模块</li><li>保护了最重要的模块</li></ul></li></ul></li><li><p><strong>Function-at-a-time</strong></p></li><li><p><strong>几种集成测试方法性能的比较</strong></p><table><thead><tr><th></th><th>自底向上</th><th>自顶向下</th><th>混合策略</th><th>大棒集成</th></tr></thead><tbody><tr><td>集成</td><td>早</td><td>早</td><td>早</td><td>晚</td></tr><tr><td>基本程序能工作时间</td><td>晚</td><td>早</td><td>早</td><td>晚</td></tr><tr><td>需要驱动程序</td><td>是</td><td>否</td><td>是</td><td>否</td></tr><tr><td>需要桩程序</td><td>否</td><td>是</td><td>是</td><td>否</td></tr><tr><td>计划与控制</td><td>容易</td><td>难</td><td>中</td><td>容易</td></tr></tbody></table></li></ul><h2 id="系统测试-System-Test"><a href="#系统测试-System-Test" class="headerlink" title="系统测试 System Test"></a>系统测试 System Test</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><ul><li><strong>系统测试目标</strong><ul><li>获得对整个系统完整性的信心 Gain confidence in the integrity of the system as a whole</li><li>确保符合功能需求 Ensure compliance with functional requirements</li><li>确保符合非功能需求 Ensure compliance with non-functional requirements</li></ul></li></ul><h3 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h3><ul><li><p><strong>概念</strong></p><ul><li>在集成测试结束之后，依据系统的<strong>需求规格说明书和产品功能说明书</strong>对系统的整体功能进行的全面测试。</li><li>采用<strong>黑盒测试</strong>方法。</li></ul></li><li><p><strong>功能测试要求</strong></p><ul><li>根据系统功能规格说明书准备测试计划 Prepare a test plan from the functional specification of the system</li><li>对全部功能设计测试 Prepare tests for all areas of functionality</li><li>审查测试计划和测试 Review test plan and tests</li><li>执行测试 Execute tests</li><li>监控缺陷率 Monitor fault rate</li><li>功能测试报告</li></ul></li><li><p><strong>功能测试主要内容</strong></p><ul><li>功能流程、界面、菜单按钮、各种输入域、各种链接、各种文字图片、与外系统的接口、软硬件的兼容、版本的兼容</li></ul></li><li><p><strong>回归测试</strong></p><ul><li><strong>定义</strong><ul><li>对<strong>修正缺陷后</strong>的软件进行再次的测试，不仅测试被修复的<strong>软件缺陷</strong>是否已经解决，还要测试软件<strong>旧有的功能与非功能</strong>是否满足要求。</li></ul></li><li><strong>方法</strong><ul><li>再测试全部用例</li><li>基于风险选择测试：测试关键的、重要的、可疑的，跳过非关键的、稳定的</li><li>基于操作剖面选择测试</li><li>再测试修改的部分</li></ul></li></ul></li><li><p><strong>冒烟测试</strong></p><ul><li><p><strong>定义</strong></p><ul><li>冒烟测试就是在每日build建立后，对系统的基本功能进行简单的测试。这种测试强调<strong>功能的覆盖率</strong>。</li></ul></li><li><p><strong>目的</strong></p><ul><li>通过<strong>最基本的测试</strong>，如果最基本的测试都有问题，就直接打回开发部了，减少测试部门时间的浪费。</li></ul></li></ul></li></ul><h3 id="非功能测试-Non-functional-Test"><a href="#非功能测试-Non-functional-Test" class="headerlink" title="非功能测试 Non-functional Test"></a>非功能测试 Non-functional Test</h3><ul><li><p><strong>性能指标</strong></p><ul><li>客户端指标：响应时间、并发数</li><li>服务器端指标：CPU占有率，内存占有情况等</li></ul></li><li><p><strong>压力测试</strong> Stress Testing</p><ul><li>定义：<ul><li>一种需要<strong>反常数量、频率或资源</strong>的方式下，执行可重复的<strong>负载测试或强度测试</strong>，以检查程序对异常情况的<strong>抵抗能力</strong>，找出<strong>性能瓶颈</strong>。</li><li>异常情况主要指的是<strong>峰值</strong>（瞬间使用高峰）、<strong>大量数据的处理能力</strong>、<strong>长时间运行</strong>等情况。压力测试总是迫使系统在异常的资源配置下运行。</li></ul></li><li>测试压力估算<ul><li>给出合理的<strong>压力估算值</strong>（结合峰值），为压力测试提供数据依据</li></ul></li><li>测试环境准备<ul><li>软硬件、网络、数据、测试程序</li><li>两种压力测试：稳定性压力测试、破坏性压力测试</li></ul></li><li><strong>稳定性压力测试</strong><ul><li>稳定性压力测试，也叫<strong>可靠性测试</strong>（reliability testing），或<strong>疲劳测试</strong>，是指以<strong>合理的估算压力</strong>连续运行被测系统，检查系统运行时的<strong>稳定程度</strong>。</li><li>通常用mtbf（mean time between failure，错误发生的平均时间间隔）来衡量系统的稳定性。</li><li>24*7的方式</li><li>使用场合：为了给出系统一个<strong>实际使用的指标和范围</strong>、<strong>使用边界条件</strong>。</li></ul></li><li><strong>破坏性压力测试</strong><ul><li>定义<ul><li>通常是指<strong>持续不断</strong>的给被测系统<strong>增加压力</strong>，直到将被测系统<strong>压垮为止</strong>。</li><li>是采用<strong>破坏的手段</strong>，目的是为了<strong>找到系统的瓶颈</strong>。</li></ul></li></ul></li></ul></li><li><p><strong>容量测试</strong> Capacity Testing</p><ul><li>目的：通过测试预先分析出反映软件系统应用特征的某项<strong>指标的极限值</strong>（如最大并发用户数、数据库记录数等），系统在其<strong>极限值状态下</strong>还能保持<strong>主要功能正常运行</strong>。容量测试还将确定测试对象在<strong>给定时间</strong>内能够<strong>持续处理</strong>的<strong>最大负载或工作量</strong>。</li></ul></li><li><p>通过压力测试的稳定性测试，可以得到<strong>容量值</strong>。</p></li><li><p><strong>性能测试</strong> Performance Testing</p><ul><li>定义：通过测试确定系统运行期间的<strong>性能表现与性能数据</strong>，如：CPU使用的效率、运行速度、响应时间、占有系统资源等方面的系统数据，<strong>给出合理的系统配置</strong>。</li><li>作用：<ul><li>去定在什么样的压力下系统达到最佳状态（稳定性压力测试），什么压力是系统的极限（破坏性压力测试）</li><li>根据性能指标确定实际的软硬件运行环境</li></ul></li><li>性能合理的范围<ul><li>服务器CPU的占有率：一般在85%以内</li><li>内存占有率：80%以内</li></ul></li><li><strong>性能测试与瓶颈分析</strong><ul><li>步骤<ul><li>性能测试与数据收集</li><li>性能瓶颈分析</li><li>性能调优解决方案</li></ul></li></ul></li></ul></li><li><p><strong>压力测试工具 LoadRunner</strong></p><ul><li>Virtual User Generator 创建脚本<ul><li>创建脚本，选择协议</li><li>录制脚本</li><li>编辑脚本</li><li>检查修改脚本是否有误</li></ul></li><li>中央控制器（Controller）来调度虚拟用户<ul><li>创建Scenario（一个测试用例），选择脚本</li><li>设置机器虚拟用户数</li><li>设置Schedule</li><li>如果模拟多机测试，设置IP Spoofer</li></ul></li><li>运行脚本<ul><li>分析scenario</li></ul></li><li>分析测试结果</li></ul></li><li><p><strong>安全测试</strong> Security Testing</p><ul><li>检查系统对<strong>非法侵入</strong>的<strong>防范能力</strong>。</li><li>准则：使非法侵入的代价超过被保护信息的价值，此时非法侵入者无利可图。</li></ul></li><li><p><strong>容错测试</strong> Recovery Testing</p><ul><li>检查软件在异常条件下自身是否具有<strong>防护性的措施</strong>或者某种<strong>灾难性恢复的手段</strong>。</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Software Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Software Test </tag>
+            
+            <tag> School </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件测试与维护（七）Unit Test</title>
+      <link href="/software-test-maintance-07/"/>
+      <url>/software-test-maintance-07/</url>
+      
+        <content type="html"><![CDATA[<h1 id="软件测试与维护（七）：Unit-Test"><a href="#软件测试与维护（七）：Unit-Test" class="headerlink" title="软件测试与维护（七）：Unit Test"></a>软件测试与维护（七）：Unit Test</h1><h2 id="单元测试基本概念"><a href="#单元测试基本概念" class="headerlink" title="单元测试基本概念"></a>单元测试基本概念</h2><h3 id="单元测试的定义"><a href="#单元测试的定义" class="headerlink" title="单元测试的定义"></a>单元测试的定义</h3><ul><li><strong>定义：</strong>单元测试是对软件基本组成单元进行的测试。</li><li><strong>时机：</strong>一般是在代码完成后由开发人员完成，QA人员辅助。</li><li><strong>概念</strong><ul><li>单元：有明确的功能、性能定义、接口定义的软件设计最小单元–模块。</li><li>不是函数或类中的方法！而是模块或者类。</li></ul></li></ul><h3 id="单元测试的内容"><a href="#单元测试的内容" class="headerlink" title="单元测试的内容"></a>单元测试的内容</h3><ul><li>单元模块：局部数据结构、模块接口、出错处理、独立路径、边界条件</li></ul><h3 id="辅助模块"><a href="#辅助模块" class="headerlink" title="辅助模块"></a>辅助模块</h3><ul><li><strong>单元测试示意图</strong></li></ul><p><img src="./07-01.png" alt="07-01 单元测试模型示意图"></p><ul><li><p><strong>驱动模块</strong>（driver）：用来模拟被测试模块的上一级模块，相当于被测模块的主程序。它接收数据，将相关数据传送给被测模块，启用被测模块，并打印出相应的结果。</p></li><li><p><strong>桩模块</strong>（Stub）：模拟被测试的模块所调用的模块，而不是软件产品的组成的部分。主模块作为驱动模块,与之直接相连的模块用桩模块代替。</p></li></ul><h2 id="单元测试策略"><a href="#单元测试策略" class="headerlink" title="单元测试策略"></a>单元测试策略</h2><ul><li><strong>白盒测试与黑盒测试</strong><ul><li>静态白盒测试在现实中较少使用</li></ul></li><li><strong>正式代码审查的基本要素</strong> Essential elements of a formal code review<ul><li>识别问题 Idetify problems</li><li>遵循规则 Follow rules</li><li>准备 Prepare</li><li>书写报告 Write a report</li></ul></li><li><strong>非正式代码检查</strong> Informal code inspections<ul><li>同级审查 Peer Reviews<ul><li>采用讲解、提问方式进行，一般有正式的计划、流程和结果。主要方法采用缺陷检查表。</li><li>会议形式、报告、缺陷检查表</li></ul></li><li>走查 Walk throughs<ul><li>采用讲解、讨论和模拟运行的方式进行的查找错误的活动</li></ul></li></ul></li><li><strong>正式的代码检查</strong><ul><li>正式的代码检查有利于发现代码和设计中的问题</li></ul></li><li><strong>TDD 测试驱动开发</strong> Test-Driven Development<ul><li>先编写测试用例，再进行开发</li></ul></li></ul><p><img src="./07-02.png" alt="07-02 TDD流程"></p><h2 id="单元测试工具"><a href="#单元测试工具" class="headerlink" title="单元测试工具"></a>单元测试工具</h2><ul><li><strong>xUnit框架</strong><ul><li>JUnit, CppUnit</li><li>针对自动化单元测试框架的实际标准</li><li>测试、测试装置、测试套件、测试运行器</li></ul></li><li><strong>JUnit</strong><ul><li>开发源代码的Java测试框架，用于编写和运行可重复的测试。一般用来进行单元测试。</li><li>测试类（TestCase）、测试套件（TestSuite）、测试方法、测试运行器</li></ul></li><li><strong>Parasoft Jtest</strong>、<strong>Parasoft C++ Test</strong></li></ul><h2 id="单元测试的过程和文档管理"><a href="#单元测试的过程和文档管理" class="headerlink" title="单元测试的过程和文档管理"></a>单元测试的过程和文档管理</h2><ul><li><strong>过程</strong><ul><li>在详细设计阶段完成单元测试计划</li><li>建立单元测试环境，完成测试设计和开发</li><li>执行单元测试用例，并且详细记录测试结果</li><li>判定测试用例是否通过</li><li>提交《单元测试报告》</li></ul></li><li><strong>文档</strong><ul><li>软件需求规格说明书、软件详细说明书 –&gt; 单元测试计划</li><li>单元测试计划、软件详细设计说明书 –&gt; 单元测试用例</li><li>单元测试用例、软件需求规格说明书、软件详细设计说明书 –&gt; 缺陷跟踪报告/缺陷检查表</li><li>单元测试用例、缺陷跟踪报告、缺陷检查表 –&gt; 评估 –&gt; 单元测试报告</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Software Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Software Test </tag>
+            
+            <tag> School </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件测试与维护（六）White Box Text</title>
+      <link href="/software-test-maintance-06/"/>
+      <url>/software-test-maintance-06/</url>
+      
+        <content type="html"><![CDATA[<h1 id="软件测试与维护（六）：White-Box-Test"><a href="#软件测试与维护（六）：White-Box-Test" class="headerlink" title="软件测试与维护（六）：White Box Test"></a>软件测试与维护（六）：White Box Test</h1><h2 id="白盒测试（White-Box-Testing）"><a href="#白盒测试（White-Box-Testing）" class="headerlink" title="白盒测试（White-Box Testing）"></a>白盒测试（White-Box Testing）</h2><ul><li><strong>基本原理</strong>：基于过程设计的控制结构导出测试用例。</li><li><strong>白盒测试分类</strong><ul><li>Control Flow-Testing<ul><li>逻辑分支覆盖法<ul><li>语句覆盖、判定覆盖、条件覆盖、判定/条件覆盖、条件组合覆盖</li></ul></li><li>路径法<ul><li>路径覆盖、基本（独立）路径测试法</li></ul></li></ul></li><li>DataFlow-Testing</li></ul></li></ul><h2 id="控制流测试"><a href="#控制流测试" class="headerlink" title="控制流测试"></a>控制流测试</h2><h3 id="逻辑分支覆盖法"><a href="#逻辑分支覆盖法" class="headerlink" title="逻辑分支覆盖法"></a>逻辑分支覆盖法</h3><h4 id="1-语句覆盖（statement）"><a href="#1-语句覆盖（statement）" class="headerlink" title="1. 语句覆盖（statement）"></a>1. 语句覆盖（statement）</h4><ul><li><p><strong>概念</strong></p><ul><li>语句覆盖就是设计若干个测试用例，运行被测程序，使得<strong>每一可执行语句至少执行一次</strong>。</li><li>这种覆盖又称为<strong>点覆盖</strong>，它使得程序中每个可执行语句都得到执行，但它是<strong>最弱的逻辑覆盖</strong>，效果有限，必须与其它方法交互使用。  </li></ul></li><li><p><strong>示例</strong></p><p><img src="./02-01.png" alt="02-01"></p></li></ul><h4 id="2-判定覆盖（Decision-Coverage-Branch-Coverage）"><a href="#2-判定覆盖（Decision-Coverage-Branch-Coverage）" class="headerlink" title="2. 判定覆盖（Decision Coverage, Branch Coverage）"></a>2. 判定覆盖（Decision Coverage, Branch Coverage）</h4><ul><li><strong>概念</strong><ul><li>判定覆盖就是设计若干个测试用例，运行被测程序，使得程序中<strong>每个判断的取真分支和取假分支至少经历一次</strong>。判定覆盖又称为<strong>分支覆盖</strong>。 </li></ul></li></ul><h4 id="3-条件覆盖（Condition-Coverage）"><a href="#3-条件覆盖（Condition-Coverage）" class="headerlink" title="3. 条件覆盖（Condition Coverage）"></a>3. 条件覆盖（Condition Coverage）</h4><ul><li><strong>概念</strong><ul><li>条件覆盖就是设计若干个测试用例，运行被测程序，使得程序中<strong>每个判断的每个条件的可能取值至少执行一次</strong>。 </li></ul></li><li><strong>关系</strong><ul><li>条件覆盖深入到判定中的每个条件，但可能不满足判定覆盖</li></ul></li></ul><h4 id="4-判定-条件覆盖"><a href="#4-判定-条件覆盖" class="headerlink" title="4. 判定/条件覆盖"></a>4. 判定/条件覆盖</h4><ul><li><strong>概念</strong><ul><li>判定-条件覆盖要求设计足够的测试用例，使得<strong>判定中每个条件的所有可能 （真/假）至少出现一次</strong>，并且<strong>每个判定本身的判定结果（真/假）也至少出现一次</strong>。</li></ul></li><li><strong>复合判定</strong>：改为单个条件判定</li></ul><h4 id="5-条件组合覆盖"><a href="#5-条件组合覆盖" class="headerlink" title="5. 条件组合覆盖"></a>5. 条件组合覆盖</h4><ul><li><p><strong>概念</strong></p><ul><li>条件组合覆盖就是设计足够的测试用例，运行被测程序，使得<strong>每个判断的所有可能的条件取值组合至少执行一次</strong>。 </li></ul></li><li><p><strong>关系</strong></p><ul><li>满足“条件组合覆盖”的测试用例是一定满足“判定覆盖”、“条件覆盖”和“判定-条件覆盖”的。 </li></ul></li><li><p><strong>示例</strong></p><p><img src="./02-02.png" alt="02-02"></p></li></ul><h3 id="路径法"><a href="#路径法" class="headerlink" title="路径法"></a>路径法</h3><h4 id="1-路径覆盖（Path-Coverage）"><a href="#1-路径覆盖（Path-Coverage）" class="headerlink" title="1. 路径覆盖（Path Coverage）"></a>1. 路径覆盖（Path Coverage）</h4><ul><li><strong>概念</strong><ul><li>路径测试就是设计足够的测试用例，<strong>覆盖程序中所有可能的路径</strong>。这是<strong>最强的覆盖准则</strong>。但在路径数目很大时，真正做到完全覆盖是很困难的，必须把覆盖路径数目压缩到一定限度。 </li><li>保证程序中每条可能的路径都至少执行一次，因此更具代表性，暴露错误的能力也比较强。 </li><li>但为了做到路径覆盖，只需考虑每个判定式的取值组合，并没有检验表达式中条件的各种可能组合。如果将路径覆盖和条件组合覆盖结合起来，可以设计出检错能力更强的测试数据。 </li><li><strong>路径表达式：</strong>$a(b+c)(d+e)f=abdf+abef+acdf+acef$</li></ul></li></ul><p>####2. 基本（独立）路径测试法</p><ul><li><strong>概念</strong><ul><li>独立路径：从入口到出口的路径，至少经历一个从未走过的边。这样形成的路径叫独立路径。</li></ul></li><li><strong>步骤</strong><ul><li>根据程序的逻辑结构画出<strong>程序框图</strong></li><li>根据程序框图导出<strong>流图</strong></li><li>计算流图<strong>G</strong>的<strong>环路复杂度$V(G)$</strong><ul><li><strong>流图的区域数量</strong>应该对应于环复杂度 </li><li>给定流图G的环复杂度定义为：$V(G)=E-N+2$<ul><li>E为流图中的边数量，N为流图中的节点数量 </li></ul></li><li>给定流图G的环复杂度也可以定义为：$V(G)=P+1$<ul><li>P为流图中的判断节点数量</li></ul></li></ul></li><li>确定只包含独立路径的基本路径集</li><li>设计测试用例</li></ul></li></ul><h2 id="数据流测试"><a href="#数据流测试" class="headerlink" title="数据流测试"></a>数据流测试</h2><ul><li><p><strong>含义</strong>：数据流测试使用控制流图来进行测试。</p><ul><li>能填补路径和分支测试的缝隙（span the gap between all paths and branch testing）</li></ul></li><li><p><strong>数据对象类别：</strong></p><ul><li><strong>（d）</strong>：Defined, Created, Initialized</li><li><strong>（k）</strong>：Killed, Undefined, Released</li><li><strong>（u）</strong>：Used<ul><li><strong>（c）</strong>：Used in a calculation</li><li><strong>（p）</strong>：Used in a predicate</li></ul></li></ul></li><li><p><strong>路径段</strong>（du Path Segments）</p><ul><li><p>Def-use Association: $(x , d, u)$</p><ul><li>x: 变量</li><li>d: 含有x定义的节点</li><li>u: 含有x使用的判断或语句</li><li>路径段中不存在其它x的定义</li></ul></li><li><p><strong>例子</strong></p><p><img src="./02-03.png" alt="02-03"></p></li></ul></li><li><p><strong>数据流测试策略：ADUP</strong>（All du Paths）</p><ul><li>找出测试所有的du paths路径</li></ul></li></ul><h2 id="终极示例"><a href="#终极示例" class="headerlink" title="终极示例"></a>终极示例</h2><ul><li>其实就是课程作业啦…</li></ul><h3 id="【题目】"><a href="#【题目】" class="headerlink" title="【题目】"></a>【题目】</h3><pre class=" language-python"><code class="language-python">scanf<span class="token punctuation">(</span><span class="token string">"%d %d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">,</span> <span class="token operator">&amp;</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">and</span> x<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>    pow <span class="token operator">=</span> <span class="token operator">-</span>y<span class="token punctuation">;</span><span class="token keyword">else</span>    pow <span class="token operator">=</span> y<span class="token punctuation">;</span>z <span class="token operator">=</span> <span class="token number">1.0</span><span class="token punctuation">;</span><span class="token keyword">while</span> <span class="token punctuation">(</span>pow <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    z <span class="token operator">=</span> z <span class="token operator">*</span> x<span class="token punctuation">;</span>    pow <span class="token operator">=</span> pow <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">and</span> z<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>    z <span class="token operator">=</span> <span class="token number">1.0</span> <span class="token operator">/</span> z<span class="token punctuation">;</span>printf <span class="token punctuation">(</span><span class="token string">"%f"</span><span class="token punctuation">,</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>用判定条件覆盖法、基本路径法完成测试用例设计（要求画程序流程图和控制流图）</p><h3 id="【答案】"><a href="#【答案】" class="headerlink" title="【答案】"></a>【答案】</h3><ol><li><p>程序流程图</p><pre class=" language-flow"><code class="language-flow">st=>start: starte=>end: endstatement1=>operation: scanf("%d %d",&x, &y);cond1=>condition: if(y < 0 and x>0)statement2=>operation: pow = -y; statement3=>operation: pow = y;statement4=>operation: z = 1.0;cond2=>condition: pow != 0statement5=>operation: z = z*x; pow = pow-1;cond3=>condition:  if (y < 0 and z>0)statement6=>operation: z = 1.0/z;statement7=>operation: printf("%f",z);st->statement1->cond1cond1(yes)->statement2->statement4cond1(no)->statement3->statement4statement4->cond2cond2(yes)->statement5->cond2cond2(no)->cond3cond3(yes)->statement6->statement7cond3(no)->statement7->e</code></pre></li></ol><ol start="2"><li><p>控制流图</p><pre class=" language-mermaid"><code class="language-mermaid">graph LR    id1((start,a))-->id2((b))    id2--yes-->id3((c))    id2--no-->id4((d))    id3-->id5((e))    id4-->id5    id5-->id6((f))    id6--yes-->id7((g))    id7-->id6    id6--no-->id8((h))    id8--yes-->id9((i))    id9-->id10((j))    id8--no-->id10    id10-->id11(k,end)</code></pre></li><li><p>判定条件覆盖法</p><p>$T_1: y&lt;0;\ \ T_2: x&gt;0;\ \ T_3: pow\ !=0;\ \ T_4:y&lt;0;\ \ T_5:z&gt;0$</p><table><thead><tr><th>测试序号</th><th>测试情况</th><th>输入(x, y)</th><th>理想输出(z)</th></tr></thead><tbody><tr><td>1</td><td>$T_1T_2T_3\overline{T_3}T_4T_5$</td><td>(1, -1)</td><td>1.0</td></tr><tr><td>2</td><td>$\overline{T_1}\overline{T_2}T_3\overline{T_3}\overline{T_4}\overline{T_5}$</td><td>(-1, 1)</td><td>-1.0</td></tr></tbody></table></li><li><p>基本路径法</p><p>本因有四条基本路径，但由于判定1与判定3存在矛盾，所以无法找出四条基本路径的实际用例。</p><table><thead><tr><th>测试序号</th><th>测试路径</th><th>输入(x, y)</th><th>理想输出(z)</th></tr></thead><tbody><tr><td>1</td><td>abdefhjk</td><td>(1, 0)</td><td>1.0</td></tr><tr><td>2</td><td>abdefgfhjk</td><td>(-1, -1)</td><td>-1.0</td></tr><tr><td>3</td><td>abcefgfhijk</td><td>(1, -1)</td><td>1.0</td></tr><tr><td>4</td><td></td><td></td><td></td></tr></tbody></table></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Software Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Software Test </tag>
+            
+            <tag> School </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件测试与维护（五）Black Box Text</title>
+      <link href="/software-test-maintance-05/"/>
+      <url>/software-test-maintance-05/</url>
+      
+        <content type="html"><![CDATA[<h1 id="软件测试与维护（五）：Black-Box-Test"><a href="#软件测试与维护（五）：Black-Box-Test" class="headerlink" title="软件测试与维护（五）：Black Box Test"></a>软件测试与维护（五）：Black Box Test</h1><h2 id="动态黑盒测试（Black-Box-Test）"><a href="#动态黑盒测试（Black-Box-Test）" class="headerlink" title="动态黑盒测试（Black-Box Test）"></a>动态黑盒测试（Black-Box Test）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul><li>不深入代码细节测试软件的方法称为<strong>动态黑盒测试</strong>。</li><li><strong>动态</strong>（dynamic）：程序在运行；<strong>黑盒</strong>（black-box）：不知道如何运行。</li><li>动态黑盒测试常被称为<strong>行为测试</strong>（behavioral testing），因为测试的是软件在使用过程中的实际行动。</li></ul><h2 id="测试用例设计技术"><a href="#测试用例设计技术" class="headerlink" title="测试用例设计技术"></a>测试用例设计技术</h2><h3 id="1-等价类划分法（Equivalence-Partitioning）"><a href="#1-等价类划分法（Equivalence-Partitioning）" class="headerlink" title="1. 等价类划分法（Equivalence Partitioning）"></a>1. 等价类划分法（Equivalence Partitioning）</h3><ul><li><p><strong>概念</strong>：把程序的输入域划分成若干部分，然后从每个部分中选取少数代表性数据当作测试用例。（可以减少测试用例的量）</p></li><li><p><strong>有效等价类</strong> &amp; <strong>无效等价类</strong></p><ul><li>有效等价类：指对于程序的规格说明来说是<strong>合理的、有意义的输入数据构成的集合</strong>。利用有效等价类可<strong>检验程序是否实现了规格说明中所规定的功能和非功能</strong>。 </li><li>无效等价类：与有效等价类的定义恰巧相反。 </li></ul></li><li><p>测试：<strong>完备性</strong>、<strong>无冗余性</strong></p></li><li><p><strong>确定等价类的原则：</strong></p><ul><li>在输入条件规定了取值范围或值的个数的情况下，则可以确立一个有效等价类和两个无效等价类。 </li><li>在输入条件规定了输入值的集合或者规定了“必须如何”的条件的情况下，可以确立一个有效等价类和一个无效等价类。 </li><li>在输入条件是一个布尔量的情况下，可确定一个有效等价类和一个无效等价类。 </li><li>在规定了输入数据的一组值 ，并且程序要对每一个输入值分别处理的情况下，可确立n个有效等价类和一个无效等价类。</li><li>在规定了输入数据必须遵守的规则的情况下，可确立一个有效等价类（符合规则）和若干个无效等价类（从不同角度违反规则）。 </li><li>如果确知，已划分的等价类中各个元素在程序中的处理方式不同，则应将此等价类进一步划分成更小的等价类。 </li></ul></li><li><p><strong>示例</strong></p><ul><li><p>等价类划分：</p><table><thead><tr><th>被测项</th><th>边长</th><th>等价类编号</th></tr></thead><tbody><tr><td>有效等价类</td><td>正数</td><td>1</td></tr><tr><td>无效等价类</td><td>小于0</td><td>2</td></tr></tbody></table></li><li><p>测试用例设计：</p><table><thead><tr><th>测试用例编号</th><th>输入值</th><th>覆盖的等价类编号</th><th>合理输出</th></tr></thead><tbody><tr><td>T1</td><td>2</td><td>(1)</td><td>正确</td></tr><tr><td>T2</td><td>0</td><td>(2)</td><td>错误</td></tr></tbody></table></li></ul></li></ul><h3 id="2-边界值分析法（VBA-Boundary-Value-Analysis）"><a href="#2-边界值分析法（VBA-Boundary-Value-Analysis）" class="headerlink" title="2. 边界值分析法（VBA, Boundary Value Analysis）"></a>2. 边界值分析法（VBA, Boundary Value Analysis）</h3><ul><li><strong>概念：</strong>对等价划分类的补充，不是从某等价类中随便挑一个作为代表，而是使这个等价类的每个边界都要作为测试条件。</li><li><strong>设计方法：</strong><ul><li>确定边界情况（输入或输出等价类的边界）</li><li>选取正好等于、刚刚大于或刚刚小于边界值作为测试数据 </li><li>一般情况，一个边界可以给出3个边界测试用例，<strong>自身+左右值</strong></li></ul></li></ul><h3 id="3-错误推测方法"><a href="#3-错误推测方法" class="headerlink" title="3. 错误推测方法"></a>3. 错误推测方法</h3><ul><li><strong>概念：</strong><ul><li>通过经验和直觉推测出程序的错误所在；</li><li>主观、灵感、反向思维，难以复制等等；</li><li>不是一个系统的方法，用作辅助手段。</li></ul></li></ul><h3 id="4-判定表驱动测试方法（Decision-Table）"><a href="#4-判定表驱动测试方法（Decision-Table）" class="headerlink" title="4. 判定表驱动测试方法（Decision Table）"></a>4. 判定表驱动测试方法（Decision Table）</h3><ul><li><p><strong>概念：</strong>是分析和表达多逻辑条件下执行不同操作的工具，也叫判定表。</p></li><li><p><strong>组成：</strong>条件桩（Condition Stub）、动作桩（Action Stub）、条件项、动作项、规则</p><table><thead><tr><th>条件桩</th><th>条件项</th></tr></thead><tbody><tr><td>动作桩</td><td>动作项</td></tr></tbody></table></li><li><p><strong>示例：</strong></p><ul><li><p>判定表：</p><p><img src="./01-01.png" alt="01-01"></p></li><li><p>测试用例：</p><p><img src="./01-02.png" alt="01-02"></p></li></ul></li></ul><h3 id="5-因果图法"><a href="#5-因果图法" class="headerlink" title="5. 因果图法"></a>5. 因果图法</h3><ul><li><p><strong>概念：</strong></p><ul><li>借助图的方式，设计测试用例，被测程序有多种输入条件，输出结果依赖于输入条件的组合; </li><li>着重分析输入条件的各种组合，每个条件就是一个“因”，这些“因”的组合必然有一个输出的结果，这就是“果”; </li><li>与其他的方法相比，更侧重于输入条件的组合 。</li></ul></li><li><p><strong>约束符号</strong></p><ul><li>E：互斥，不能同时出现</li><li>I：包含，至少一个出现</li><li>O：唯一，有且只有一个出现</li><li>R：要求，若a=1那么要求b必须是1，反之如果a=0，那么b无所谓</li><li>M：屏蔽，当a=1时，b=0，当a=0，b的值有可能是1，也有可能是0</li></ul></li><li><p><strong>示例：</strong></p><p><img src="./01-03.png" alt="01-03"></p></li><li><p><strong>步骤：</strong></p><ul><li>分析软件规格说明描述中, 哪些是原因（即输入条件或输入条件的等价类），哪些是结果（即输出条件），并给每个原因和结果赋予一个标识符。 </li><li>分析软件规格说明描述中的语义，找出原因与结果之间、原因与原因之间对应的关系。根据这些关系，画出因果图。 </li><li>把因果图转换为判定表。</li><li>把判定表的每一列拿出来作为依据,设计测试用例。 </li></ul></li></ul><h3 id="6-场景法"><a href="#6-场景法" class="headerlink" title="6. 场景法"></a>6. 场景法</h3><ul><li><p><strong>概念：</strong></p><ul><li>用例场景：用来描述流经用例的路径，从用例开始到结束遍历这条路径上所有基本流和备选流。</li><li><strong>基本流</strong>和<strong>备选流</strong></li><li><strong>场景</strong></li></ul></li><li><p>测试用例设计<strong>步骤</strong>与<strong>示例</strong></p><ul><li><p><strong>设计场景</strong>：通过用例的主事件流和备选事件流的组合给出不同的场景</p><table><thead><tr><th>场景</th><th>基本流&amp;备选流</th></tr></thead><tbody><tr><td>场景1</td><td>基本流</td></tr><tr><td>场景2</td><td>基本流 备选流1</td></tr><tr><td>场景3</td><td>基本流 备选流1 备选流2</td></tr><tr><td>场景4</td><td>基本流 备选流3</td></tr></tbody></table></li><li><p><strong>设计测试用例标准</strong>：覆盖场景</p><table><thead><tr><th>测试用例编号</th><th>覆盖的场景</th><th>PIN</th><th>账号</th><th>输入（选择）的金额</th><th>账面金额</th><th>ATM中的金额</th><th>预测结果</th></tr></thead><tbody><tr><td>1</td><td>场景1-成功提款</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>成功提款</td></tr><tr><td>2</td><td>场景2-ATM内无现金</td><td>V</td><td>V</td><td>V</td><td>V</td><td>I</td><td>提款选项不可用，用例结束</td></tr><tr><td>…</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></li><li><p>根据测试用例标准给出<strong>具体的测试数据</strong></p></li><li><table><thead><tr><th>测试用例编号</th><th>覆盖的场景</th><th>PIN</th><th>账号</th><th>输入（选择）的金额</th><th>账面金额</th><th>ATM中的金额</th><th>预测结果</th></tr></thead><tbody><tr><td>1</td><td>场景1-成功提款</td><td>1987</td><td>809-498</td><td>100</td><td>500</td><td>2000</td><td>成功提款</td></tr><tr><td>2</td><td>场景2-ATM内无现金</td><td>1987</td><td>809-398</td><td>100</td><td>500</td><td>0</td><td>提款选项不可用，用例结束</td></tr><tr><td>…</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></li></ul></li><li><p><strong>应用场景</strong></p><ul><li>一般用于<strong>功能测试</strong>，基本上所有的功能流程测试都会用到；</li><li>业务复杂时，针对关键业务场景进行业务的流程测试。</li></ul></li></ul><h2 id="黑盒测试策略总结"><a href="#黑盒测试策略总结" class="headerlink" title="黑盒测试策略总结"></a>黑盒测试策略总结</h2><ul><li>针对功能具体页面中具体的输入域进行细化测试，采用等价类、边界值；</li><li>用静态检查法检查按钮、链接、内容、图片等；</li><li>针对每个功能的流程，采用场景法，进行该功能（用例）的全方位流程测试；</li><li>如果是多个条件的组合可以采用判定表或因果图法；</li><li>在任何情况下都必须使用边界值分析方法；</li><li>用错误推测法再追加一些测试用例。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Software Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Software Test </tag>
+            
+            <tag> School </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件测试与维护（四）Test Cases</title>
+      <link href="/software-test-maintance-04/"/>
+      <url>/software-test-maintance-04/</url>
+      
+        <content type="html"><![CDATA[<h1 id="软件测试与维护（四）：Test-Cases"><a href="#软件测试与维护（四）：Test-Cases" class="headerlink" title="软件测试与维护（四）：Test Cases"></a>软件测试与维护（四）：Test Cases</h1><h2 id="测试系统"><a href="#测试系统" class="headerlink" title="测试系统"></a>测试系统</h2><ul><li><strong>架构 Architecture</strong><ul><li>测试套件 Test Suite：与需求相关的一系列测试</li><li>测试 Test：针对单个功能或需求的一个或多个测试用例</li><li>测试用例 Test Case：最小的测试单元</li></ul></li></ul><h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><ul><li><strong>定义</strong><ul><li>满足特定目的的<strong>测试数据、测试代码、测试规程的集合</strong></li><li>是发现软件缺陷的<strong>最小测试执行单元</strong></li><li>有<strong>特殊的书写标准和基本原则</strong></li></ul></li><li>书写格式：<ul><li>标志符、测试项、测试环境（环境要求，实际测试环境）、输入（输入标准，实际输入）、输出（输出标准，实际输出）、测试用例间的关联</li></ul></li><li><strong>测试用例生成的基本准则</strong><ul><li>代表性、可判断性、可再现性</li></ul></li><li><strong>测试用例设计步骤</strong><ul><li>为测试需求确定测试用例</li><li>为测试用例确定输入输出</li><li>编写测试用例</li><li>评审测试用例</li><li>跟踪测试用例</li></ul></li><li><strong>测试用例的作用</strong><ul><li>避免盲目测试；</li><li>估算测试工作量；</li><li>减少回归测试的复杂程度；</li><li>方便地书写软件测试缺陷报告；</li><li>实施不同级别的测试。</li><li>总结：软件测试是有组织性、步骤性和计划性的，为了能将软件测试的行为转换为可管理的、具体量化的模式，需要创建和维护测试用例。</li></ul></li><li><strong>测试用例工具：</strong> TestDirector, Testlink</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Software Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Software Test </tag>
+            
+            <tag> School </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件测试与维护（三）Test Planning</title>
+      <link href="/software-test-maintance-03/"/>
+      <url>/software-test-maintance-03/</url>
+      
+        <content type="html"><![CDATA[<h1 id="软件测试与维护（三）：Test-Planning"><a href="#软件测试与维护（三）：Test-Planning" class="headerlink" title="软件测试与维护（三）：Test Planning"></a>软件测试与维护（三）：Test Planning</h1><h2 id="测试策略"><a href="#测试策略" class="headerlink" title="测试策略"></a>测试策略</h2><ul><li><strong>概念：</strong>测试策略通常是描述<strong>测试工程</strong>的<strong>总体方法和目标</strong>。描述目前在进行哪一阶段的测试（如单元测试、集成测试、系统测试）以及<strong>每个阶段内进行的测试种类</strong>（如功能测试、性能测试、压力测试等）和方法，以确定合理的测试方案使测试更有效</li></ul><h2 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h2><ul><li><strong>16个组件</strong><ul><li>测试计划标识 Test Plan Idertifier</li><li>引言 Instruction</li><li>定义或主题词 Test Items</li><li>需要被测试的特性 Features to be tested</li><li>无需被测试的特性 Features not to be tested</li><li>方法和途径 Approach</li><li>测试通过/失败的标准 Items Pass / fail criteria </li><li>暂停和再启动的标准 Suspension criteria and resumption requirements</li><li>测试交付的内容 Test Deliverables</li><li>测试任务 Testing Tasks</li><li>必备的环境 Environmental need </li><li>职责 Responsibilities</li><li>人员和必须的培训 Staffing and training needs</li><li>时间进度表 Schedule</li><li>风险和相关费用 Risk and Contingencies</li><li>批准 Approvals</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Software Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Software Test </tag>
+            
+            <tag> School </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件测试与维护（二）Test Realities</title>
+      <link href="/software-test-maintance-02/"/>
+      <url>/software-test-maintance-02/</url>
+      
+        <content type="html"><![CDATA[<h1 id="软件测试与维护（二）：Test-Realities"><a href="#软件测试与维护（二）：Test-Realities" class="headerlink" title="软件测试与维护（二）：Test Realities"></a>软件测试与维护（二）：Test Realities</h1><h2 id="组建测试团队"><a href="#组建测试团队" class="headerlink" title="组建测试团队"></a>组建测试团队</h2><ul><li><strong>测试团队的任务与责任</strong><ul><li>基本任务：测试计划、测试用例设计、执行测试、评估测试结果、递交测试报告</li><li>尽早地发现问题，发现软件程序、文档、系统或产品中所有的问题，督促相关人员尽快地解决产品中的缺陷；</li><li>对问题进行分析、分类总结和跟踪；</li><li>帮助项目管理人员制定合理的开发计划；</li><li>帮助改善开发流程、提高产品开发效率；</li><li>提高程序、文档编写的规范性、易读性、可维护性等</li></ul></li><li><strong>测试团队的基本构成</strong><ul><li>测试组长</li><li>测试配置人员</li><li>测试设计人员/资深测试工程师</li><li>一般（初级）测试工程师</li></ul></li><li><strong>以项目经理为核心的组织模型</strong><ul><li>项目经理–测试经理、开发经历、文档人员</li></ul></li><li><strong>优秀软件测试工程师的必备素质</strong><ul><li>沟通能力、技术能力、信心、外交能力和幽默感、耐心、很强的记忆力、怀疑精神、洞察力、适度的好奇心、反向思维和发散思维能力</li></ul></li></ul><h2 id="测试的原则"><a href="#测试的原则" class="headerlink" title="测试的原则"></a>测试的原则</h2><ul><li><strong>完全测试是不可能的</strong><ul><li>原因：输入量太大、输出结果太多、软件执行路径太多、软件说明书是主观的</li></ul></li><li><strong>软件测试是有风险的行为</strong><ul><li>找出最优的测试量，使测试不多不少</li></ul></li><li><strong>测试无法显示潜伏的软件缺陷</strong> cannot show the absence of bugs</li><li><strong>找到的软件缺陷越多，就说明软件缺陷越多</strong><ul><li>程序员也有心情不好的时候</li><li>程序员往往会犯同样的错误</li><li>某些软件缺陷是冰山一角</li></ul></li><li><strong>杀虫剂怪事：软件测试越多，其对测试的免疫力越强</strong></li><li><strong>并非所有软件缺陷都要修复</strong><ul><li>没有足够的时间</li><li>不算真正的软件缺陷</li><li>修复的风险太大</li><li>不值得修复</li></ul></li><li><strong>什么时候才叫缺陷难以说清</strong></li><li><strong>产品说明书从没有最终版本</strong></li><li><strong>软件测试员在产品小组中不受欢迎</strong><ul><li>早点找出缺陷</li><li>控制情绪</li><li>不要总是报告坏消息</li></ul></li><li><strong>软件测试是一项讲究条理的技术专业</strong> disciplined</li><li><strong>补充原则</strong><ul><li>“质量第一”</li><li>质量标准</li><li>第三方测试会更客观，更有效</li><li>重视文档</li></ul></li></ul><h2 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul><li>对软件产品进行充分测试，尽早找出其中的缺陷(Bug),并督促相关人员进行解决。</li></ul><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul><li>软件测试分类</li></ul><p><img src="./02-01.png" alt="02-01 软件测试分类"></p><ul><li>单元、集成、系统、验收测试</li></ul><table><thead><tr><th>测试类型</th><th>对象</th><th>目的</th><th>依据</th><th>方法</th></tr></thead><tbody><tr><td>单元测试</td><td>模块内部程序错误</td><td>消除局部模块的逻辑和功能上的错误和缺陷</td><td>详细设计</td><td>白盒为主，黑盒为辅</td></tr><tr><td>集成测试</td><td>模块间的集成和调用关系</td><td>找出与软件设计相关的程序结构，模块调用关系，模块间借口方面的问题</td><td>概要设计</td><td>白盒与黑盒结合</td></tr><tr><td>系统测试</td><td>整个系统中的软硬件</td><td>对整个系统进行一系列的整体、有效性测试</td><td>需求规格说明书、概要设计</td><td>黑盒</td></tr><tr><td>验收测试</td><td>用户实际环境</td><td>对整个系统进行整体有效测试</td><td>需求规格说明书</td><td>黑盒</td></tr></tbody></table><h3 id="测试与调试"><a href="#测试与调试" class="headerlink" title="测试与调试"></a>测试与调试</h3><ul><li>测试发展的初期，测试就是调试，而现在测试是一个<strong>系统化工程化</strong>的概念，有自己的生命周 期，<strong>调试的范畴更小一些</strong>。</li><li>调试不属于测试，是<strong>编码阶段的工作</strong>，由程序员完成;而测试由测试员或程序员完成</li><li>测试是为了<strong>找出软件中存在的缺陷，并督促相关人员解决</strong>，为了提升软件质量; 而调试是 为了<strong>解决存在的缺陷</strong>。</li><li>成功的测试发现了错误的症状，从而引起调试的进行。</li></ul><h3 id="测试管理体系"><a href="#测试管理体系" class="headerlink" title="测试管理体系"></a>测试管理体系</h3><ul><li>测试计划、测试设计、测试实施、测试评估</li></ul><h2 id="相关术语-Some-Terminology"><a href="#相关术语-Some-Terminology" class="headerlink" title="相关术语 Some Terminology"></a>相关术语 Some Terminology</h2><h3 id="精度（precision）和准确（accuracy）"><a href="#精度（precision）和准确（accuracy）" class="headerlink" title="精度（precision）和准确（accuracy）"></a>精度（precision）和准确（accuracy）</h3><ul><li><strong>精度</strong>：聚焦；<strong>准度</strong>：对准</li></ul><h3 id="确认（certification）和验证（validation）"><a href="#确认（certification）和验证（validation）" class="headerlink" title="确认（certification）和验证（validation）"></a>确认（certification）和验证（validation）</h3><ul><li>确认：是否正确地创建了产品</li><li>验证：是否创建了正确的产品</li></ul><h3 id="质量（quality）和可靠性"><a href="#质量（quality）和可靠性" class="headerlink" title="质量（quality）和可靠性"></a>质量（quality）和可靠性</h3><ul><li>可靠性，稳定，只是质量的一部分</li></ul><h3 id="测试和质量保证（Software-Quality-Assurance）"><a href="#测试和质量保证（Software-Quality-Assurance）" class="headerlink" title="测试和质量保证（Software Quality Assurance）"></a>测试和质量保证（Software Quality Assurance）</h3><ul><li><strong>SQA：</strong>软件质量保证是通过对软件<strong>产品和活动</strong>有<strong>计划</strong>地进行<strong>评审和审计</strong>来验证软件是否合乎<strong>标准的系统工程活动</strong>。</li><li><strong>SQA与软件测试的关系</strong><ul><li>SQA是管理工作，审查对象是流程，强调以预防为主；测试是技术实施工作，测试对象是产品，主要以事后检查（文档、程序）为主。</li><li>SQA指导测试、监控测试；测试为SQA提供依据，测试是SQA的一个环节、一个手段。</li><li>软件测试员的目标是尽可能早地找出软件缺陷，并确保缺陷得以修复；软件质量保证人员的主要职责是创建和执行改进软件开发过程并防止软件缺陷发生的标准和方法。</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Software Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Software Test </tag>
+            
+            <tag> School </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件测试与维护（一）Introduction</title>
       <link href="/software-test-maintance-01/"/>
       <url>/software-test-maintance-01/</url>
       
-        <content type="html"><![CDATA[<h1 id="软件测试与维护（一）：介绍"><a href="#软件测试与维护（一）：介绍" class="headerlink" title="软件测试与维护（一）：介绍"></a>软件测试与维护（一）：介绍</h1><h2 id="测试概念"><a href="#测试概念" class="headerlink" title="测试概念"></a>测试概念</h2><h3 id="Bug-缺陷"><a href="#Bug-缺陷" class="headerlink" title="Bug 缺陷"></a>Bug 缺陷</h3><ul><li><strong>别名：</strong>缺点（defect）、偏差（variance）、故障（fault）、失败（failure）、问题（problem）、矛盾（inconsistency）、错误（error）、特殊（feature）、事件（incident）、缺陷（bug）、异常（anomaly）</li><li><strong>问题的来源：</strong><ul><li>需求定义 Requirements Definition</li><li>设计 Design</li><li>实现 Implementation</li><li>支持系统 Support Systems</li><li>缺少测试 Inadequate  Testing of Software</li><li>进化 Evolution</li></ul></li><li><strong>软件缺陷存在</strong>当以下至少一项规则发生之时：<ul><li>软件未实现产品说明书（specification）要求的功能；</li><li>软件出现了产品说明书指明不应该出现的错误；</li><li>软件实现了产品说明书未提到的功能；</li><li>软件未实现产品说明书虽未明确提及但应该实现的目标；</li><li>软件难以理解、不易使用、运行缓慢或者–从测试员的角度看–最终用户会认为不好。</li></ul></li><li><strong>软件缺陷的分布：</strong><ul><li>说明书 Specification 55%</li><li>设计 Design 25%</li><li>编码 Code 15%</li><li>其他 Other 5%</li></ul></li></ul><h3 id="Software-Testing-软件测试"><a href="#Software-Testing-软件测试" class="headerlink" title="Software Testing 软件测试"></a>Software Testing 软件测试</h3><ul><li>软件测试员的目标是发现软件缺陷（to find bugs）</li><li>软件测试员的目标是尽可能早地找出软件缺陷（as early in the software development process as possible）</li><li>软件测试员的目标是尽可能地找出软件缺陷，并确保其得以修复（make sure they are fixed）</li></ul><h2 id="测试模型"><a href="#测试模型" class="headerlink" title="测试模型"></a>测试模型</h2><h3 id="V模型"><a href="#V模型" class="headerlink" title="V模型"></a>V模型</h3><p>![01-01 V模型](/Volumes/TOSHIBAEXT 1/SCHOOL/本科/大三上/软件测试与维护/复习整理/01-01.png)</p><h3 id="W模型"><a href="#W模型" class="headerlink" title="W模型"></a>W模型</h3><p>![01-02 W模型](/Volumes/TOSHIBAEXT 1/SCHOOL/本科/大三上/软件测试与维护/复习整理/01-02.png)</p><ul><li>解决了V模型的部分问题：未将测试流程的完整性表示出来。</li></ul><h3 id="H模型"><a href="#H模型" class="headerlink" title="H模型"></a>H模型</h3><p>![01-03 H模型](/Volumes/TOSHIBAEXT 1/SCHOOL/本科/大三上/软件测试与维护/复习整理/01-03.png)</p><ul><li><strong>测试流程</strong><ul><li>测试准备活动：测试计划、测试设计、测试开发</li><li>测试执行活动：测试运行、测试评估</li></ul></li><li><strong>应用</strong><ul><li>测试不仅仅是测试执行，还包括其他活动。</li><li>测试是一个独立流程，贯穿产品整个周期，与其他流程并行进行。</li><li>测试要尽早准备，尽早执行。</li></ul></li></ul><h3 id="其他模型"><a href="#其他模型" class="headerlink" title="其他模型"></a>其他模型</h3><ul><li><strong>X模型</strong></li></ul><img src="/Volumes/TOSHIBAEXT 1/SCHOOL/本科/大三上/软件测试与维护/复习整理/01-04.png" alt="01-04 X模型" style="zoom:50%;"><ul><li><strong>V 模型（进一步丰富）</strong></li></ul><p>![01-05 V模型（进一步吩咐）](/Volumes/TOSHIBAEXT 1/SCHOOL/本科/大三上/软件测试与维护/复习整理/01-05.png)</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="软件测试与维护（一）：Introduction"><a href="#软件测试与维护（一）：Introduction" class="headerlink" title="软件测试与维护（一）：Introduction"></a>软件测试与维护（一）：Introduction</h1><h2 id="测试概念"><a href="#测试概念" class="headerlink" title="测试概念"></a>测试概念</h2><h3 id="Bug-缺陷"><a href="#Bug-缺陷" class="headerlink" title="Bug 缺陷"></a>Bug 缺陷</h3><ul><li><strong>别名：</strong>缺点（defect）、偏差（variance）、故障（fault）、失败（failure）、问题（problem）、矛盾（inconsistency）、错误（error）、特殊（feature）、事件（incident）、缺陷（bug）、异常（anomaly）</li><li><strong>问题的来源：</strong><ul><li>需求定义 Requirements Definition</li><li>设计 Design</li><li>实现 Implementation</li><li>支持系统 Support Systems</li><li>缺少测试 Inadequate  Testing of Software</li><li>进化 Evolution</li></ul></li><li><strong>软件缺陷存在</strong>当以下至少一项规则发生之时：<ul><li>软件未实现产品说明书（specification）要求的功能；</li><li>软件出现了产品说明书指明不应该出现的错误；</li><li>软件实现了产品说明书未提到的功能；</li><li>软件未实现产品说明书虽未明确提及但应该实现的目标；</li><li>软件难以理解、不易使用、运行缓慢或者–从测试员的角度看–最终用户会认为不好。</li></ul></li><li><strong>软件缺陷的分布：</strong><ul><li>说明书 Specification 55%</li><li>设计 Design 25%</li><li>编码 Code 15%</li><li>其他 Other 5%</li></ul></li></ul><h3 id="Software-Testing-软件测试"><a href="#Software-Testing-软件测试" class="headerlink" title="Software Testing 软件测试"></a>Software Testing 软件测试</h3><ul><li>软件测试员的目标是发现软件缺陷（to find bugs）</li><li>软件测试员的目标是尽可能早地找出软件缺陷（as early in the software development process as possible）</li><li>软件测试员的目标是尽可能地找出软件缺陷，并确保其得以修复（make sure they are fixed）</li></ul><h2 id="测试模型"><a href="#测试模型" class="headerlink" title="测试模型"></a>测试模型</h2><h3 id="V模型"><a href="#V模型" class="headerlink" title="V模型"></a>V模型</h3><p><img src="./01-01.png" alt="01-01 V模型"></p><h3 id="W模型"><a href="#W模型" class="headerlink" title="W模型"></a>W模型</h3><p><img src="./01-02.png" alt="01-02 W模型"></p><ul><li>解决了V模型的部分问题：未将测试流程的完整性表示出来。</li></ul><h3 id="H模型"><a href="#H模型" class="headerlink" title="H模型"></a>H模型</h3><p><img src="./01-03.png" alt="01-03 H模型"></p><ul><li><strong>测试流程</strong><ul><li>测试准备活动：测试计划、测试设计、测试开发</li><li>测试执行活动：测试运行、测试评估</li></ul></li><li><strong>应用</strong><ul><li>测试不仅仅是测试执行，还包括其他活动。</li><li>测试是一个独立流程，贯穿产品整个周期，与其他流程并行进行。</li><li>测试要尽早准备，尽早执行。</li></ul></li></ul><h3 id="其他模型"><a href="#其他模型" class="headerlink" title="其他模型"></a>其他模型</h3><ul><li><strong>X模型</strong></li></ul><p><img src="./01-04.png" alt="01-04 X模型"></p><ul><li><strong>V 模型（进一步丰富）</strong></li></ul><p><img src="./01-05.png" alt="01-05 V模型（进一步丰富）"></p>]]></content>
       
       
       <categories>
