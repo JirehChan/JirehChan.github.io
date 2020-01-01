@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>软件测试与维护（一）介绍</title>
+      <link href="/software-test-maintance-01/"/>
+      <url>/software-test-maintance-01/</url>
+      
+        <content type="html"><![CDATA[<h1 id="软件测试与维护（一）：介绍"><a href="#软件测试与维护（一）：介绍" class="headerlink" title="软件测试与维护（一）：介绍"></a>软件测试与维护（一）：介绍</h1><h2 id="测试概念"><a href="#测试概念" class="headerlink" title="测试概念"></a>测试概念</h2><h3 id="Bug-缺陷"><a href="#Bug-缺陷" class="headerlink" title="Bug 缺陷"></a>Bug 缺陷</h3><ul><li><strong>别名：</strong>缺点（defect）、偏差（variance）、故障（fault）、失败（failure）、问题（problem）、矛盾（inconsistency）、错误（error）、特殊（feature）、事件（incident）、缺陷（bug）、异常（anomaly）</li><li><strong>问题的来源：</strong><ul><li>需求定义 Requirements Definition</li><li>设计 Design</li><li>实现 Implementation</li><li>支持系统 Support Systems</li><li>缺少测试 Inadequate  Testing of Software</li><li>进化 Evolution</li></ul></li><li><strong>软件缺陷存在</strong>当以下至少一项规则发生之时：<ul><li>软件未实现产品说明书（specification）要求的功能；</li><li>软件出现了产品说明书指明不应该出现的错误；</li><li>软件实现了产品说明书未提到的功能；</li><li>软件未实现产品说明书虽未明确提及但应该实现的目标；</li><li>软件难以理解、不易使用、运行缓慢或者–从测试员的角度看–最终用户会认为不好。</li></ul></li><li><strong>软件缺陷的分布：</strong><ul><li>说明书 Specification 55%</li><li>设计 Design 25%</li><li>编码 Code 15%</li><li>其他 Other 5%</li></ul></li></ul><h3 id="Software-Testing-软件测试"><a href="#Software-Testing-软件测试" class="headerlink" title="Software Testing 软件测试"></a>Software Testing 软件测试</h3><ul><li>软件测试员的目标是发现软件缺陷（to find bugs）</li><li>软件测试员的目标是尽可能早地找出软件缺陷（as early in the software development process as possible）</li><li>软件测试员的目标是尽可能地找出软件缺陷，并确保其得以修复（make sure they are fixed）</li></ul><h2 id="测试模型"><a href="#测试模型" class="headerlink" title="测试模型"></a>测试模型</h2><h3 id="V模型"><a href="#V模型" class="headerlink" title="V模型"></a>V模型</h3><p>![01-01 V模型](/Volumes/TOSHIBAEXT 1/SCHOOL/本科/大三上/软件测试与维护/复习整理/01-01.png)</p><h3 id="W模型"><a href="#W模型" class="headerlink" title="W模型"></a>W模型</h3><p>![01-02 W模型](/Volumes/TOSHIBAEXT 1/SCHOOL/本科/大三上/软件测试与维护/复习整理/01-02.png)</p><ul><li>解决了V模型的部分问题：未将测试流程的完整性表示出来。</li></ul><h3 id="H模型"><a href="#H模型" class="headerlink" title="H模型"></a>H模型</h3><p>![01-03 H模型](/Volumes/TOSHIBAEXT 1/SCHOOL/本科/大三上/软件测试与维护/复习整理/01-03.png)</p><ul><li><strong>测试流程</strong><ul><li>测试准备活动：测试计划、测试设计、测试开发</li><li>测试执行活动：测试运行、测试评估</li></ul></li><li><strong>应用</strong><ul><li>测试不仅仅是测试执行，还包括其他活动。</li><li>测试是一个独立流程，贯穿产品整个周期，与其他流程并行进行。</li><li>测试要尽早准备，尽早执行。</li></ul></li></ul><h3 id="其他模型"><a href="#其他模型" class="headerlink" title="其他模型"></a>其他模型</h3><ul><li><strong>X模型</strong></li></ul><img src="/Volumes/TOSHIBAEXT 1/SCHOOL/本科/大三上/软件测试与维护/复习整理/01-04.png" alt="01-04 X模型" style="zoom:50%;"><ul><li><strong>V 模型（进一步丰富）</strong></li></ul><p>![01-05 V模型（进一步吩咐）](/Volumes/TOSHIBAEXT 1/SCHOOL/本科/大三上/软件测试与维护/复习整理/01-05.png)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Software Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Software Test </tag>
+            
+            <tag> School </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020论文阅读笔记&lt;02&gt;</title>
       <link href="/article-2020-02/"/>
       <url>/article-2020-02/</url>
