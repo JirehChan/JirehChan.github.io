@@ -1,0 +1,1304 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="计算机图形学（六）From Vertices to Fragments, Yi勒">
+    <meta name="description" content="计算机图形学（六）From Vertices to Fragments0. 引入
+Moeling Pipeline
+
+
+Rendering Pipeline
+
+
+OpengGL
+
+OpenGL 4.5
+Direct State Access">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>计算机图形学（六）From Vertices to Fragments | Yi勒</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Yi勒</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>主页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>类别</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Yi勒</div>
+        <div class="logo-desc">
+            
+            一个有关笔记、感想、生活的博客...
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                主页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                类别
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/JirehChan/jirehchan.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/JirehChan" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:631440369@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=631440369" class="tooltipped" data-tooltip="QQ联系我: 631440369" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="" class="tooltipped" data-tooltip="微信联系我: Jireh-CHAN" data-position="top" data-delay="50">
+        <i class="fa fa-wechat"></i>
+    </a>
+
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/JirehChan/jirehchan.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        计算机图形学（六）From Vertices to Fragments
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Computer-Graphics/" target="_blank">
+                                <span class="chip bg-color">Computer Graphics</span>
+                            </a>
+                        
+                            <a href="/tags/School/" target="_blank">
+                                <span class="chip bg-color">School</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Computer-Graphics/" class="post-category" target="_blank">
+                                Computer Graphics
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2020-01-01
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        1.5k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        7 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="计算机图形学（六）From-Vertices-to-Fragments"><a href="#计算机图形学（六）From-Vertices-to-Fragments" class="headerlink" title="计算机图形学（六）From Vertices to Fragments"></a>计算机图形学（六）From Vertices to Fragments</h1><h2 id="0-引入"><a href="#0-引入" class="headerlink" title="0. 引入"></a>0. 引入</h2><ul>
+<li><p><strong>Moeling Pipeline</strong></p>
+<p><img src="./06-01.png" alt="06-01 Modeling Pipeline"></p>
+</li>
+<li><p><strong>Rendering Pipeline</strong></p>
+<p><img src="./06-02.png" alt="06-02 Rendering Pipeline"></p>
+</li>
+<li><p>OpengGL</p>
+<ul>
+<li>OpenGL 4.5<ul>
+<li>Direct State Access, DSA<ul>
+<li>object accessors enable state to be queried and modified without binding objects to contexts, for increased application and middleware efficiency and flexibility;</li>
+</ul>
+</li>
+<li>Flush Control<ul>
+<li>applications can control flushing of pending commands before context switching – enabling high-performance multithreaded applications;</li>
+</ul>
+</li>
+<li>Robustness</li>
+<li>OpenGL ES 3.1 API and shader compatibility</li>
+<li>DX11 emulation feature</li>
+</ul>
+</li>
+<li>OpenGL 4.6 Core Profile</li>
+</ul>
+<p><img src="./06-03.png" alt="06-03 OpenGL 4.6 Core Profile"></p>
+<ul>
+<li>OpenGL Fundamentals</li>
+<li>OpenGL Objects Model</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-Clipping-line-polygon"><a href="#1-Clipping-line-polygon" class="headerlink" title="1. Clipping: line, polygon"></a>1. Clipping: line, polygon</h2><ul>
+<li><p><strong>Cohen-Sutherland线段剪裁算法</strong></p>
+<ul>
+<li><p>Two steps:</p>
+<ul>
+<li>判断线段是否需要裁剪</li>
+<li>裁剪线段</li>
+</ul>
+</li>
+<li><p>Cases:</p>
+<ul>
+<li>Case1: both endpoints of line segment inside all four lines<ul>
+<li>Draw</li>
+</ul>
+</li>
+<li>Case 2: both endpoiints outside all lines and on same side of a line <ul>
+<li>Discard</li>
+</ul>
+</li>
+<li>Case 3: one endpoint inside, one outside<ul>
+<li>Must do at least one intersection</li>
+</ul>
+</li>
+<li>Case4: both outside<ul>
+<li>May have part inside</li>
+<li>must do at least one intersection</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Outcodes</p>
+<ul>
+<li><p>Outcodes:</p>
+<ul>
+<li><p>XXXX – TBRL</p>
+<table>
+<thead>
+<tr>
+<th>1001</th>
+<th>1000</th>
+<th>1010</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0001</td>
+<td>0000</td>
+<td>0010</td>
+</tr>
+<tr>
+<td>0101</td>
+<td>0100</td>
+<td>0110</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>例子：</p>
+<ul>
+<li>l1: code1=0000; code2=0000</li>
+<li>l2: code1=0100; code2=0110</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>算法：</p>
+<blockquote>
+<ol>
+<li><p>线段完全保留：</p>
+<p>if (code1==0&amp;&amp;code2==0) or (code1|code2)==0</p>
+</li>
+<li><p>线段完全放弃：</p>
+<p>if ((code1&amp;code2)&lt;&gt;0)</p>
+</li>
+<li><p>剪裁线段：</p>
+<p>else computing intersection</p>
+<p>Reexecute algorithm</p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p>Efficiency</p>
+<ul>
+<li>In many applications, the clipping window is small relative to the size of the entire data base</li>
+<li>Inefficiency when code has to be reexecuted for line segments that must be shortened in more than one step</li>
+</ul>
+</li>
+<li><p>Cohen Sutherland in 3D</p>
+<ul>
+<li>6-bit outcode 前后上下右左</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>梁友栋-Barsky线段剪裁算法</strong></p>
+<ul>
+<li><p>算法描述：</p>
+<ul>
+<li><p>线段$(s_1,s_2)$的参数方程：<br>$$<br>\begin{equation}<br>\left{<br>\begin{aligned}<br>x=x_1+t<em>(x_2-x_1)\<br>y=y_1+t</em>(y_2-y_1)<br>\end{aligned}<br>\right.<br>\end{equation}<br>\ \ \ \ \ 0\le t\le1<br>$$</p>
+</li>
+<li><p>始边和终边：</p>
+<ul>
+<li>始边：靠近$s_1$的窗边界线，如$xL$, $yB$</li>
+<li>终边：靠近$s_2$的窗边界线，如$xR$, $yT$</li>
+</ul>
+</li>
+<li><p>$t_1$, $t_2$</p>
+<ul>
+<li><p>$t_1=\max{t_1’,t_1’’,0}$，$t_1’$,$t_1’’$为$s_1$,$s_2$与两个始边的焦点参数</p>
+</li>
+<li><p>$t_2=\min{t_2’,t_2’’,1}$，$t_2’$,$t_2’’$为$s_1$,$s_2$与两个终边的焦点参数</p>
+</li>
+<li><p>当$t_1&lt;t_2$时，为可见直线段：<br>$$<br>\begin{equation}<br>\left{<br>\begin{aligned}<br>x=(x_2-x_1)<em>t+x_1\<br>y=(y_2-y_1)</em>t+y_1<br>\end{aligned}<br>\right.<br>\end{equation}<br>\ \ \ \ t_1&lt;t&lt;t_2<br>$$</p>
+</li>
+<li><p>当$t_1&gt;t_2$时，直线不可见</p>
+</li>
+</ul>
+</li>
+<li><p>求解$t_1’$, $t_1’’ $, $t_2’$, $t_2’’$ ：<br>$$<br>xL\le(x_2-x_1)<em>t+x_1\le xR\<br>yB\le(y_2-y_1)</em>t+y_1\le yT<br>$$</p>
+<ul>
+<li>简化求解为：$t*p_k\le q_k$, $k=1,2,3,4$<ul>
+<li>$p_1=-(x_2-x_1)$, $q_1=x_1-xL$</li>
+<li>$p_2=(x_2-x_1)$, $q_2=xR-x_1$</li>
+<li>$p_3=-(y_2-y_1)$, $q_3=y1-yB$</li>
+<li>$p_4=(y_2-y_1)$, $q_4=yT-y1$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>可知：</p>
+<ul>
+<li>若$p_k&lt;0$，则$t_k$为始边之交点参数</li>
+<li>若$p_k&gt;0$，则$t_k$为终边之交点参数</li>
+<li>若$p_k=0$，当$q_k&lt;0$，则线段完全不可见</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>Can accept/reject as easily as with Cohen- Sutherland</li>
+<li>Using values of <em>t</em>, we do not have to use algorithm recursively as with C-S. 不用对线段进行多次剪裁处理，从而避免了剪裁算法的多次重复执行。</li>
+<li>Extends to 3D</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Polygon Fill-Area Clipping</strong></p>
+<ul>
+<li><p>Sutherland-Hodgman Polygon Clipping:</p>
+<ul>
+<li><p>思想：用四个窗边界线依次剪裁多边形的所有边</p>
+</li>
+<li><p>算法：</p>
+<blockquote>
+<p>for (窗边界线: 1 to 4){</p>
+<p>​    for (多边形的边界线: 1 to n)</p>
+<p>​        求输出顶点;</p>
+<p>​    得到一个剪裁后的顶点序列</p>
+<p>}</p>
+<p>得到最终剪裁后的顶点序列</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Clipping and Normalization</p>
+<ul>
+<li>General clipping in 3D requires intersection of line segments against arbitrary plane</li>
+<li>Example: oblique view</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-Rasterization-Scan-Conversion"><a href="#2-Rasterization-Scan-Conversion" class="headerlink" title="2. Rasterization: Scan Conversion"></a>2. Rasterization: Scan Conversion</h2><ul>
+<li><p>Rasterization 光栅化</p>
+<ul>
+<li>Process:<ul>
+<li>Modeling, Geometric processing, Rasterization, Fragment Processing, Frame Buffer</li>
+</ul>
+</li>
+<li>Rasterization (scan conversion)<ul>
+<li>Determine which pixels that are inside primitive - specified by a set of vertices</li>
+<li>Produces a set of fragments</li>
+<li>Fragments have a location (pixel location) and other attributes such color and texture coordinates that are determined by interpolating values at vertices</li>
+</ul>
+</li>
+<li>Pixels colors determined later using color, texture, normal and other vertex properties</li>
+<li>Drawing edges</li>
+</ul>
+</li>
+<li><p>Scan Conversion for Line – DDA Algorithm</p>
+<ul>
+<li><strong>DDA Algorithm</strong>, Digital Differential Analyzer</li>
+<li>Line equation: $y=m*x+b$<ul>
+<li>While, $|m|\le1$<ul>
+<li>If $x_1&lt;x_2$, then $x_{i+1}=x_i+1$, $y_{i+1}=y_i+m$</li>
+<li>If $x_1&gt;x_2$, then $x_{i+1}=x_i-1$, $y_{i+1}=y_i-m$</li>
+</ul>
+</li>
+<li>While, $|m|&gt;1$<ul>
+<li>If $y_1&lt;y_2$, then $y_{i+1}=y_i+1$, $x_{i+1}=x_i+1/m$</li>
+<li>If $y_1&gt;y_2$, then $y_{i+1}=y_i-1$, $x_{i+1}=x_i-1/m$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>0.5*sign(dx)</code>和<code>0.5sign(dy)</code></li>
+</ul>
+</li>
+<li><p>Scan Conversion for Line – Bresenham Algorithm</p>
+<ul>
+<li>算法：</li>
+</ul>
+<p>$$<br>\begin{equation}<br>\left{<br>\begin{aligned}<br>&amp;p_1=2<em>\Delta y-\Delta x\<br>&amp;x_{i+1}=x_i+1\<br>&amp;y_{i+1}=\left{<br>\begin{aligned}&amp;y_i+1,\ \ if\ p_i&gt;0\<br>&amp;y_i,\ \ \ \ \ \ \ \ \ if\ p_i\le0\end{aligned}<br>\right.\<br>&amp;p_{i+1}=\left{<br>\begin{aligned}<br>&amp;p_i+2</em>(\Delta y-\Delta x),\ \ if\ p_i&gt;0\<br>&amp;p_i+2*\Delta y,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ p_i\le0\end{aligned}<br>\right.<br>\end{aligned}<br>\right.<br>\end{equation}<br>$$</p>
+</li>
+<li><p>Scan Conversion for Polygon</p>
+<p><img src="./06-04.png" alt="06-04 Scan Conversion for Polygon"></p>
+<ul>
+<li>First find out the scanlines that intercept with the polygon. Calculate the overlapping segments</li>
+<li>For each scanline from top to bottom, set the pixels in the segment</li>
+<li><strong>Fragment:</strong> pixels on the scene line<ul>
+<li>两步：<ul>
+<li>求交：计算扫描线与多边形三个边的交点</li>
+<li>排序：把所有的交点按x坐标递增来排序</li>
+</ul>
+</li>
+<li>特殊情况，扫描线与多边形顶点相交：<ul>
+<li>顶点是极值点，算两个交点</li>
+<li>不是极值点，算一个</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-Hiden-Surface-Removal"><a href="#3-Hiden-Surface-Removal" class="headerlink" title="3. Hiden-Surface Removal"></a>3. Hiden-Surface Removal</h2><ul>
+<li><strong>The z-Buffer Algorithm</strong><ul>
+<li>Depth Buffer same as Frame Buffer</li>
+<li>saving the distance of the closest intersection</li>
+</ul>
+</li>
+<li><strong>The Painter’s Algorithm</strong><ul>
+<li>Rendering from back to front of the polygons</li>
+<li>depth sort for all polygons</li>
+<li>dividing the polygon into two parts</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-Antianliasing-反走样"><a href="#4-Antianliasing-反走样" class="headerlink" title="4. Antianliasing 反走样"></a>4. Antianliasing 反走样</h2><ul>
+<li>The <strong>jaggies</strong>（锯齿） appeared in the drawings of lines is called <em>aliasing</em>（走样）. It is due to the approximation of a continuous line with discrete pixels.</li>
+<li>Antiliasing Computing<ul>
+<li>First computing the overlapping proportions of the lines and the nearby pixel squares. Suppose that the overlapping proportion of a certain pixel is $\alpha$, the new $pixel_color$ is then set to $\alpha\times current_color+(1-\alpha)\times existing_color$</li>
+</ul>
+</li>
+<li>Line Antianliasing<ul>
+<li><code>glEnable(GL_LINE_SMOOTH)</code> 和 <code>glDisable(GL_LINE_SMOOTH)</code></li>
+</ul>
+</li>
+<li>Polygon Antianliasing<ul>
+<li><code>glEnable(GL_POLYGON_SMOOTH)</code>和<code>glDisable(GL_POLYGON_SMOOTH)</code></li>
+</ul>
+</li>
+<li>Polygon Aliasing<ul>
+<li>problems can be serious for polygons<ul>
+<li>Small polygons neglected</li>
+<li>Color of pixel depends on colors of multi-polygons</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-Color-Model-–-The-Human-Visual-System"><a href="#5-Color-Model-–-The-Human-Visual-System" class="headerlink" title="5. Color Model – The Human Visual System"></a>5. Color Model – The Human Visual System</h2><ul>
+<li><p>eyes</p>
+<ul>
+<li>Rods – sense luminance or brightness</li>
+<li>Cones – sense chroma or color</li>
+</ul>
+</li>
+<li><p>颜色三要素</p>
+<ul>
+<li>色调（hue, chroma）：颜色的类别，对应光谱分布中的主波长</li>
+<li>饱和度（Saturation）：所呈现颜色的深浅或纯洁程度，饱和度越高，颜色越深；饱和度越小，颜色越浅。100%饱和度的色光就代表完全没有混入白光的纯色光。</li>
+<li>明亮度（luminance）：光作用于人眼时引起的明亮程度的感觉。</li>
+<li>人眼能分辨128种不同色调，10-30种不同饱和度，对亮度很敏感，35万种颜色</li>
+</ul>
+</li>
+<li><p>颜色模型</p>
+<ul>
+<li>RGB – cube for screen<ul>
+<li>CMY: Cyan(0,1,1); Magenta(1,0,1); Yellow(1,1,0)</li>
+<li>$Luminance = 0.30<em>red+0.59</em>green+0.11*blue$</li>
+<li>The grayscale conversion is computer-based, not visually-based; is it right? (Not right)</li>
+</ul>
+</li>
+<li>CMYK – cube for printer</li>
+<li>HSV – cone for artist<ul>
+<li>Hue(angle) - Saturation(radius) - Value(height)</li>
+</ul>
+</li>
+<li>HLS – double cone for artist on painting<ul>
+<li>Hue(angle) - Lightness(height) - Saturation(radius)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Emissive</strong> vs <strong>Transmissive</strong> Colors</p>
+<ul>
+<li><p>emissive colors are from screen</p>
+</li>
+<li><p>transmissive colors are from inks</p>
+</li>
+<li><p>RGB emissive model - additive colors</p>
+</li>
+<li><p>CMYK transmissive model -subtractive colors</p>
+</li>
+<li><p>$$<br>\begin{pmatrix}C\M\Y\end{pmatrix} =<br>\begin{pmatrix}1\1\1\end{pmatrix} -<br>\begin{pmatrix}R\G\B\end{pmatrix}<br>$$</p>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">Give me Money, 嗷！</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="http://yoursite.com" class="b-link-green">Yi勒</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/computer-graphics-06/" class="b-link-green">计算机图形学（六）From Vertices to Fragments</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '2c47c75e16d2b23b71cc',
+        clientSecret: '8d37a240b537fc04c7cd3a1a0c59b140fa34b85f',
+        repo: 'jirehchan.github.io',
+        owner: 'JirehChan',
+        admin: ["JirehChan"],
+        id: '2020-01-01T17-05-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/computer-graphics-07/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="计算机图形学（七）Discrete Techniques">
+                        
+                        <span class="card-title">计算机图形学（七）Discrete Techniques</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">计算机图形学（七）Discrete Techniques
+Uses of Texturing
+Simulating materials
+Reducing Geometric Complexity
+
+
+
+1. Buffer in OpenGL</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Computer-Graphics/" class="post-category" target="_blank">
+                                    Computer Graphics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Computer-Graphics/" target="_blank">
+                        <span class="chip bg-color">Computer Graphics</span>
+                    </a>
+                    
+                    <a href="/tags/School/" target="_blank">
+                        <span class="chip bg-color">School</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/computer-graphics-05/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="计算机图形学（五）Lighting and Shading">
+                        
+                        <span class="card-title">计算机图形学（五）Lighting and Shading</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">计算机图形学（五）Lighting and Shading1. Lighting Conception
+Need to consider: 
+Surface orientation – normal
+Material properties
+</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Computer-Graphics/" class="post-category" target="_blank">
+                                    Computer Graphics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Computer-Graphics/" target="_blank">
+                        <span class="chip bg-color">Computer Graphics</span>
+                    </a>
+                    
+                    <a href="/tags/School/" target="_blank">
+                        <span class="chip bg-color">School</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('100')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Yi勒<br />'
+            + 'Author: Jireh Chen<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者(https://jirehchan.github.io)所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://jirehchan.github.io/" target="_blank">Jireh</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">41.7k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/JirehChan" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:631440369@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=631440369" class="tooltipped" data-tooltip="QQ联系我: 631440369" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="" class="tooltipped" data-tooltip="微信联系我: Jireh-CHAN" data-position="top" data-delay="50">
+        <i class="fa fa-wechat"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

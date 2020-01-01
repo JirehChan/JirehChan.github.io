@@ -1,0 +1,1250 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="计算机图形学（五）Lighting and Shading, Yi勒">
+    <meta name="description" content="计算机图形学（五）Lighting and Shading1. Lighting Conception
+Need to consider: 
+Surface orientation – normal
+Material properties
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>计算机图形学（五）Lighting and Shading | Yi勒</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Yi勒</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>主页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>类别</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Yi勒</div>
+        <div class="logo-desc">
+            
+            一个有关笔记、感想、生活的博客...
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                主页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                类别
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/JirehChan/jirehchan.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/JirehChan" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:631440369@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=631440369" class="tooltipped" data-tooltip="QQ联系我: 631440369" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="" class="tooltipped" data-tooltip="微信联系我: Jireh-CHAN" data-position="top" data-delay="50">
+        <i class="fa fa-wechat"></i>
+    </a>
+
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/JirehChan/jirehchan.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        计算机图形学（五）Lighting and Shading
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Computer-Graphics/" target="_blank">
+                                <span class="chip bg-color">Computer Graphics</span>
+                            </a>
+                        
+                            <a href="/tags/School/" target="_blank">
+                                <span class="chip bg-color">School</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Computer-Graphics/" class="post-category" target="_blank">
+                                Computer Graphics
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2020-01-01
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        1.3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        7 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="计算机图形学（五）Lighting-and-Shading"><a href="#计算机图形学（五）Lighting-and-Shading" class="headerlink" title="计算机图形学（五）Lighting and Shading"></a>计算机图形学（五）Lighting and Shading</h1><h2 id="1-Lighting-Conception"><a href="#1-Lighting-Conception" class="headerlink" title="1. Lighting Conception"></a>1. Lighting Conception</h2><ul>
+<li><strong>Need to consider:</strong> <ul>
+<li>Surface orientation – normal</li>
+<li>Material properties</li>
+<li>Light sources</li>
+<li>Location of viewer</li>
+</ul>
+</li>
+<li>Light which shines from light source to the objects transmits the <strong>reflective</strong> light, <strong>transparent</strong> light and <strong>abosrptive</strong> light (not be seen)</li>
+<li>Reflective light includes <em>diffuse</em> and <em>specular</em> which more depends on the material of the object.</li>
+</ul>
+<h2 id="2-Lighting-Model"><a href="#2-Lighting-Model" class="headerlink" title="2. Lighting Model"></a>2. Lighting Model</h2><ul>
+<li><p><strong>Local Lighting Model:</strong> all light comes from lights defined within the scene.</p>
+</li>
+<li><p>three components:</p>
+<ul>
+<li><strong>Ambient light</strong> 环境光</li>
+<li><strong>Diffuse light</strong> 漫反射光</li>
+<li><strong>Specular light</strong> 镜面反射光</li>
+</ul>
+</li>
+<li><p><strong>Ambient Light</strong> 环境光</p>
+<ul>
+<li>虚拟的光，使空间获得均匀的照明，不考虑光源位置、观察者位置和表面法向量</li>
+<li>$A=L_0+\sum_{lights}(L_A*C_A)$<ul>
+<li>ambient light $L_A$, material ambient value $C_A$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Diffuse Light</strong> 漫反射光</p>
+<ul>
+<li>$D=\sum_{lights}L_D*C_D(L\cdot N)$<ul>
+<li>diffuse value $L_D$; material ambient value $C_D$;</li>
+<li>light vector $L$; normal vector $N$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Specular Light</strong> 镜面反射</p>
+<ul>
+<li>$S=\sum_{lights}L_S*C_S(V\cdot R)^K$<ul>
+<li>specular value $L_S$; material value $C_S$; material shininess $K$ （聚集度 0～127）</li>
+<li>eye vector $V$; the reflection of a light vector $R$</li>
+</ul>
+</li>
+<li>$R=L-2(N(N\cdot L))$</li>
+</ul>
+</li>
+<li><p><strong>Local Illumination Model</strong></p>
+<ul>
+<li>$I=L_0+\sum_{light}(LA<em>C_A)+\sum_{lights}L_D*C_D</em>(L\cdot N)+\sum_{lights}L_SD_S(V\cdot(L-2(N(N\cdot L))))^K$</li>
+<li><strong>four vectors:</strong><ul>
+<li>To Source $l$</li>
+<li>To viewer $v$</li>
+<li>Normal $n$</li>
+<li>Perfect reflector $r$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Blinn-Phong Lighting Model</strong></p>
+<ul>
+<li>the modified Blinn-Phong lighting model<ul>
+<li>半角向量 $h=\frac{l+v}{|l+v|}$，将$(r\cdot v)^e$替换成$(n\cdot h)^{e’}$</li>
+<li>$S=\sum_{lights}L_S<em>C_S</em>(n\cdot h)^{K_1}$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-Surface-orientation-and-Material"><a href="#3-Surface-orientation-and-Material" class="headerlink" title="3. Surface orientation and Material"></a>3. Surface orientation and Material</h2><ul>
+<li><strong>two need things:</strong> normals &amp; material</li>
+</ul>
+<h2 id="4-Light-Properties"><a href="#4-Light-Properties" class="headerlink" title="4. Light Properties"></a>4. Light Properties</h2><ul>
+<li><p><strong>Types of Light Sources</strong></p>
+<ul>
+<li>Point lights: $(x,y,z,1)^T$</li>
+<li>Directional/parallel lights: $(x,y,z,0)^T$</li>
+<li>Spotlights: position, direction, angle(cutoff)</li>
+<li>Ambient Lights</li>
+</ul>
+</li>
+<li><p><strong>Light Position</strong></p>
+<ul>
+<li>$n$: the normal of the surface</li>
+<li>$(x,y,z)$: the coordinates of a point on the surface</li>
+<li>$s$: the direction of the light source at $(x,y,z)$</li>
+</ul>
+</li>
+<li><p><strong>Directional Sources</strong></p>
+<ul>
+<li>$s$ remains unchangeed across a surface</li>
+</ul>
+</li>
+<li><p><strong>The spot of the Light Source</strong></p>
+<ul>
+<li>Define: <ul>
+<li>the position $P$</li>
+<li>direction $D$</li>
+<li>cutoff $\theta $</li>
+<li>dropoff $d$</li>
+</ul>
+</li>
+<li>Q is in cutoff $\theta$: $l_Q=\cos^d(\phi)=((Q-P)\cdot D)^d$, if $\phi&lt;\theta$</li>
+<li>Q is out of range cutoff $\theta$: $I_Q=0$, if$\phi&gt;\theta$</li>
+</ul>
+</li>
+<li><p><strong>Light Attenuation</strong> </p>
+<ul>
+<li>For a point light source, the attenuation factor is <ul>
+<li>$A_f=\frac{1}{d^2}$  (in theory)</li>
+<li>$A_f=\frac{1}{a+bd+cd^2}$  (in practice)</li>
+</ul>
+</li>
+<li>For a directional light source, $A_f=1$<ul>
+<li>$I=L+\sum_{lights}A_f\times L_A\times C_A+\sum_{lights}A_f\times L_D\times C_D\times(L\cdot N)+\sum_{lights}A_f\times L_S\times C_S(N\cdot H)^K$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Color for a Light Source</strong> – RGB values</p>
+<pre class=" language-c++"><code class="language-c++">vec4 diffuse0 =vec4(1.0, 1.0, 1.0, 1.0); //white color 
+vec4 ambient0 = vec4(1.0, 1.0, 1.0, 1.0); //white color 
+vec4 specular0 = vec4(1.0, 1.0, 1.0, 1.0); //white color 
+// specify the position of a point light source
+vec4 light0_pos =vec4(1.0, 2.0, 3,0, 1.0); 
+//specify the direction of a directional light source
+vec4 light1_pos =vec4(1.0, 1.0, 1,0, 0.0);</code></pre>
+</li>
+</ul>
+<h2 id="5-Moving-Light-Sources"><a href="#5-Moving-Light-Sources" class="headerlink" title="5. Moving Light Sources"></a>5. Moving Light Sources</h2><ul>
+<li>移动物体或光源，受视图-模型矩阵影响</li>
+</ul>
+<h2 id="6-Shading-着色、明暗绘制"><a href="#6-Shading-着色、明暗绘制" class="headerlink" title="6. Shading 着色、明暗绘制"></a>6. Shading 着色、明暗绘制</h2><ul>
+<li><strong>Shading</strong><ul>
+<li>计算每个图形对象的颜色</li>
+<li>使用每个顶点的属性计算对象上每个像素的颜色</li>
+<li>意味着颜色可以通过光照模型来设置和计算</li>
+<li>OpenGL可以使用均匀着色（flat shading）和平滑着色（smooth shading, Gouraud）两种着色</li>
+</ul>
+</li>
+<li><strong>Constant (Flat) Shading</strong> <ul>
+<li>多边形上每个点的颜色值都相同，对每个多边形只需要进行一次明暗计算</li>
+<li>效果不好，因为人视觉系统有侧抑制（laeral inhibition）的性质，Mach带效应（March band）。</li>
+</ul>
+</li>
+<li><strong>Gouraud (Smooth) Shading</strong><ul>
+<li>每个顶点都分配一个法向量（可能是多边形的法向量，也可能是相邻面的法向量的平均值）</li>
+<li>插值计算<ul>
+<li>$n_c(\alpha)=(1-\alpha)n_A+\alpha n_B$，$\alpha=\frac{distance\ of\ AC}{distance\ of\ AB}$</li>
+<li>$n(\alpha,\beta)=(1-\beta)n_C+\beta n_D$</li>
+<li>基于片元的着色（per-fragment shading）</li>
+</ul>
+</li>
+<li>$I_{P2}=I_{P1}+\Delta I_{RQ}\times\Delta t$</li>
+</ul>
+</li>
+<li><strong>Other Shading Models</strong><ul>
+<li><strong>Phong Shading</strong><ul>
+<li>interpolate the normals across a polygon，对多边形上的法向量进行插值</li>
+<li>计算每个像素颜色使用独立的局部光照模型</li>
+<li>$n_{P2}=n_{P1}+\Delta n_{RQ}\times\Delta t$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-Computing-Light-in-OpenGL"><a href="#7-Computing-Light-in-OpenGL" class="headerlink" title="7. Computing Light in OpenGL"></a>7. Computing Light in OpenGL</h2><ul>
+<li>Light: $(LR,LG,LB)$，material: $(MR,MG,MB)$</li>
+<li>The color of a material mainly depends on the <strong>diffuse reflectance</strong>.</li>
+<li>The diffuse reflection alone provides most information about the <strong>curvature</strong> and the <strong>depth</strong> of an object</li>
+<li>The ambient reflectance of a material is often the same as the diffuse reflectance.</li>
+<li>The <strong>highlights produced in specular reflections</strong> are the blurred images of the light sources.</li>
+</ul>
+<h2 id="8-Front-and-Back-Faces"><a href="#8-Front-and-Back-Faces" class="headerlink" title="8. Front and Back Faces"></a>8. Front and Back Faces</h2><ul>
+<li><strong>Emissive Term</strong><ul>
+<li>If we want to simulate a lamp, light source in OpenGL is defined as an emissive component</li>
+</ul>
+</li>
+<li><strong>Transparency</strong><ul>
+<li>RGBA</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-Implementing-Light-Model"><a href="#9-Implementing-Light-Model" class="headerlink" title="9. Implementing Light Model"></a>9. Implementing Light Model</h2><ul>
+<li><p>State-based shading functions have been deprecated ($glNormal$, $glMaterial$, $glLight$)</p>
+</li>
+<li><p>Method I </p>
+<ul>
+<li>Vertex Shader</li>
+</ul>
+<pre class=" language-c++"><code class="language-c++">void main() {
+// Transform vertex position into eye coordinates 
+  vec3 pos = (ModelView * vPosition).xyz;
+
+    vec3 L = normalize( LightPosition.xyz - pos ); 
+  vec3 E = normalize( -pos );
+    vec3 H = normalize( L + E );
+
+// Transform vertex normal into eye coordinates
+    vec3 N = normalize( ModelView*vec4(vNormal, 0.0) ).xyz;
+
+// Compute terms in the illumination equation 
+  vec4 ambient = AmbientProduct;
+
+    float Kd = max( dot(L, N), 0.0 );
+    vec4 diffuse = Kd*DiffuseProduct;
+    float Ks = pow( max(dot(N, H), 0.0), Shininess );
+    vec4 specular = Ks * SpecularProduct;
+    if( dot(L, N) < 0.0 ) specular = vec4(0.0, 0.0, 0.0, 1.0); 
+  gl_Position =     Projection * ModelView * vPosition;
+
+    color = ambient + diffuse + specular;
+    color.a = 1.0; 
+}</code></pre>
+<ul>
+<li>Fragment Shader</li>
+</ul>
+<pre class=" language-c++"><code class="language-c++">// fragment shader
+in vec4 color;
+
+void main() {
+    gl_FragColor = color; 
+}</code></pre>
+</li>
+<li><p>Method II</p>
+<ul>
+<li>Vertex Shader</li>
+</ul>
+<pre class=" language-c++"><code class="language-c++">// vertex shader
+in vec4 vPosition; 
+in vec3 vNormal;
+
+// output values that will be interpolatated per-fragment 
+out vec3 fN;
+out vec3 fE;
+out vec3 fL;
+
+uniform mat4 ModelView; 
+uniform mat4 Projection; 
+uniform vec4 LightPosition;
+
+void main() {
+    fN = vNormal;
+    fE = vPosition.xyz;
+    fL = LightPosition.xyz;
+
+    if( LightPosition.w != 0.0 ) {
+        fL = LightPosition.xyz - vPosition.xyz;
+    }
+
+    gl_Position = Projection*ModelView*vPosition; 
+}</code></pre>
+<ul>
+<li>Fragment Shader</li>
+</ul>
+<pre class=" language-c++"><code class="language-c++">// fragment shader
+// per-fragment interpolated values from the vertex shader 
+in vec3 fN;
+in vec3 fL;
+in vec3 fE;
+
+uniform vec4 AmbientProduct, DiffuseProduct, SpecularProduct; 
+uniform float Shininess;
+
+void main() {
+// Normalize the input lighting vectors vec3 N = normalize(fN);
+    vec3 E = normalize(fE);
+    vec3 L = normalize(fL);
+    vec3 H = normalize( L + E ); 
+  vec4 ambient = AmbientProduct;
+
+  float Kd = max(dot(L, N), 0.0); 
+  vec4 diffuse = Kd*DiffuseProduct;
+
+    float Ks = pow(max(dot(N, H), 0.0), Shininess); 
+  vec4 specular = Ks*SpecularProduct;
+
+// discard the specular highlight if the light's behind the vertex 
+  if( dot(L, N) < 0.0 )
+        specular = vec4(0.0, 0.0, 0.0, 1.0);
+
+  gl_FragColor = ambient + diffuse + specular;
+    gl_FragColor.a = 1.0; 
+}</code></pre>
+</li>
+</ul>
+<h2 id="10-Other-Techniques"><a href="#10-Other-Techniques" class="headerlink" title="10. Other Techniques"></a>10. Other Techniques</h2><ul>
+<li>Anisotropic Shading 各向异性的光照<ul>
+<li>CD、光盘的照亮</li>
+</ul>
+</li>
+<li>Bump Mapping</li>
+<li>Global Illumination<ul>
+<li>Ray Tracing: great specular, approx diffuse</li>
+<li>Radiosity: great diffuse, ignore specular</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">Give me Money, 嗷！</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="http://yoursite.com" class="b-link-green">Yi勒</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/computer-graphics-05/" class="b-link-green">计算机图形学（五）Lighting and Shading</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '2c47c75e16d2b23b71cc',
+        clientSecret: '8d37a240b537fc04c7cd3a1a0c59b140fa34b85f',
+        repo: 'jirehchan.github.io',
+        owner: 'JirehChan',
+        admin: ["JirehChan"],
+        id: '2020-01-01T17-04-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/computer-graphics-06/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="计算机图形学（六）From Vertices to Fragments">
+                        
+                        <span class="card-title">计算机图形学（六）From Vertices to Fragments</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">计算机图形学（六）From Vertices to Fragments0. 引入
+Moeling Pipeline
+
+
+Rendering Pipeline
+
+
+OpengGL
+
+OpenGL 4.5
+Direct State Access</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Computer-Graphics/" class="post-category" target="_blank">
+                                    Computer Graphics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Computer-Graphics/" target="_blank">
+                        <span class="chip bg-color">Computer Graphics</span>
+                    </a>
+                    
+                    <a href="/tags/School/" target="_blank">
+                        <span class="chip bg-color">School</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/computer-graphics-04/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="计算机图形学（四）Viewing 视见变换">
+                        
+                        <span class="card-title">计算机图形学（四）Viewing 视见变换</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">计算机图形学（四）Viewing 视见变换1. Projection Transformation
+Perspective 透视投影
+
+视见体 view volume：四棱台
+
+General Perspective Matrix
+
+$h=</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Computer-Graphics/" class="post-category" target="_blank">
+                                    Computer Graphics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Computer-Graphics/" target="_blank">
+                        <span class="chip bg-color">Computer Graphics</span>
+                    </a>
+                    
+                    <a href="/tags/School/" target="_blank">
+                        <span class="chip bg-color">School</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('100')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Yi勒<br />'
+            + 'Author: Jireh Chen<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者(https://jirehchan.github.io)所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://jirehchan.github.io/" target="_blank">Jireh</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">41.7k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/JirehChan" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:631440369@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=631440369" class="tooltipped" data-tooltip="QQ联系我: 631440369" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="" class="tooltipped" data-tooltip="微信联系我: Jireh-CHAN" data-position="top" data-delay="50">
+        <i class="fa fa-wechat"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>
